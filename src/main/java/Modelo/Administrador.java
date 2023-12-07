@@ -24,7 +24,6 @@ public class Administrador {
         user.setContraseña(this.lg.getContraseña().getText());
         
         userAdmins.add(user);
-        
     }
     
 }
