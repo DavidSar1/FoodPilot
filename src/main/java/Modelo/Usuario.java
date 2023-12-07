@@ -10,4 +10,6 @@ package Modelo;
  */
 public class Usuario {
     String nombre;
+    String cedula; 
+    String contraseña;
 }
