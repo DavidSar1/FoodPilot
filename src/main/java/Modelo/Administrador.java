@@ -4,10 +4,27 @@
  */
 package Modelo;
 
+import Vista.Login;
+import java.util.ArrayList;
+
 /**
  *
  * @author PC
  */
 public class Administrador {
+    Login lg;
+    
+    
+    public void crearAdmin()
+    {
+        Usuario user = new Usuario();
+        ArrayList<Usuario> userAdmins = new ArrayList();
+        
+        user.setNombre(this.lg.getUsuario().getText());
+        user.setContraseña(this.lg.getContraseña().getText());
+        
+        userAdmins.add(user);
+        
+    }
     
 }

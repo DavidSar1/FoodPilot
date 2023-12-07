@@ -6,6 +6,7 @@ package Vista;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JTextField;
 
 /**
  *
@@ -47,12 +48,15 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(51, 204, 255));
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        usersText.setBackground(new java.awt.Color(255, 255, 255));
+        usersText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usersTextActionPerformed(evt);
+            }
+        });
 
         ingresarLogin.setBackground(new java.awt.Color(153, 204, 255));
         ingresarLogin.setForeground(new java.awt.Color(255, 255, 255));
         ingresarLogin.setText("Ingresar");
-        ingresarLogin.setOpaque(false);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -74,7 +78,6 @@ public class Login extends javax.swing.JFrame {
         elegirBoc.setForeground(new java.awt.Color(255, 255, 255));
         elegirBoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Mesero" }));
 
-        contrasText.setBackground(new java.awt.Color(255, 255, 255));
         contrasText.setText("jPasswordField2");
         contrasText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +148,19 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_contrasTextActionPerformed
 
+    private void usersTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usersTextActionPerformed
+    
+    public JTextField getUsuario()
+    {
+        return usersText;
+    }
+    
+    public JTextField getContraseña()
+    {
+        return contrasText;
+    }
     /**
      * @param args the command line arguments
      */
