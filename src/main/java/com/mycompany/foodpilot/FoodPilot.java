@@ -13,8 +13,8 @@ import Vista.Login;
 public class FoodPilot {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        Login iniciar = new Login();
-        iniciar.setVisible(true);
+        Login lg = new Login();
+        lg.setVisible(true);
+           
     }
 }
