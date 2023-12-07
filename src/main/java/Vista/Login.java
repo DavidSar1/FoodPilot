@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import Controlador.ControladorUsers;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JTextField;
@@ -13,12 +14,13 @@ import javax.swing.JTextField;
  * @author Myke
  */
 public class Login extends javax.swing.JFrame {
-
+    ControladorUsers cp;
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+        cp.setVista(this);
         
     }
 
