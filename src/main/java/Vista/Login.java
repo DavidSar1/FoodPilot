@@ -54,7 +54,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        ingresarLogin.setBackground(new java.awt.Color(153, 204, 255));
+        ingresarLogin.setBackground(new java.awt.Color(51, 153, 255));
         ingresarLogin.setForeground(new java.awt.Color(255, 255, 255));
         ingresarLogin.setText("Ingresar");
 
@@ -75,10 +75,9 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Tipo");
 
-        elegirBoc.setForeground(new java.awt.Color(255, 255, 255));
+        elegirBoc.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         elegirBoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Mesero" }));
 
-        contrasText.setText("jPasswordField2");
         contrasText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contrasTextActionPerformed(evt);
@@ -91,6 +90,8 @@ public class Login extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -105,9 +106,7 @@ public class Login extends javax.swing.JFrame {
                                         .addComponent(elegirBoc, 0, 93, Short.MAX_VALUE))
                                     .addComponent(usersText)
                                     .addComponent(contrasText))))
-                        .addGap(0, 78, Short.MAX_VALUE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 78, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
