@@ -9,5 +9,8 @@ package Modelo;
  * @author Myke
  */
 public class Pedido {
+    String imagen;
+    String nombre;
+    String contraseña;
     
 }
