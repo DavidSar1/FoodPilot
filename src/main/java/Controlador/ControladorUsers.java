@@ -18,9 +18,9 @@ import java.util.ArrayList;
 public class ControladorUsers {
     Login lg;
     //Con este metodo verifica si existe el nombre y la contraseña en la base de datos
-    public void verificacion() throws SQLException
+    public void verificacion() throws SQLException 
     {
-        String sql = "SELECT * FROM producto";
+        String sql = "SELECT * FROM Usuarios";
         Conexion c = new Conexion();
         ResultSet rs = c.ejecutarConsulta(sql);
         String usuarioIngresado = lg.getUsuario().getText();
@@ -35,6 +35,7 @@ public class ControladorUsers {
             {
                 // Usuario y contraseña coinciden con un registro en la base de datos
                 // Aquí puedes realizar las acciones correspondientes
+                System.out.println("Hola");
             } 
             else 
             {

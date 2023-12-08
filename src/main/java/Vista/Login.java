@@ -7,6 +7,9 @@ package Vista;
 import Controlador.ControladorUsers;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextField;
 
 /**
@@ -14,15 +17,16 @@ import javax.swing.JTextField;
  * @author Myke
  */
 public class Login extends javax.swing.JFrame {
-    ControladorUsers cp;
+    ControladorUsers cp = new ControladorUsers();
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+        cp.setVista(this);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        //cp.setVista(this);
+        
         
     }
 
@@ -188,7 +192,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_usersTextActionPerformed
 
     private void ingresarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarLoginActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            cp.verificacion();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ingresarLoginActionPerformed
     
     public JTextField getUsuario()

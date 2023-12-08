@@ -44,7 +44,7 @@ public class Usuario {
     //Con esto consulto todo lo que haya en la BD
     public ArrayList<Usuario> consultar()
     {
-        String sql = "select * from producto";
+        String sql = "select * from Usuarios";
         ArrayList<Usuario> user = new ArrayList();
         Conexion c = new Conexion();
         ResultSet rs= c.ejecutarConsulta(sql);
@@ -66,7 +66,7 @@ public class Usuario {
     //Con este metodo verifica si existe el nombre y la contraseña en la base de datos
     public void verificacion() throws SQLException
     {
-        String sql = "select * from producto";
+        String sql = "select * from Usuarios";
         Conexion c = new Conexion();
         ResultSet rs= c.ejecutarConsulta(sql);
         String users = lg.getUsuario().getText();
