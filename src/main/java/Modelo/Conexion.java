@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class Conexion {
     Connection conexion=null;
     String usuario ="postgres";
-    String password="Maiquini123";
+    String password="odeb123456";
     
     
       public  Conexion() {
@@ -33,7 +33,7 @@ public class Conexion {
             //Conexion de la base de datos
             // Conectamos con la base de datos
             this.conexion = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/Usuarios",
+                    "jdbc:postgresql://localhost:5432/usuarios",
                     usuario, password);
  
         } catch (java.sql.SQLException sqle) {
