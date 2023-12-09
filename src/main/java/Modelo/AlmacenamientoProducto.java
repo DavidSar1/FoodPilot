@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author PC
  */
-public class AlmacenamientoMesas {
-    public static ArrayList<Mesa> Mesas = new ArrayList<>();
+public class AlmacenamientoProducto {
+    public static ArrayList<Producto> Productos = new ArrayList<>();
     
 }
