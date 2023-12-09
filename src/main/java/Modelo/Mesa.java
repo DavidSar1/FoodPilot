@@ -9,13 +9,23 @@ package Modelo;
  * @author PC
  */
 public class Mesa {
+    int numero;
     int capacidad;
 
     public Mesa() {
     }
 
-    public Mesa(int capacidad) {
+    public Mesa(int numero, int capacidad) {
+        this.numero = numero;
         this.capacidad = capacidad;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     public int getCapacidad() {
@@ -25,6 +35,8 @@ public class Mesa {
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
     }
+
+   
     
     
     

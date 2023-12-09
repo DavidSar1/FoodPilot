@@ -16,13 +16,13 @@ public class ControladorMesa {
     
     
     
-    public boolean VerificarMesa(int Mesa){
+    public boolean VerificarMesaExistente(int Mesa){
         boolean ExisteMesa = false;
         try{
             
             for(int i = 0 ; i<AlmacenamientoMesas.AlmacenamientoMesas.size(); i++)
             {
-                if(AlmacenamientoMesas.AlmacenamientoMesas.get(i).getCapacidad() == Mesa)
+                if(AlmacenamientoMesas.AlmacenamientoMesas.get(i).getNumero()== Mesa)
                 {
                     ExisteMesa  = true;
                     return ExisteMesa;
@@ -36,30 +36,30 @@ public class ControladorMesa {
         return ExisteMesa;
     }
     
-    public boolean VerificarCapacidadMesa(int Mesa){
-        boolean ExisteMesa = false;
+    public boolean VerificarCapacidadMesa(int ClientesAtendidos){
+        boolean CapacidadMesa = false;
         try{
             
             for(int i = 0 ; i<AlmacenamientoMesas.AlmacenamientoMesas.size(); i++)
             {
-                if(AlmacenamientoMesas.AlmacenamientoMesas.get(i).getCapacidad() == Mesa)
+                if(AlmacenamientoMesas.AlmacenamientoMesas.get(i).getCapacidad() == ClientesAtendidos)
                 {
-                    ExisteMesa  = true;
-                    return ExisteMesa;
+                    CapacidadMesa  = true;
+                    return CapacidadMesa;
                     
                 }
             }
         }
         catch(Exception e){
-            System.out.println("ERROR 01 BUSCANDO MESA EXISTENTE FALLO");
+            System.out.println("ERROR 01 VERIFICANDO CAPACIDAD MESA FALLO");
         }
-        return ExisteMesa;
+        return CapacidadMesa;
     }
     
-    public static void main(String[] args) {
-        ControladorMesa c = new ControladorMesa();
-        c.VerificarMesa(1);
-    }
+    
+    
+    
+    
     
     
 }
