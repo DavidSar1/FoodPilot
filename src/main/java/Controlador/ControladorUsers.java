@@ -21,7 +21,7 @@ public class ControladorUsers {
     public void verificacion()     
     {
         
-        ml.verificacion(this.lg.getUsuario().getText(), this.lg.getContraseña().getText());
+       //ml.verificacion(this.lg.getUsuario().getText(), this.lg.getContraseña().getText());
     }
     
     //Con esto consulto todo lo que haya en la BD
