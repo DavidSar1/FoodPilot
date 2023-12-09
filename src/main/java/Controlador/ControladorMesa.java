@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.AlmacenamientoMesas;
+import javax.swing.JOptionPane;
 
 
 
@@ -54,6 +55,33 @@ public class ControladorMesa {
             System.out.println("ERROR 01 VERIFICANDO CAPACIDAD MESA FALLO");
         }
         return CapacidadMesa;
+    }
+    
+    public boolean VerficacionMesa (int NumeroMesa , int ClientesAtendidos){
+        if(VerificarMesaExistente(NumeroMesa) == true)
+        {
+            if(VerificarCapacidadMesa(ClientesAtendidos) == true)
+                    {
+                        return true;
+                    
+                    }
+            else
+            {
+                JOptionPane.showInputDialog("La mesa ingresada no existe",this);
+                return false;
+            
+            }
+            
+            
+        }
+        else
+        {
+            JOptionPane.showInputDialog("La mesa ingresada no existe",this);
+            return false;
+        
+        }
+    
+
     }
     
     
