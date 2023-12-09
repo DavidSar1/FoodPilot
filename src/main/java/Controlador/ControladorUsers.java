@@ -18,10 +18,16 @@ import java.util.ArrayList;
 public class ControladorUsers {
     GestionLogin lg;
     //Con este metodo verifica si existe el nombre y la contraseña en la base de datos
-    public void verificacion()     
+    
+    public ControladorUsers()
     {
         
-       //ml.verificacion(this.lg.getUsuario().getText(), this.lg.getContraseña().getText());
+    }
+    
+    public void verificacion()     
+    {
+        Usuario us = new Usuario();
+        us.verificacion(lg.getUsuario().getText(), lg.getContraseña().getText());
     }
     
     //Con esto consulto todo lo que haya en la BD

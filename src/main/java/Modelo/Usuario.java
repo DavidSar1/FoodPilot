@@ -44,8 +44,7 @@ public class Usuario {
     //Con esto consulto todo lo que haya en la BD
     public ArrayList<Usuario> consultar()
     {
-        String sql = "select * from Usuarios";
-        ArrayList<Usuario> user = new ArrayList();
+        String sql = "select * from data";
         Conexion c = new Conexion();
         ResultSet rs= c.ejecutarConsulta(sql);
         try{
@@ -54,24 +53,36 @@ public class Usuario {
              u.setNombre(rs.getString("Nombres"));
              u.setContraseña(rs.getString("Contraseña"));
              
-             user.add(u);
+             Arrays.user.add(u);
         }
         }catch(java.sql.SQLException e){
 
         }
-        return user; 
+        return Arrays.user; 
 
     }
     
     //Con este metodo verifica si existe el nombre y la contraseña en la base de datos
     public  void verificacion(String user, String psw) 
     {
-        String sql = "select * from Usuarios";
+        String usuarioIngresado = user;
+        String contraseñaIngresada = psw;
+        for(int i = 0; i < consultar().size();i++)
+        {
+            if (usuarioIngresado.equals(consultar().get(i).getNombre()) && contraseñaIngresada.equals(consultar().get(i).getContraseña())) 
+                {
+                    System.out.println("hola");
+                    break;
+                } 
+        }
+        
+        /*String sql = "select * from Usuarios";
         Conexion c = new Conexion();
         ResultSet rs= c.ejecutarConsulta(sql);
         
         String usuarioIngresado = user;
         String contraseñaIngresada = psw;
+        System.out.println("pene");
         try
         {
             while (rs.next()) 
@@ -85,16 +96,13 @@ public class Usuario {
                 {
                     System.out.println("hola");
                 } 
-                else 
-                {
-                    // Usuario y/o contraseña no coinciden
-                    // Puedes realizar acciones adicionales si es necesario
-                }
+ 
             }
         }
         catch(java.sql.SQLException e){
         
         }
+        */
     }
 
     
