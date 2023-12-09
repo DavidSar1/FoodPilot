@@ -6,7 +6,6 @@ package Modelo;
 
 import Vista.GestionLogin;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -76,33 +75,6 @@ public class Usuario {
                 } 
         }
         
-        /*String sql = "select * from Usuarios";
-        Conexion c = new Conexion();
-        ResultSet rs= c.ejecutarConsulta(sql);
-        
-        String usuarioIngresado = user;
-        String contraseñaIngresada = psw;
-        System.out.println("pene");
-        try
-        {
-            while (rs.next()) 
-            {
-                String nombreUsuarioBD = rs.getString("Nombres");
-                String contraseñaBD = rs.getString("Contraseña");
-                System.out.println(nombreUsuarioBD);
-                System.out.println(contraseñaBD);
-
-                if (usuarioIngresado.equals(nombreUsuarioBD) && contraseñaIngresada.equals(contraseñaBD)) 
-                {
-                    System.out.println("hola");
-                } 
- 
-            }
-        }
-        catch(java.sql.SQLException e){
-        
-        }
-        */
     }
 
     
