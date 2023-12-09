@@ -26,10 +26,15 @@ public class AdministradorMesas extends javax.swing.JFrame {
         mesasTabla.setModel(mT);
         mT.addColumn("Numero");
         mT.addColumn("Capacidad");
+        cM.actualizarTabla();
     }
     
     public void agregarFila(String datos[]){
          mT.addRow(datos);
+    }
+    
+    public void limpiarTabla(){
+        mT.getDataVector().removeAllElements();
     }
 
     /**
@@ -49,7 +54,7 @@ public class AdministradorMesas extends javax.swing.JFrame {
         eliminarMesa = new javax.swing.JButton();
         salir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel6.setBackground(new java.awt.Color(5, 59, 80));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Gestion mesas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(255, 255, 255)), "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N

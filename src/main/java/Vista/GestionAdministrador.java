@@ -37,7 +37,7 @@ public class GestionAdministrador extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        administrarUsres = new javax.swing.JButton();
         administradorMesas = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
@@ -55,7 +55,6 @@ public class GestionAdministrador extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(670, 486));
         setSize(new java.awt.Dimension(670, 486));
 
         jPanel1.setBackground(new java.awt.Color(5, 59, 80));
@@ -81,10 +80,10 @@ public class GestionAdministrador extends javax.swing.JFrame {
         });
         jPanel4.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 190, 36));
 
-        jButton9.setBackground(new java.awt.Color(255, 255, 255));
-        jButton9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton9.setText("Administrar Usuarios");
-        jPanel4.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 190, 36));
+        administrarUsres.setBackground(new java.awt.Color(255, 255, 255));
+        administrarUsres.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        administrarUsres.setText("Administrar Usuarios");
+        jPanel4.add(administrarUsres, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 190, 36));
 
         administradorMesas.setBackground(new java.awt.Color(255, 255, 255));
         administradorMesas.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -293,7 +292,7 @@ public class GestionAdministrador extends javax.swing.JFrame {
     private void administradorMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_administradorMesasActionPerformed
         // TODO add your handling code here:
         AdministradorMesas mS = new AdministradorMesas();
-        mS.iniciar();
+        mS.setVisible(true);
     }//GEN-LAST:event_administradorMesasActionPerformed
 
     /**
@@ -344,10 +343,10 @@ public class GestionAdministrador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton administradorMesas;
+    private javax.swing.JButton administrarUsres;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
