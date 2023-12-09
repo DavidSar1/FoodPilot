@@ -13,7 +13,6 @@ import java.util.ArrayList;
  * @author Myke
  */
 public class Usuario {
-    GestionLogin lg;
     String nombre;
     String contraseña; 
 
