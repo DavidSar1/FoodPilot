@@ -17,32 +17,12 @@ import java.util.ArrayList;
  */
 public class ControladorUsers {
     Login lg;
+    Usuario ml;
     //Con este metodo verifica si existe el nombre y la contraseña en la base de datos
-    public void verificacion() throws SQLException 
+    public void verificacion()     
     {
-        String sql = "SELECT * FROM Usuarios";
-        Conexion c = new Conexion();
-        ResultSet rs = c.ejecutarConsulta(sql);
-        String usuarioIngresado = lg.getUsuario().getText();
-        String contraseñaIngresada = lg.getContraseña().getText();
-
-        while (rs.next()) 
-        {
-            String nombreUsuarioBD = rs.getString("Nombres");
-            String contraseñaBD = rs.getString("Contraseña");
-
-            if (usuarioIngresado.equals(nombreUsuarioBD) && contraseñaIngresada.equals(contraseñaBD)) 
-            {
-                // Usuario y contraseña coinciden con un registro en la base de datos
-                // Aquí puedes realizar las acciones correspondientes
-                System.out.println("Hola");
-            } 
-            else 
-            {
-                // Usuario y/o contraseña no coinciden
-                // Puedes realizar acciones adicionales si es necesario
-            }
-        }
+        
+        ml.verificacion(this.lg.getUsuario().getText(), this.lg.getContraseña().getText());
     }
     
     //Con esto consulto todo lo que haya en la BD

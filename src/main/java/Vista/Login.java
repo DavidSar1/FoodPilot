@@ -192,12 +192,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_usersTextActionPerformed
 
     private void ingresarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarLoginActionPerformed
-        try {
-            // TODO add your handling code here:
-            cp.verificacion();
-        } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+        cp.verificacion();
+        
     }//GEN-LAST:event_ingresarLoginActionPerformed
     
     public JTextField getUsuario()

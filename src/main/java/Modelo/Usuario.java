@@ -64,20 +64,36 @@ public class Usuario {
     }
     
     //Con este metodo verifica si existe el nombre y la contraseña en la base de datos
-    public void verificacion() throws SQLException
+    public  void verificacion(String user, String psw) 
     {
         String sql = "select * from Usuarios";
         Conexion c = new Conexion();
         ResultSet rs= c.ejecutarConsulta(sql);
-        String users = lg.getUsuario().getText();
-        String contraseña = lg.getContraseña().getText();
-        for(int i =0; i < consultar().size();i++)
+        
+        String usuarioIngresado = user;
+        String contraseñaIngresada = psw;
+        try
         {
-            //if(user.equals(rs.getString("Nombres")) && contraseña.equals(rs.getString("Contraseña"))) )
-            //if(users.equals(user.getNombre().get(i)))
+            while (rs.next()) 
             {
-                
+                String nombreUsuarioBD = rs.getString("Nombres");
+                String contraseñaBD = rs.getString("Contraseña");
+                System.out.println(nombreUsuarioBD);
+                System.out.println(contraseñaBD);
+
+                if (usuarioIngresado.equals(nombreUsuarioBD) && contraseñaIngresada.equals(contraseñaBD)) 
+                {
+                    System.out.println("hola");
+                } 
+                else 
+                {
+                    // Usuario y/o contraseña no coinciden
+                    // Puedes realizar acciones adicionales si es necesario
+                }
             }
+        }
+        catch(java.sql.SQLException e){
+        
         }
     }
 
