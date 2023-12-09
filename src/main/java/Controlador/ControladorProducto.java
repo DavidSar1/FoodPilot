@@ -3,45 +3,79 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controlador;
-import Vista.GestionAdministrador;
+import Vista.GestionProductos;
+import Modelo.Producto;
+import Modelo.AlmacenamientoProducto;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author PC
  */
 public class ControladorProducto {
-    GestionAdministrador ga ;
+    GestionProductos gp ;
 
     public ControladorProducto() {
     }
 
-    public ControladorProducto(GestionAdministrador ga) {
-        this.ga = ga;
+    public ControladorProducto(GestionProductos gp) {
+        this.gp = gp;
     }
 
-    public GestionAdministrador getGa() {
-        return ga;
+    public GestionProductos getGp() {
+        return gp;
     }
 
-    public void setGa(GestionAdministrador ga) {
-        this.ga = ga;
+    public void setGp(GestionProductos gp) {
+        this.gp = gp;
     }
     
     
     
     public void CrearProducto(){
         try{
+            if(gp.getNombre().equals("") && gp.getPrecio().equals("") && gp.getDescripcion().equals("")&& VerificarProductoExistente(gp.getNombre()))
+            {
+                String Nombre = gp.getNombre();
+                float precio = Float.parseFloat(gp.getPrecio());
+                String Descripcion = gp.getDescripcion();
+                String Estado = "ACTIVO";
+                
+                Producto p = new Producto(Nombre, Descripcion, Estado, "", precio);
+                AlmacenamientoProducto.Productos.add(p);
+                JOptionPane.showMessageDialog(gp, "El producto ha sido creado correctamente");
+                gp.setNombre("");
+                gp.setPrecio("");
+                gp.setDescripcion("");
+  
+            }
             
             
             
             
+
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(gp, "Por favor ingresa un valor correcto en el precio");
         
         
         }
-        catch(Exception e){
-        
-        
+    }
+    
+    public boolean VerificarProductoExistente(String nombre){
+        boolean Existe = false ; 
+        for(int i = 0; i < AlmacenamientoProducto.Productos.size() ; i++)
+            
+            
+        {
+            if(AlmacenamientoProducto.Productos.get(i).getNombre().equals(nombre))
+            {
+                JOptionPane.showMessageDialog(gp, "El prodcuto ya existe");
+                Existe = true ;
+                break;
+            }
         }
+        return Existe;
     
     
     

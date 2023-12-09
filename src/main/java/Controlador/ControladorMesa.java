@@ -21,9 +21,9 @@ public class ControladorMesa {
         boolean ExisteMesa = false;
         try{
             
-            for(int i = 0 ; i<AlmacenamientoMesas.AlmacenamientoMesas.size(); i++)
+            for(int i = 0 ; i<AlmacenamientoMesas.Mesas.size(); i++)
             {
-                if(AlmacenamientoMesas.AlmacenamientoMesas.get(i).getNumero()== Mesa)
+                if(AlmacenamientoMesas.Mesas.get(i).getNumero()== Mesa)
                 {
                     ExisteMesa  = true;
                     return ExisteMesa;
@@ -41,9 +41,9 @@ public class ControladorMesa {
         boolean CapacidadMesa = false;
         try{
             
-            for(int i = 0 ; i<AlmacenamientoMesas.AlmacenamientoMesas.size(); i++)
+            for(int i = 0 ; i<AlmacenamientoMesas.Mesas.size(); i++)
             {
-                if(AlmacenamientoMesas.AlmacenamientoMesas.get(i).getCapacidad() == ClientesAtendidos)
+                if(AlmacenamientoMesas.Mesas.get(i).getCapacidad() == ClientesAtendidos)
                 {
                     CapacidadMesa  = true;
                     return CapacidadMesa;
