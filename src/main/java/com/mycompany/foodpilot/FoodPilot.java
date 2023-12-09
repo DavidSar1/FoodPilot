@@ -4,7 +4,7 @@
 
 package com.mycompany.foodpilot;
 
-import Vista.Login;
+import Vista.GestionLogin;
 
 /**
  *
@@ -13,7 +13,7 @@ import Vista.Login;
 public class FoodPilot {
 
     public static void main(String[] args) {
-        Login lg = new Login();
+        GestionLogin lg = new GestionLogin();
         lg.setVisible(true);
            
     }

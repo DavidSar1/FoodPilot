@@ -16,6 +16,7 @@ public class Pedido {
     Mesa MesaPedido;
     int TiempoEstimado;
     String Estado;
+    
 
     public Pedido() {
     }

@@ -4,7 +4,7 @@
  */
 package Modelo;
 
-import Vista.Login;
+import Vista.GestionLogin;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author Myke
  */
 public class Usuario {
-    Login lg;
+    GestionLogin lg;
     String nombre;
     String contraseña; 
 

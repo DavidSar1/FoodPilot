@@ -10,6 +10,23 @@ package Modelo;
  */
 public class Mesa {
     int capacidad;
+
+    public Mesa() {
+    }
+
+    public Mesa(int capacidad) {
+        this.capacidad = capacidad;
+    }
+
+    public int getCapacidad() {
+        return capacidad;
+    }
+
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
+    }
+    
+    
     
     
 }

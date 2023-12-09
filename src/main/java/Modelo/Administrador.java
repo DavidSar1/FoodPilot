@@ -4,7 +4,7 @@
  */
 package Modelo;
 
-import Vista.Login;
+import Vista.GestionLogin;
 import java.util.ArrayList;
 
 /**
@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author PC
  */
 public class Administrador {
-    Login lg;
+    GestionLogin lg;
     
     
     public void crearAdmin()

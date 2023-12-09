@@ -6,7 +6,7 @@ package Controlador;
 
 import Modelo.Conexion;
 import Modelo.Usuario;
-import Vista.Login;
+import Vista.GestionLogin;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,8 +16,7 @@ import java.util.ArrayList;
  * @author oscar
  */
 public class ControladorUsers {
-    Login lg;
-    Usuario ml;
+    GestionLogin lg;
     //Con este metodo verifica si existe el nombre y la contraseña en la base de datos
     public void verificacion()     
     {
@@ -28,11 +27,11 @@ public class ControladorUsers {
     //Con esto consulto todo lo que haya en la BD
  
     
-    public Login getVista()
+    public GestionLogin getVista()
     {
         return lg;
     }
-    public void setVista(Login lg)
+    public void setVista(GestionLogin lg)
     {
         this.lg= lg;
     }
