@@ -24,6 +24,7 @@ public class GestionLogin extends javax.swing.JFrame {
     public GestionLogin() {
         initComponents();
         cp.setVista(this);
+        
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         

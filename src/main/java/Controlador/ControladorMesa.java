@@ -5,7 +5,11 @@
 package Controlador;
 
 import Modelo.AlmacenamientoMesas;
+import Modelo.Mesa;
+import Vista.AdministradorMesas;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -14,7 +18,9 @@ import javax.swing.JOptionPane;
  * @author PC
  */
 public class ControladorMesa {
-    
+    AdministradorMesas mesas;
+    int indexMesa;
+    int capacidad = 6;
     
     
     public boolean VerificarMesaExistente(int Mesa){
@@ -37,42 +43,12 @@ public class ControladorMesa {
         return ExisteMesa;
     }
     
-    public boolean VerificarCapacidadMesa(int ClientesAtendidos){
-        boolean CapacidadMesa = false;
-        try{
-            
-            for(int i = 0 ; i<AlmacenamientoMesas.AlmacenamientoMesas.size(); i++)
-            {
-                if(AlmacenamientoMesas.AlmacenamientoMesas.get(i).getCapacidad() == ClientesAtendidos)
-                {
-                    CapacidadMesa  = true;
-                    return CapacidadMesa;
-                    
-                }
-            }
-        }
-        catch(Exception e){
-            System.out.println("ERROR 01 VERIFICANDO CAPACIDAD MESA FALLO");
-        }
-        return CapacidadMesa;
-    }
     
     public boolean VerficacionMesa (int NumeroMesa , int ClientesAtendidos){
         if(VerificarMesaExistente(NumeroMesa) == true)
         {
-            if(VerificarCapacidadMesa(ClientesAtendidos) == true)
-                    {
-                        return true;
-                    
-                    }
-            else
-            {
-                JOptionPane.showInputDialog("La mesa ingresada no existe",this);
-                return false;
-            
-            }
-            
-            
+            return true;
+
         }
         else
         {
@@ -84,10 +60,40 @@ public class ControladorMesa {
 
     }
     
+    public void agregarMesa(){
+        indexMesa += 1;
+        Mesa ms = new Mesa();
+        ms.setCapacidad(indexMesa);
+        ms.setNumero(capacidad);
+        ms.guardarArryList(indexMesa, capacidad);
+        String datos[] = {Integer.toString(indexMesa),Integer.toString(capacidad)};
+        mesas.agregarFila(datos);
+    
+    }
     
     
+    public void eliminarMesa(int index, DefaultTableModel mesa){
+        indexMesa -= 1;
+        mesa.removeRow(index);
+        
+    }
     
     
+    public AdministradorMesas getMesa(){
+        return mesas;
+    }
+    
+    public void setMesa(AdministradorMesas mesas){
+        this.mesas = mesas;
+    }
+    
+    public void iniciar(){
+        mesas.setVisible(true);
+    }
+    
+    public void actualizarTabla(){
+        
+    }
     
     
 }
