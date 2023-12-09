@@ -18,7 +18,6 @@ import javax.swing.table.DefaultTableModel;
  * @author PC
  */
 public class ControladorMesa {
-    Mesa mM;
     AdministradorMesas mesas;
     int indexMesa;
     int capacidad = 6;
@@ -95,6 +94,7 @@ public class ControladorMesa {
     
     public void actualizarTabla(){
         mesas.limpiarTabla();
+        Mesa mM = new Mesa();
         ArrayList<Mesa> mArray = mM.setArrayList();
         for(Mesa mesa : mArray){
             String datos[] = {Integer.toString(mesa.getNumero()),Integer.toString(mesa.getCapacidad())};
