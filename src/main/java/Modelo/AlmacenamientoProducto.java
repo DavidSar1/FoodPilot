@@ -11,6 +11,6 @@ import java.util.ArrayList;
  * @author PC
  */
 public class AlmacenamientoProducto {
-    public static ArrayList<Producto> Productos = new ArrayList<>();
+    public static ArrayList<Producto> productosC = new ArrayList<>();
     
 }

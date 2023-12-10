@@ -13,20 +13,23 @@ import javax.swing.table.DefaultTableModel;
 public class GestionProductos extends javax.swing.JFrame {
     ControladorProducto cp = new ControladorProducto();
     DefaultTableModel dtm = new DefaultTableModel();
+    GestionAdministrador gAdmin;
     /**
      * Creates new form GestionProductos
      */
     public GestionProductos() {
         
         initComponents();
+        cp.setGp(this);
         this.setLocationRelativeTo(null);
         
         productosTabla.setModel(dtm);
         dtm.addColumn("Nombre");
         dtm.addColumn("Precio");
+        dtm.addColumn("Estado");
         dtm.addColumn("Descripcion");
         
-        
+        cp.ListarProductos();
         
     }
     public void agregarFila(String datos[]){
@@ -340,6 +343,11 @@ public class GestionProductos extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Regresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -405,19 +413,26 @@ public class GestionProductos extends javax.swing.JFrame {
 
     private void botoneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoneliminarActionPerformed
         cp.EliminarProducto();
+        
     }//GEN-LAST:event_botoneliminarActionPerformed
 
     private void botonmodificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonmodificar1ActionPerformed
-        
+        cp.ModificarProducto1();
     }//GEN-LAST:event_botonmodificar1ActionPerformed
 
     private void precioModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioModificarActionPerformed
         cp.ModificarProducto1();
+        
     }//GEN-LAST:event_precioModificarActionPerformed
 
     private void botonmodificar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonmodificar2ActionPerformed
         cp.modificarProducto2();
     }//GEN-LAST:event_botonmodificar2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public String getPrecioModificar(){
         return precioModificar.getText();
@@ -441,6 +456,10 @@ public class GestionProductos extends javax.swing.JFrame {
     
     public String getNombreEliminar(){
         return nombreEliminar.getText();
+    }
+    
+    public void setNombreEliminar(String text){
+        nombreEliminar.setText(text);
     }
     
     public String getNombre(){
