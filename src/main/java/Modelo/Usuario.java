@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * @author Myke
  */
 public class Usuario {
+    int id;
     String nombre;
     String contraseña; 
     String tipo;
@@ -21,12 +22,18 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nombre, String contraseña, String tipo) {
+    public Usuario(String nombre, String contraseña, String tipo, int id) {
+        this.id = id;
         this.nombre = nombre;
         this.contraseña = contraseña;
         this.tipo = tipo;
     }
 
+    
+    public int getId()
+    {
+        return id;
+    }
     public String getTipo()
     {
         return tipo;
@@ -37,6 +44,11 @@ public class Usuario {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+    public void setId(int id)
+    {
+        this.id = id;
     }
     
     public void setTipo(String tipo)
@@ -90,6 +102,7 @@ public class Usuario {
         
     }
 
+    
         
     public boolean pasa()
     {
@@ -120,9 +133,9 @@ public class Usuario {
                  us.setNombre(rs.getString("nombres"));
                  us.setContraseña(rs.getString("contraseña"));
                  us.setTipo(rs.getString("tipo"));
+                 us.setId(rs.getInt("id"));
 
                  Arrays.user_conts.add(us);
-                 System.out.println(Arrays.user_conts);
                  
             }
         }
@@ -138,5 +151,11 @@ public class Usuario {
     {
      Conexion c = new Conexion();
      c.ejecutar("delete from data where id="+id);
+    }
+    
+    public void actualizarProducto()
+    {
+        Conexion c = new Conexion();
+        c.ejecutar("update data set nombre ='"+this.nombre+"', contraseña='"+this.contraseña+"',tipo ='"+this.tipo+"' where id="+this.id);
     }
 }

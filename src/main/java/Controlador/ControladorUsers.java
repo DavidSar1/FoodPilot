@@ -53,15 +53,28 @@ public class ControladorUsers {
         Usuario us = new Usuario();
         ArrayList<Usuario> conts = us.consultarProductosTodos();
          for(Usuario us_con: conts){
-             String datos[]={us_con.getNombre(),us_con.getContraseña(),(us_con.getTipo())};
+             String datos[]={String.valueOf(us_con.getId()),us_con.getNombre(),us_con.getContraseña(),(us_con.getTipo())};
              gu.agregarFila(datos);
          }
     }
     
-    public void eliminarUsuarios(int id){
-        Usuario  us = new Usuario();
+    public void eliminarUsuarios(int id)
+    {
+        Usuario us = new Usuario();
         us.eliminarProducto(id);
         consultarProductos();
+    }
+    
+    public void actualiarUsuario(int id){
+        Usuario us = new Usuario();
+        us.setId(id);
+        us.setNombre(this.gu.getNombreEdit().getText());
+        us.setContraseña(this.gu.getContraEdit().getText());
+        us.setTipo(this.gu.getComboEdit());
+        //llamamos al metodo para registrar eb la base de datos
+        us.actualizarProducto();
+        consultarProductos();
+        
     }
 
     public GestionUsuarios getView()

@@ -311,7 +311,7 @@ public class GestionAdministrador extends javax.swing.JFrame {
 
     private void gestionUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestionUsuariosActionPerformed
         // TODO add your handling code here:
-        gUsuarios.iniciarGestionUsuarios();
+        gUsuarios.setVisible(true);
     }//GEN-LAST:event_gestionUsuariosActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
