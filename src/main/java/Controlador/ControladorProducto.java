@@ -93,10 +93,61 @@ public class ControladorProducto {
             }
         
         }
+    }
+    
+    public void EliminarProducto(){
+        String nombreProducto =  gp.getNombreEliminar();
+        boolean Eliminado = false;
+        for(int i = 0; i < 4 ; i++)
+            { 
+                if(AlmacenamientoProducto.Productos.get(i).getNombre().equals(nombreProducto))
+                {
+                    AlmacenamientoProducto.Productos.remove(i);
+                    Eliminado = true;
+                    
+                }
+            }
+        if (Eliminado == true)
+        {
+            JOptionPane.showMessageDialog(gp, "El producto ha sido eliminado con exito");
+        }
+        else{
+            JOptionPane.showMessageDialog(gp, "El producto no se encuentra en la base de datos");
+        
+        }
+    }
+    
+    public void ModificarProducto1(){
+        String NombreModificar = gp.getNombreModificar(); 
+        
+        if (VerificarProductoExistente(NombreModificar) == true)
+        {
+            for(int i = 0; i < 4 ; i++)
+            {
+                if(AlmacenamientoProducto.Productos.get(i).equals(NombreModificar))
+                {
+                    
+                    gp.nombreModificar.setEditable(false);
+                    gp.setPrecioModificar(String.valueOf(AlmacenamientoProducto.Productos.get(i).getPrecio()));
+                    gp.setDescripcion(AlmacenamientoProducto.Productos.get(i).getDescripcion());
+                    break;
+                    
+                }
+            
+            }
+                
+        
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(gp, "El producto que quieres modificar no existe");
+                    
+        
+        }
         
     
     
     
-    }
     
+    }
 }
