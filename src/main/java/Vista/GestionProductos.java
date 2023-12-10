@@ -377,6 +377,10 @@ public class GestionProductos extends javax.swing.JFrame {
         descripcioncrear.setText(texto);
     
     }
+    
+    public void iniciar(){
+        this.setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */

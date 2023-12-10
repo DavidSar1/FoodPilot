@@ -14,14 +14,13 @@ import javax.swing.table.DefaultTableModel;
 public class AdministradorMesas extends javax.swing.JFrame {
     DefaultTableModel mT = new DefaultTableModel();
     ControladorMesa cM = new ControladorMesa();
-    GestionAdministrador gA = new GestionAdministrador();
+    
    
     /**
      * Creates new form AdministradorMesas
      */
     public AdministradorMesas() {
         initComponents();
-        gA.setMesa(this);
         cM.setMesa(this);
         mesasTabla.setModel(mT);
         mT.addColumn("Numero");

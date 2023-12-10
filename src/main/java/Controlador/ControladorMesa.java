@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
  * @author PC
  */
 public class ControladorMesa {
+    ArrayList<Mesa> mesasA = new ArrayList<>();
     AdministradorMesas mesas;
     int indexMesa;
     int capacidad = 6;
@@ -66,7 +67,7 @@ public class ControladorMesa {
         Mesa ms = new Mesa();
         ms.setCapacidad(indexMesa);
         ms.setNumero(capacidad);
-        ms.guardarArryList(indexMesa, capacidad);
+        mesasA.add(ms);
         String datos[] = {Integer.toString(indexMesa),Integer.toString(capacidad)};
         mesas.agregarFila(datos);
     
@@ -80,6 +81,20 @@ public class ControladorMesa {
     }
     
     
+    
+    
+    
+    public void actualizarTabla(){
+        
+        Mesa mM = new Mesa();
+        for(Mesa mesa : mesasA){
+            String datos[] = {Integer.toString(mesa.getNumero()),Integer.toString(mesa.getCapacidad())};
+            mesas.agregarFila(datos);
+        }
+        
+                
+    }
+    
     public AdministradorMesas getMesa(){
         return mesas;
     }
@@ -90,18 +105,6 @@ public class ControladorMesa {
     
     public void iniciar(){
         mesas.setVisible(true);
-    }
-    
-    public void actualizarTabla(){
-        mesas.limpiarTabla();
-        Mesa mM = new Mesa();
-        ArrayList<Mesa> mArray = mM.setArrayList();
-        for(Mesa mesa : mArray){
-            String datos[] = {Integer.toString(mesa.getNumero()),Integer.toString(mesa.getCapacidad())};
-            mesas.agregarFila(datos);
-        }
-        
-                
     }
     
     

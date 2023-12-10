@@ -11,8 +11,9 @@ import Controlador.ControladorMesa;
  * @author PC
  */
 public class GestionAdministrador extends javax.swing.JFrame {
-    AdministradorMesas mS;
-    ControladorMesa cM;
+    ControladorMesa cM = new ControladorMesa();
+    AdministradorMesas mS = new AdministradorMesas();
+    GestionProductos gProductos = new GestionProductos();
     
     /**
      * Creates new form Administrador
@@ -98,6 +99,11 @@ public class GestionAdministrador extends javax.swing.JFrame {
         jButton11.setBackground(new java.awt.Color(255, 255, 255));
         jButton11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jButton11.setText("Administrar Productos");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 190, 36));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Consultar ventas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(51, 51, 51))); // NOI18N
@@ -290,10 +296,14 @@ public class GestionAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void administradorMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_administradorMesasActionPerformed
-        // TODO add your handling code here:
-        AdministradorMesas mS = new AdministradorMesas();
-        mS.setVisible(true);
+        // TODO add your handling code here
+        mS.iniciar();
     }//GEN-LAST:event_administradorMesasActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        gProductos.iniciar();
+    }//GEN-LAST:event_jButton11ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -331,13 +341,7 @@ public class GestionAdministrador extends javax.swing.JFrame {
         });
     }
     
-    public AdministradorMesas getMesa(){
-        return mS;
-    }
     
-    public void setMesa(AdministradorMesas mS){
-        this.mS = mS;
-    }
     
     
 

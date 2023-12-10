@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Mesa {
     
-    ArrayList<Mesa> mesas = new ArrayList<>();
+    
     int numero;
     int capacidad;
     
@@ -42,20 +42,9 @@ public class Mesa {
         this.capacidad = capacidad;
     }
     
-    public void guardarArryList(int a, int b){
-        Mesa ms = new Mesa();
-        ms.setNumero(a);
-        ms.setCapacidad(b);
-        
-        mesas.add(ms);
-        
-    }
     
-    public ArrayList setArrayList(){
-        
-        
-        return mesas;
-    }
+    
+    
    
     
     
