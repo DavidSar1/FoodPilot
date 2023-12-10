@@ -12,17 +12,12 @@ import Controlador.ControladorUsers;
  */
 public class GestionMesero extends javax.swing.JFrame {
     int puta = 12;
-    GestionMesero gm;
-    ControladorUsers cp;
+    ControladorUsers cp = new ControladorUsers();
     
     /**
      * Creates new form Mesero
-     * @param cp
      */
     
-    public GestionMesero(ControladorUsers cp) {
-        this.cp = cp;
-    }
     public GestionMesero() {
         initComponents();
         cp.setVer(this);

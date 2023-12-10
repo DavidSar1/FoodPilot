@@ -43,7 +43,7 @@ public class ControladorUsers {
             if(lg.getBox().equals("mesero"))
             {
                 lg.dispose();
-                GestionMesero gm = new GestionMesero();
+                gm = new GestionMesero();
                 gm.iniciar();
             }
             if(lg.getBox().equals("admin"))
