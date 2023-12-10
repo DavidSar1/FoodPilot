@@ -466,6 +466,14 @@ public class GestionUsuarios extends javax.swing.JFrame {
         btnEliminar.setEnabled(false);
     }//GEN-LAST:event_btnEditActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        int fila = Tabla_data.getSelectedRow();
+        System.out.println(Tabla_data.getValueAt(fila, 0));
+        int id =Integer.parseInt(Tabla_data.getValueAt(fila, 0).toString());
+        cp.eliminarUsuarios(id);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */

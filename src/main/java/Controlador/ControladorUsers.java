@@ -73,6 +73,11 @@ public class ControladorUsers {
          }
     }
     
+    public void eliminarUsuarios(int id){
+        Usuario  us = new Usuario();
+        us.eliminarProducto(id);
+        consultarProductos();
+    }
 
     
     public void eliminarUsuarios(int id)
