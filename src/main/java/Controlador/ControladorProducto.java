@@ -83,4 +83,20 @@ public class ControladorProducto {
     
     }
     
+    public void ListarProductos(){
+        for(int i = 0; i < AlmacenamientoProducto.Productos.size() ; i++)
+        {
+            for(int j = 0; j < 4 ; j++)
+            { 
+                //gp.agregarFila(new String[]{AlmacenamientoProducto.Productos.get(i).getNombre(),String.valueOf(AlmacenamientoProducto.Productos.get(i).getPrecio()),
+                    //AlmacenamientoProducto.Productos.get(i).getEstado(),AlmacenamientoProducto.Productos.get(i).getDescripcion()});
+            }
+        
+        }
+        
+    
+    
+    
+    }
+    
 }
