@@ -46,19 +46,24 @@ public class ControladorProducto {
                 JOptionPane.showMessageDialog(null, "Debes ingresar todos los campos!");
             } else {
                 String Nombre = gp.getNombre();
-                float precio = Float.parseFloat(gp.getPrecio());
-                String Descripcion = gp.getDescripcion();
-                String Estado = "ACTIVO";
-                
-                Producto p = new Producto(Nombre, Descripcion, Estado, precio);
-                AlmacenamientoProducto.productosC.add(p);
-                JOptionPane.showMessageDialog(gp, "El producto ha sido creado correctamente");
-                String data[] = {Nombre, String.valueOf(precio),Estado, Descripcion};
-                gp.agregarFila(data);
-                gp.setNombre("");
-                gp.setPrecio("");
-                gp.setDescripcion("");
-  
+                if(VerificarProductoExistente(Nombre) == false)
+                {
+                    float precio = Float.parseFloat(gp.getPrecio());
+                    String Descripcion = gp.getDescripcion();
+                    String Estado = "ACTIVO";
+
+                    Producto p = new Producto(Nombre, Descripcion, Estado, precio);
+                    AlmacenamientoProducto.productosC.add(p);
+                    JOptionPane.showMessageDialog(gp, "El producto ha sido creado correctamente");
+                    String data[] = {Nombre, String.valueOf(precio),Estado, Descripcion};
+                    gp.agregarFila(data);
+                    gp.setNombre("");
+                    gp.setPrecio("");
+                    gp.setDescripcion("");
+                } else 
+                {
+                    JOptionPane.showMessageDialog(null, "El producto ya existe!");
+                }
             }
 
         }
@@ -75,7 +80,6 @@ public class ControladorProducto {
         {
             if(AlmacenamientoProducto.productosC.get(i).getNombre().equals(nombre))
             {
-                JOptionPane.showMessageDialog(null, "El prodcuto ya existe");
                 Existe = true ;
                 break;
             }
@@ -108,7 +112,7 @@ public class ControladorProducto {
         
         String nombreProducto =  gp.getNombreEliminar();
         boolean Eliminado = false;
-        for(int i = 0; i < 4 ; i++)
+        for(int i = 0; i < AlmacenamientoProducto.productosC.size() ; i++)
             { 
                 if(AlmacenamientoProducto.productosC.get(i).getNombre().equals(nombreProducto))
                 {
@@ -135,25 +139,29 @@ public class ControladorProducto {
     public void ModificarProducto1(){
         String NombreModificar = gp.getNombreModificar(); 
         if(AlmacenamientoProducto.productosC.isEmpty()){
-            System.out.println("Hola");
         } else {
-            System.out.println("holaentreaquielse");
-         for(int i = 0; i < AlmacenamientoProducto.productosC.size() ; i++)
+            if(VerificarProductoExistente(NombreModificar) == true)
             {
-                if(AlmacenamientoProducto.productosC.get(i).getNombre().equals(NombreModificar))
-                { 
-                    System.out.println("holaentreaqui");
-                    gp.nombreModificar.setEditable(false);  
-                    gp.setPrecioModificar(String.valueOf(AlmacenamientoProducto.productosC.get(i).getPrecio()));
-                    gp.setDescripcionModificar(AlmacenamientoProducto.productosC.get(i).getDescripcion());
-                    break;
-                    
-                } else
-                {
-                    JOptionPane.showMessageDialog(gp, "El producto que quieres modificar no existe");
+            for(int i = 0; i < AlmacenamientoProducto.productosC.size() ; i++)
+               {
+                   if(AlmacenamientoProducto.productosC.get(i).getNombre().equals(NombreModificar))
+                   { 
+                       System.out.println("holaentreaqui");
+                       gp.nombreModificar.setEditable(false);  
+                       gp.setPrecioModificar(String.valueOf(AlmacenamientoProducto.productosC.get(i).getPrecio()));
+                       gp.setDescripcionModificar(AlmacenamientoProducto.productosC.get(i).getDescripcion());
+                       break;
 
-                }
-            
+                   } else
+                   {
+                      
+
+                   }
+
+               }
+            } else 
+            {
+                JOptionPane.showMessageDialog(gp, "El producto que quieres modificar no existe"); 
             }
          }
         ListarProductos();
@@ -167,7 +175,7 @@ public class ControladorProducto {
             String descripcionM = gp.getDescripcionModificar();
             String NombreModificar = gp.getNombreModificar();
             String Estado = gp.getEstadoModificar();
-            for(int i = 0; i < 4 ; i++)
+            for(int i = 0; i < AlmacenamientoProducto.productosC.size() ; i++)
             {
                 if(AlmacenamientoProducto.productosC.get(i).getNombre().equals(NombreModificar))
                 {
