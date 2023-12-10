@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class ControladorUsers {
     GestionLogin lg;
-    GestionAdministrador ga;
+    
     //Con este metodo verifica si existe el nombre y la contraseña en la base de datos
     
     public ControladorUsers()
@@ -26,11 +26,9 @@ public class ControladorUsers {
         
     }
     
-    public ControladorUsers(GestionAdministrador ga)
-    {
-        this.ga = ga;
-    }
+ 
     
+   
     public void verificacion()     
     {
         Usuario us = new Usuario();
@@ -38,16 +36,16 @@ public class ControladorUsers {
         if(!us.pasa())
         {
             lg.dispose();
-            ga.setVisible(true);
+            GestionAdministrador ga = new GestionAdministrador();
+            ga.iniciar();
         }
     }
     
     //Con esto consulto todo lo que haya en la BD
  
-    public void setView(GestionAdministrador ga)
-    {
-        this.ga = ga;
-    }
+
+    
+  
     public GestionLogin getVista()
     {
         return lg;

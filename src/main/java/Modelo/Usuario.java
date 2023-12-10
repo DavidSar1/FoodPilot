@@ -59,8 +59,9 @@ public class Usuario {
         try{
         while(rs.next()){
             Usuario u = new Usuario();
-             u.setNombre(rs.getString("Nombres"));
-             u.setContraseña(rs.getString("Contraseña"));
+             u.setNombre(rs.getString("nombres"));
+             u.setContraseña(rs.getString("contraseña"));
+             u.setTipo(rs.getString("tipo"));
              
              Arrays.user.add(u);
         }
@@ -74,14 +75,15 @@ public class Usuario {
     //Con este metodo verifica si existe el nombre y la contraseña en la base de datos
     public  void verificacion(String user, String psw, String type) 
     {
-        consultar();
+        
         String usuarioIngresado = user;
         String contraseñaIngresada = psw;
         String tipe = type;
-        for(int i = 0; i < consultar().size();i++)
+        consultar();
+        for(int i = 0; i < Arrays.user.size();i++)
         {
             if (usuarioIngresado.equals(Arrays.user.get(i).getNombre()) && contraseñaIngresada.equals(Arrays.user.get(i).getContraseña()) && tipe.equals(Arrays.user.get(i).getTipo())) 
-                {
+                {    
                     ver = false;
                     break;
                 } 

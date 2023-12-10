@@ -15,17 +15,20 @@ public class GestionAdministrador extends javax.swing.JFrame {
     ControladorMesa cM = new ControladorMesa();
     AdministradorMesas mS = new AdministradorMesas();
     GestionProductos gProductos = new GestionProductos();
-    ControladorUsers tp = new ControladorUsers();
+    ControladorUsers cp = new ControladorUsers();
     
     /**
      * Creates new form 
      */
     public GestionAdministrador() {
         initComponents();
-        tp.setView(this);
+   
         
     }
-
+    public void iniciar()
+    {
+        this.setVisible(true);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,7 +112,7 @@ public class GestionAdministrador extends javax.swing.JFrame {
         });
         jPanel4.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 190, 36));
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Consultar ventas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(51, 51, 51))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consultar ventas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(51, 51, 51))); // NOI18N
         jPanel5.setOpaque(false);
 
         jButton5.setBackground(new java.awt.Color(5, 59, 80));
@@ -287,6 +290,7 @@ public class GestionAdministrador extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
@@ -305,11 +309,12 @@ public class GestionAdministrador extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-        gProductos.iniciar();
+        
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
+        gProductos.iniciar();
     }//GEN-LAST:event_jButton12ActionPerformed
 
     /**
