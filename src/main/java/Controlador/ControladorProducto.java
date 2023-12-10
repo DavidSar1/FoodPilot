@@ -16,6 +16,9 @@ import javax.swing.JOptionPane;
  */
 public class ControladorProducto {
     GestionProductos gp ;
+    int ingresarDatos10 = 0;
+    
+    
 
     public ControladorProducto() {
     }
@@ -32,10 +35,9 @@ public class ControladorProducto {
         this.gp = gp;
         
     }
+    
+    
 
-   
-    
-    
     
     public void CrearProducto(){
         try{
@@ -48,7 +50,7 @@ public class ControladorProducto {
                 String Descripcion = gp.getDescripcion();
                 String Estado = "ACTIVO";
                 
-                Producto p = new Producto(Nombre, Descripcion, Estado, "", precio);
+                Producto p = new Producto(Nombre, Descripcion, Estado, precio);
                 AlmacenamientoProducto.productosC.add(p);
                 JOptionPane.showMessageDialog(gp, "El producto ha sido creado correctamente");
                 String data[] = {Nombre, String.valueOf(precio),Estado, Descripcion};
@@ -85,7 +87,6 @@ public class ControladorProducto {
     public void ListarProductos(){
         
         gp.limpiarTabla();
-        
         Producto prod = new Producto();
         for(Producto prodc : AlmacenamientoProducto.productosC){
             String datos[] = {prodc.getNombre(),String.valueOf(prodc.getPrecio()),prodc.getEstado(),prodc.getDescripcion()};

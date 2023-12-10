@@ -20,6 +20,7 @@ public class GestionProductos extends javax.swing.JFrame {
     public GestionProductos() {
         
         initComponents();
+        
         cp.setGp(this);
         this.setLocationRelativeTo(null);
         
@@ -89,11 +90,11 @@ public class GestionProductos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel3.setBackground(new java.awt.Color(5, 59, 80));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gestion de productos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 1, 32), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Gestion de productos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 1, 32), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel3.setForeground(new java.awt.Color(5, 59, 80));
 
         jPanel1.setBackground(new java.awt.Color(5, 59, 80));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Crear producto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Crear producto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
@@ -136,7 +137,7 @@ public class GestionProductos extends javax.swing.JFrame {
         jPanel1.add(preciocrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 160, -1));
 
         jPanel2.setBackground(new java.awt.Color(5, 59, 80));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Modificar Producto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Modificar Producto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,6 +164,7 @@ public class GestionProductos extends javax.swing.JFrame {
         jLabel8.setText("Descripcion:");
 
         descripcionModificar.setColumns(20);
+        descripcionModificar.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 16)); // NOI18N
         descripcionModificar.setRows(5);
         jScrollPane2.setViewportView(descripcionModificar);
 
@@ -180,6 +182,11 @@ public class GestionProductos extends javax.swing.JFrame {
         botoncancelarmodificar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         botoncancelarmodificar.setForeground(new java.awt.Color(255, 255, 255));
         botoncancelarmodificar.setText("Cancelar");
+        botoncancelarmodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoncancelarmodificarActionPerformed(evt);
+            }
+        });
 
         precioModificar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         precioModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -223,7 +230,7 @@ public class GestionProductos extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(botoncancelarmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botonmodificar2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
@@ -257,7 +264,7 @@ public class GestionProductos extends javax.swing.JFrame {
         );
 
         jPanel4.setBackground(new java.awt.Color(5, 59, 80));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Eliminar Producto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Eliminar Producto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
@@ -303,7 +310,7 @@ public class GestionProductos extends javax.swing.JFrame {
         );
 
         jPanel5.setBackground(new java.awt.Color(5, 59, 80));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista de productos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Lista de productos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         productosTabla.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         productosTabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -325,8 +332,8 @@ public class GestionProductos extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -357,10 +364,11 @@ public class GestionProductos extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(16, 16, 16)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
@@ -424,12 +432,22 @@ public class GestionProductos extends javax.swing.JFrame {
 
     private void botonmodificar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonmodificar2ActionPerformed
         cp.modificarProducto2();
+        nombreModificar.setText("");
+        precioModificar.setText("");
+        descripcionModificar.setText("");
     }//GEN-LAST:event_botonmodificar2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void botoncancelarmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoncancelarmodificarActionPerformed
+        // TODO add your handling code here:
+        nombreModificar.setText("");
+        precioModificar.setText("");
+        descripcionModificar.setText("");
+    }//GEN-LAST:event_botoncancelarmodificarActionPerformed
 
     public String getPrecioModificar(){
         return precioModificar.getText();
