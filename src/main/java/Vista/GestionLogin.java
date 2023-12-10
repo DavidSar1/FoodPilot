@@ -88,7 +88,7 @@ public class GestionLogin extends javax.swing.JFrame {
         jLabel3.setText("Contraseña");
 
         elegirBoc.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 16)); // NOI18N
-        elegirBoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Mesero" }));
+        elegirBoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "admin", "mesero" }));
 
         ingresarLogin.setBackground(new java.awt.Color(100, 204, 197));
         ingresarLogin.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
@@ -205,6 +205,11 @@ public class GestionLogin extends javax.swing.JFrame {
     public JTextField getContraseña()
     {
         return contrasText;
+    }
+    
+    public String getBox()
+    {
+        return (String) elegirBoc.getSelectedItem();
     }
     /**
      * @param args the command line arguments

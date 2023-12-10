@@ -14,17 +14,23 @@ import java.util.ArrayList;
  */
 public class Usuario {
     String nombre;
-    
     String contraseña; 
+    String tipo;
+    boolean ver = true;
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String contraseña) {
+    public Usuario(String nombre, String contraseña, String tipo) {
         this.nombre = nombre;
         this.contraseña = contraseña;
+        this.tipo = tipo;
     }
 
+    public String getTipo()
+    {
+        return tipo;
+    }
     public String getNombre() {
         return nombre;
     }
@@ -32,7 +38,11 @@ public class Usuario {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    
+    public void setTipo(String tipo)
+    {
+        this.tipo = tipo;
+    }
     public String getContraseña() {
         return contraseña;
     }
@@ -62,20 +72,27 @@ public class Usuario {
     }
     
     //Con este metodo verifica si existe el nombre y la contraseña en la base de datos
-    public  void verificacion(String user, String psw) 
+    public  void verificacion(String user, String psw, String type) 
     {
+        consultar();
         String usuarioIngresado = user;
         String contraseñaIngresada = psw;
+        String tipe = type;
         for(int i = 0; i < consultar().size();i++)
         {
-            if (usuarioIngresado.equals(consultar().get(i).getNombre()) && contraseñaIngresada.equals(consultar().get(i).getContraseña())) 
+            if (usuarioIngresado.equals(Arrays.user.get(i).getNombre()) && contraseñaIngresada.equals(Arrays.user.get(i).getContraseña()) && tipe.equals(Arrays.user.get(i).getTipo())) 
                 {
-                    System.out.println("hola");
+                    ver = false;
                     break;
                 } 
         }
         
     }
 
+        
+    public boolean pasa()
+    {
+        return ver;
+    }
     
 }

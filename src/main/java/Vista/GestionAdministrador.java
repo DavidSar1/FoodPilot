@@ -5,6 +5,7 @@
 package Vista;
 
 import Controlador.ControladorMesa;
+import Controlador.ControladorUsers;
 
 /**
  *
@@ -20,7 +21,7 @@ public class GestionAdministrador extends javax.swing.JFrame {
      */
     public GestionAdministrador() {
         initComponents();
-        
+        cp.setView(this);
         
     }
 
@@ -71,7 +72,6 @@ public class GestionAdministrador extends javax.swing.JFrame {
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton8.setBackground(new java.awt.Color(255, 255, 255));
         jButton8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jButton8.setText("Cerrar sesion");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -81,12 +81,15 @@ public class GestionAdministrador extends javax.swing.JFrame {
         });
         jPanel4.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 190, 36));
 
-        administrarUsres.setBackground(new java.awt.Color(255, 255, 255));
         administrarUsres.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         administrarUsres.setText("Administrar Usuarios");
+        administrarUsres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                administrarUsresActionPerformed(evt);
+            }
+        });
         jPanel4.add(administrarUsres, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 190, 36));
 
-        administradorMesas.setBackground(new java.awt.Color(255, 255, 255));
         administradorMesas.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         administradorMesas.setText("Administrar Mesas");
         administradorMesas.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +99,6 @@ public class GestionAdministrador extends javax.swing.JFrame {
         });
         jPanel4.add(administradorMesas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 190, 36));
 
-        jButton11.setBackground(new java.awt.Color(255, 255, 255));
         jButton11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jButton11.setText("Administrar Productos");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +108,7 @@ public class GestionAdministrador extends javax.swing.JFrame {
         });
         jPanel4.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 190, 36));
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Consultar ventas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(51, 51, 51))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consultar ventas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(51, 51, 51))); // NOI18N
         jPanel5.setOpaque(false);
 
         jButton5.setBackground(new java.awt.Color(5, 59, 80));
