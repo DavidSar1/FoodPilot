@@ -8,6 +8,7 @@ import Modelo.AlmacenamientoMesas;
 import Modelo.Arrays;
 import Modelo.Mesa;
 import Vista.AdministradorMesas;
+import Vista.GestionAdministrador;
 import Vista.GestionMesero;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -22,7 +23,6 @@ import javax.swing.table.DefaultTableModel;
 public class ControladorMesa {
     
     AdministradorMesas mesas;
-    GestionMesero gm;
     int indexMesa;
     int capacidad = 6;
     
@@ -88,23 +88,13 @@ public class ControladorMesa {
     
     public void actualizarTabla(){
         Mesa mM = new Mesa();
+        //gm = new GestionMesero(this);
         for(Mesa mesa : Arrays.mesa_meseros){
             String datos[] = {Integer.toString(mesa.getNumero()),Integer.toString(mesa.getCapacidad())};
             mesas.agregarFila(datos);
-            gm.agregarFila(datos);
-        }
-        
-                
-    }
-    public GestionMesero getData()
-    {
-        return gm;
+        }          
     }
     
-    public void setData(GestionMesero gm)
-    {
-        this.gm = gm;
-    }
     
     
     public AdministradorMesas getMesa(){
