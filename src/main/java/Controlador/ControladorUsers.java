@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Modelo.Arrays;
 import Modelo.Conexion;
 import Modelo.Usuario;
 import Vista.GestionAdministrador;
@@ -12,6 +13,7 @@ import Vista.GestionUsuarios;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -50,6 +52,7 @@ public class ControladorUsers {
     public void consultarProductos()
     {
         gu.limpiarTabla();
+        Arrays.user_conts.clear();
         Usuario us = new Usuario();
         ArrayList<Usuario> conts = us.consultarProductosTodos();
          for(Usuario us_con: conts){
@@ -57,6 +60,8 @@ public class ControladorUsers {
              gu.agregarFila(datos);
          }
     }
+    
+
     
     public void eliminarUsuarios(int id)
     {

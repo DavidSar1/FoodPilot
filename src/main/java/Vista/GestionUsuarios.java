@@ -40,7 +40,6 @@ public class GestionUsuarios extends javax.swing.JFrame {
     
     public void limpiarTabla()
     {
-        System.out.print(gestion_Tabla.getRowCount());
         gestion_Tabla.getDataVector().removeAllElements();
     }
 
