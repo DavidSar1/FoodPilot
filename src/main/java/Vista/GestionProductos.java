@@ -21,12 +21,13 @@ public class GestionProductos extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        tabla_productos.setModel(dtm);
+        productosTabla.setModel(dtm);
         dtm.addColumn("Nombre");
         dtm.addColumn("Precio");
         dtm.addColumn("Descripcion");
         
-        cp.setGp(this);
+        
+        
     }
     public void agregarFila(String datos[]){
          dtm.addRow(datos);
@@ -316,7 +317,6 @@ public class GestionProductos extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(tabla_productos);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -537,6 +537,7 @@ public class GestionProductos extends javax.swing.JFrame {
     private javax.swing.JTextField nombrecrear;
     private javax.swing.JTextField precioModificar;
     private javax.swing.JTextField preciocrear;
-    private javax.swing.JTable tabla_productos;
+        jScrollPane3.setViewportView(tabla_productos);
     // End of variables declaration//GEN-END:variables
 }
+    private javax.swing.JTable tabla_productos;
