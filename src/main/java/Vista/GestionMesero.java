@@ -9,7 +9,7 @@ package Vista;
  * @author PC
  */
 public class GestionMesero extends javax.swing.JFrame {
-
+    int puta = 1;
     /**
      * Creates new form Mesero
      */
