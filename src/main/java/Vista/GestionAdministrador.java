@@ -15,10 +15,10 @@ public class GestionAdministrador extends javax.swing.JFrame {
     ControladorMesa cM = new ControladorMesa();
     AdministradorMesas mS = new AdministradorMesas();
     GestionProductos gProductos = new GestionProductos();
-    controladorUsers tp = new ControladorUsers();
+    ControladorUsers tp = new ControladorUsers();
     
     /**
-     * Creates new form Administrador
+     * Creates new form 
      */
     public GestionAdministrador() {
         initComponents();
@@ -40,9 +40,9 @@ public class GestionAdministrador extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
-        administrarUsres = new javax.swing.JButton();
         administradorMesas = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -82,15 +82,6 @@ public class GestionAdministrador extends javax.swing.JFrame {
         });
         jPanel4.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 190, 36));
 
-        administrarUsres.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        administrarUsres.setText("Administrar Usuarios");
-        administrarUsres.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                administrarUsresActionPerformed(evt);
-            }
-        });
-        jPanel4.add(administrarUsres, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 190, 36));
-
         administradorMesas.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         administradorMesas.setText("Administrar Mesas");
         administradorMesas.addActionListener(new java.awt.event.ActionListener() {
@@ -101,15 +92,24 @@ public class GestionAdministrador extends javax.swing.JFrame {
         jPanel4.add(administradorMesas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 190, 36));
 
         jButton11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton11.setText("Administrar Productos");
+        jButton11.setText("Administrador Usuarios");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 190, 36));
+        jPanel4.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 190, 36));
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consultar ventas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(51, 51, 51))); // NOI18N
+        jButton12.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jButton12.setText("Administrar Productos");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 190, 36));
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Consultar ventas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(51, 51, 51))); // NOI18N
         jPanel5.setOpaque(false);
 
         jButton5.setBackground(new java.awt.Color(5, 59, 80));
@@ -308,6 +308,10 @@ public class GestionAdministrador extends javax.swing.JFrame {
         gProductos.iniciar();
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -350,8 +354,8 @@ public class GestionAdministrador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton administradorMesas;
-    private javax.swing.JButton administrarUsres;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
