@@ -36,6 +36,8 @@ public class ControladorProducto {
         try{
             if(gp.getNombre().equals("") && gp.getPrecio().equals("") && gp.getDescripcion().equals("")&& VerificarProductoExistente(gp.getNombre()))
             {
+                JOptionPane.showMessageDialog(null, "Debes ingresar todos los campos!");
+            } else {
                 String Nombre = gp.getNombre();
                 float precio = Float.parseFloat(gp.getPrecio());
                 String Descripcion = gp.getDescripcion();
@@ -49,10 +51,6 @@ public class ControladorProducto {
                 gp.setDescripcion("");
   
             }
-            
-            
-            
-            
 
         }
         catch(NumberFormatException e){
@@ -76,11 +74,7 @@ public class ControladorProducto {
             }
         }
         return Existe;
-    
-    
-    
-    
-    
+   
     }
     
     public void ListarProductos(){
