@@ -15,13 +15,14 @@ public class GestionAdministrador extends javax.swing.JFrame {
     ControladorMesa cM = new ControladorMesa();
     AdministradorMesas mS = new AdministradorMesas();
     GestionProductos gProductos = new GestionProductos();
+    controladorUsers tp = new ControladorUsers();
     
     /**
      * Creates new form Administrador
      */
     public GestionAdministrador() {
         initComponents();
-        cp.setView(this);
+        tp.setView(this);
         
     }
 
