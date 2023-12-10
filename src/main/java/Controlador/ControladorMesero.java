@@ -18,8 +18,12 @@ public class ControladorMesero  {
     
     GestionMesero gm;
     
+    
+    
    
     public void actualizarTabla(){
+        HiloCronometro hCronometro = new HiloCronometro(this);
+        hCronometro.start();
         //gm = new GestionMesero(this);
         for(Mesa mesa : Arrays.mesa_meseros){
             String datos[] = {Integer.toString(mesa.getCapacidad()),Integer.toString(mesa.getNumero()),"Libre"};

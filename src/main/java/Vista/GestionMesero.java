@@ -7,6 +7,7 @@ package Vista;
 import Controlador.ControladorMesa;
 import Controlador.ControladorMesero;
 import Controlador.ControladorUsers;
+import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -71,7 +72,7 @@ public class GestionMesero extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        tiempoPedido = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
@@ -158,10 +159,10 @@ public class GestionMesero extends javax.swing.JFrame {
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         jPanel7.setOpaque(false);
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("00:00");
+        tiempoPedido.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tiempoPedido.setForeground(new java.awt.Color(51, 51, 51));
+        tiempoPedido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tiempoPedido.setText("00:00");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -169,14 +170,14 @@ public class GestionMesero extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                .addComponent(tiempoPedido, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
+                .addComponent(tiempoPedido)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -425,6 +426,14 @@ public class GestionMesero extends javax.swing.JFrame {
             }
         });
     }
+    
+    public String getTiempo(){
+        return tiempoPedido.getText();
+    }
+    
+    public void setTiempo(String text){
+        tiempoPedido.setText(text);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tabla_asignaded;
@@ -434,7 +443,6 @@ public class GestionMesero extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -445,5 +453,6 @@ public class GestionMesero extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
+    private javax.swing.JLabel tiempoPedido;
     // End of variables declaration//GEN-END:variables
 }
