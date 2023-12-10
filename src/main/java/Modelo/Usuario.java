@@ -7,6 +7,7 @@ package Modelo;
 import Vista.GestionLogin;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -98,6 +99,10 @@ public class Usuario {
                     ver = false;
                     break;
                 } 
+        }
+        if(ver)
+        {
+            JOptionPane.showMessageDialog(null,"Datos incorrectos");
         }
         
     }

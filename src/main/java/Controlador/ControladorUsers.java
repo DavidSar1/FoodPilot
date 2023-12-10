@@ -9,6 +9,7 @@ import Modelo.Conexion;
 import Modelo.Usuario;
 import Vista.GestionAdministrador;
 import Vista.GestionLogin;
+import Vista.GestionMesero;
 import Vista.GestionUsuarios;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,9 +38,18 @@ public class ControladorUsers {
         us.verificacion(lg.getUsuario().getText(), lg.getContraseña().getText(), lg.getBox());
         if(!us.pasa())
         {
-            lg.dispose();
-            GestionAdministrador ga = new GestionAdministrador();
-            ga.iniciar();
+            if(lg.getBox().equals("mesero"))
+            {
+                lg.dispose();
+                GestionMesero gm = new GestionMesero();
+                gm.iniciar();
+            }
+            if(lg.getBox().equals("admin"))
+            {
+                lg.dispose();
+                GestionAdministrador ga = new GestionAdministrador();
+                ga.iniciar();
+            }
         }
     }
     
