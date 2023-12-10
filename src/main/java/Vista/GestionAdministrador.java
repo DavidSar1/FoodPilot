@@ -15,17 +15,25 @@ public class GestionAdministrador extends javax.swing.JFrame {
     ControladorMesa cM = new ControladorMesa();
     AdministradorMesas mS = new AdministradorMesas();
     GestionProductos gProductos = new GestionProductos();
-    ControladorUsers cp = new ControladorUsers();
+    ControladorUsers cp;
     GestionUsuarios gUsuarios = new GestionUsuarios();
+    GestionLogin gLogin = new GestionLogin();
     
     /**
      * Creates new form 
+     * @param cp
      */
+    public GestionAdministrador( ControladorUsers cp) {
+        this.cp = cp;
+    }
+    
     public GestionAdministrador() {
         initComponents();
-   
+        cp.setVV(this);
         
     }
+    
+    
     public void iniciar()
     {
         this.setVisible(true);
@@ -301,7 +309,9 @@ public class GestionAdministrador extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:.3+
+        gLogin.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void administradorMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_administradorMesasActionPerformed

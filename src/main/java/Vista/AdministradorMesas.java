@@ -58,7 +58,6 @@ public class AdministradorMesas extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(5, 59, 80));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Gestion mesas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(255, 255, 255)), "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        mesasTabla.setBackground(new java.awt.Color(255, 255, 255));
         mesasTabla.setForeground(new java.awt.Color(51, 51, 51));
         mesasTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -94,7 +93,6 @@ public class AdministradorMesas extends javax.swing.JFrame {
             }
         });
 
-        salir.setBackground(new java.awt.Color(255, 255, 255));
         salir.setForeground(new java.awt.Color(51, 51, 51));
         salir.setText("Salir");
         salir.addActionListener(new java.awt.event.ActionListener() {
@@ -164,6 +162,7 @@ public class AdministradorMesas extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void agregarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarMesaActionPerformed

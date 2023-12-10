@@ -23,6 +23,8 @@ import javax.swing.table.DefaultTableModel;
 public class ControladorUsers {
     GestionLogin lg;
     GestionUsuarios gu;
+    GestionMesero gm;
+    GestionAdministrador ga;
     
     //Con este metodo verifica si existe el nombre y la contraseña en la base de datos
     
@@ -30,7 +32,7 @@ public class ControladorUsers {
     {
         
     }
-
+    
    
     public void verificacion()     
     {
@@ -47,7 +49,7 @@ public class ControladorUsers {
             if(lg.getBox().equals("admin"))
             {
                 lg.dispose();
-                GestionAdministrador ga = new GestionAdministrador();
+                ga = new GestionAdministrador(this);
                 ga.iniciar();
             }
         }
@@ -92,6 +94,24 @@ public class ControladorUsers {
         
     }
 
+    public GestionAdministrador getvv()
+    {
+        return ga;
+    }
+    
+    public void setVV(GestionAdministrador ga)
+    {
+        this.ga = ga;
+    }
+    public GestionMesero getVer()
+    {
+        return gm;
+    }
+    
+    public void setVer(GestionMesero gm)
+    {
+        this.gm = gm;
+    }
     public GestionUsuarios getView()
     {
         return gu;

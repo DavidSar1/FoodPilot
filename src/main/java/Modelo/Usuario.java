@@ -161,6 +161,6 @@ public class Usuario {
     public void actualizarProducto()
     {
         Conexion c = new Conexion();
-        c.ejecutar("update data set nombre ='"+this.nombre+"', contraseña='"+this.contraseña+"',tipo ='"+this.tipo+"' where id="+this.id);
+        c.ejecutar("update data set nombres ='"+this.nombre+"', contraseña='"+this.contraseña+"',tipo ='"+this.tipo+"' where id="+this.id);
     }
 }

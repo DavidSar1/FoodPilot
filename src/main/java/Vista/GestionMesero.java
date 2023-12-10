@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import Controlador.ControladorUsers;
+
 /**
  *
  * @author PC
@@ -11,13 +13,22 @@ package Vista;
 public class GestionMesero extends javax.swing.JFrame {
     int puta = 12;
     GestionMesero gm;
+    ControladorUsers cp;
     
     /**
      * Creates new form Mesero
+     * @param cp
      */
+    
+    public GestionMesero(ControladorUsers cp) {
+        this.cp = cp;
+    }
     public GestionMesero() {
         initComponents();
+        cp.setVer(this);
     }
+    
+    
     
     public void iniciar()
     {
