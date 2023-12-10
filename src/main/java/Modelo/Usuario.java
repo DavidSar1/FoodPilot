@@ -108,7 +108,6 @@ public class Usuario {
     
     public ArrayList<Usuario> consultarProductosTodos()
     {
-        ArrayList<Usuario> user_cons = new ArrayList();
         String sql = "select * from data";
         Conexion c = new Conexion();
         ResultSet rs= c.ejecutarConsulta(sql);
@@ -118,19 +117,20 @@ public class Usuario {
             while(rs.next())
             {
                 Usuario us = new Usuario();
-                 us.setNombre(rs.getString("nombre"));
+                 us.setNombre(rs.getString("nombres"));
                  us.setContraseña(rs.getString("contraseña"));
                  us.setTipo(rs.getString("tipo"));
 
-                 user_cons.add(us);
+                 Arrays.user_conts.add(us);
+                 System.out.println(Arrays.user_conts);
                  
             }
         }
         catch(java.sql.SQLException e)
         {
-
+            e.printStackTrace();
         }
-        System.out.println(user_cons);
-        return user_cons; 
+        
+        return Arrays.user_conts; 
     }
 }

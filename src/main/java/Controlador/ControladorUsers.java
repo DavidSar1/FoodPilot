@@ -51,8 +51,8 @@ public class ControladorUsers {
     {
         gu.limpiarTabla();
         Usuario us = new Usuario();
-        ArrayList<Usuario> user_cons = us.consultarProductosTodos();
-         for(Usuario us_con: user_cons){
+        ArrayList<Usuario> conts = us.consultarProductosTodos();
+         for(Usuario us_con: conts){
              String datos[]={us_con.getNombre(),us_con.getContraseña(),(us_con.getTipo())};
              gu.agregarFila(datos);
          }
