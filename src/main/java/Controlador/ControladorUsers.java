@@ -57,6 +57,12 @@ public class ControladorUsers {
              gu.agregarFila(datos);
          }
     }
+    
+    public void eliminarUsuarios(int id){
+        Usuario  us = new Usuario();
+        us.eliminarProducto(id);
+        consultarProductos();
+    }
 
     public GestionUsuarios getView()
     {

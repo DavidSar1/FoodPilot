@@ -133,4 +133,10 @@ public class Usuario {
         
         return Arrays.user_conts; 
     }
+    
+    public void eliminarProducto(int id)
+    {
+     Conexion c = new Conexion();
+     c.ejecutar("delete from data where id="+id);
+    }
 }

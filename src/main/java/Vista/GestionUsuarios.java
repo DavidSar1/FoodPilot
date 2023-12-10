@@ -15,6 +15,8 @@ import javax.swing.table.DefaultTableModel;
 public class GestionUsuarios extends javax.swing.JFrame {
     ControladorUsers cp = new ControladorUsers();
     DefaultTableModel dtm = new DefaultTableModel();
+    
+    int id;
     /**
      * Creates new form GestionUsuarios
      */
@@ -308,6 +310,11 @@ public class GestionUsuarios extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Eliminar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jTextField5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTextField5.setForeground(new java.awt.Color(51, 51, 51));
@@ -443,6 +450,14 @@ public class GestionUsuarios extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        int fila = Tabla_data.getSelectedRow();
+        System.out.println(Tabla_data.getValueAt(fila, 0));
+        int id =Integer.parseInt(Tabla_data.getValueAt(fila, 0).toString());
+        cp.eliminarUsuarios(id);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
