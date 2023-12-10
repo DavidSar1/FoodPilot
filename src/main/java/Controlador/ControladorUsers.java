@@ -79,13 +79,7 @@ public class ControladorUsers {
         consultarProductos();
     }
 
-    
-    public void eliminarUsuarios(int id)
-    {
-        Usuario us = new Usuario();
-        us.eliminarProducto(id);
-        consultarProductos();
-    }
+
     
     public void actualiarUsuario(int id){
         Usuario us = new Usuario();

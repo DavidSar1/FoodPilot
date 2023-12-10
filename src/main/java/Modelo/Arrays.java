@@ -13,4 +13,5 @@ import java.util.ArrayList;
 public class Arrays {
     public static ArrayList<Usuario> user = new ArrayList();
     public static ArrayList<Usuario> user_conts = new ArrayList();
+    public static ArrayList<Mesa> mesa_meseros = new ArrayList();
 }

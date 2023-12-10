@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.AlmacenamientoMesas;
+import Modelo.Arrays;
 import Modelo.Mesa;
 import Vista.AdministradorMesas;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  * @author PC
  */
 public class ControladorMesa {
-    ArrayList<Mesa> mesasA = new ArrayList<>();
+    
     AdministradorMesas mesas;
     int indexMesa;
     int capacidad = 6;
@@ -67,7 +68,7 @@ public class ControladorMesa {
         Mesa ms = new Mesa();
         ms.setCapacidad(indexMesa);
         ms.setNumero(capacidad);
-        mesasA.add(ms);
+        Arrays.mesa_meseros.add(ms);
         String datos[] = {Integer.toString(indexMesa),Integer.toString(capacidad)};
         mesas.agregarFila(datos);
     
@@ -87,7 +88,7 @@ public class ControladorMesa {
     public void actualizarTabla(){
         
         Mesa mM = new Mesa();
-        for(Mesa mesa : mesasA){
+        for(Mesa mesa : Arrays.mesa_meseros){
             String datos[] = {Integer.toString(mesa.getNumero()),Integer.toString(mesa.getCapacidad())};
             mesas.agregarFila(datos);
         }

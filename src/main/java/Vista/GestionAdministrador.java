@@ -24,7 +24,8 @@ public class GestionAdministrador extends javax.swing.JFrame {
      * @param cp
      */
     public GestionAdministrador( ControladorUsers cp) {
-        this.cp = cp;
+        initComponents();
+        cp.setVV(this);
     }
     
     public GestionAdministrador() {
