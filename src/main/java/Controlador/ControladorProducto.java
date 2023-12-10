@@ -155,7 +155,7 @@ public class ControladorProducto {
             String Estado = gp.getEstadoModificar();
             for(int i = 0; i < 4 ; i++)
             {
-                if(AlmacenamientoProducto.Productos.get(i).equals(NombreModificar))
+                if(AlmacenamientoProducto.Productos.get(i).getNombre().equals(NombreModificar))
                 {
                     
                     gp.nombreModificar.setEditable(false);
