@@ -69,7 +69,6 @@ public class Usuario {
 
         }
         return Arrays.user; 
-
     }
     
     //Con este metodo verifica si existe el nombre y la contraseña en la base de datos
@@ -97,4 +96,41 @@ public class Usuario {
         return ver;
     }
     
+    public void registrarUser(String name, String contra, String tipe)
+    {
+        String name_admin = name;
+        String contra_admin = contra;
+        String tipe_Admin = tipe;
+        
+        Conexion c = new Conexion();
+        c.ejecutar("insert into data (nombres, contraseña,tipo) values('"+name_admin+"','"+contra_admin+"','"+tipe_Admin+"');");
+    }
+    
+    public ArrayList<Usuario> consultarProductosTodos()
+    {
+        ArrayList<Usuario> user_cons = new ArrayList();
+        String sql = "select * from data";
+        Conexion c = new Conexion();
+        ResultSet rs= c.ejecutarConsulta(sql);
+        
+        try
+        {
+            while(rs.next())
+            {
+                Usuario us = new Usuario();
+                 us.setNombre(rs.getString("nombre"));
+                 us.setContraseña(rs.getString("contraseña"));
+                 us.setTipo(rs.getString("tipo"));
+
+                 user_cons.add(us);
+                 
+            }
+        }
+        catch(java.sql.SQLException e)
+        {
+
+        }
+        System.out.println(user_cons);
+        return user_cons; 
+    }
 }

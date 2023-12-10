@@ -8,6 +8,7 @@ import Modelo.Conexion;
 import Modelo.Usuario;
 import Vista.GestionAdministrador;
 import Vista.GestionLogin;
+import Vista.GestionUsuarios;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
  */
 public class ControladorUsers {
     GestionLogin lg;
+    GestionUsuarios gu;
     
     //Con este metodo verifica si existe el nombre y la contraseña en la base de datos
     
@@ -25,9 +27,7 @@ public class ControladorUsers {
     {
         
     }
-    
- 
-    
+
    
     public void verificacion()     
     {
@@ -41,11 +41,32 @@ public class ControladorUsers {
         }
     }
     
-    //Con esto consulto todo lo que haya en la BD
- 
-
+    public void agregarUsers()
+    {
+        Usuario us = new Usuario();
+        us.registrarUser(gu.getUno().getText(), gu.getDos().getText(), gu.getTres());
+    }
     
-  
+    public void consultarProductos()
+    {
+        gu.limpiarTabla();
+        Usuario us = new Usuario();
+        ArrayList<Usuario> user_cons = us.consultarProductosTodos();
+         for(Usuario us_con: user_cons){
+             String datos[]={us_con.getNombre(),us_con.getContraseña(),(us_con.getTipo())};
+             gu.agregarFila(datos);
+         }
+    }
+
+    public GestionUsuarios getView()
+    {
+        return gu;
+    }
+    
+    public void setView(GestionUsuarios gu)
+    {
+        this.gu = gu;
+    }
     public GestionLogin getVista()
     {
         return lg;
@@ -53,5 +74,5 @@ public class ControladorUsers {
     public void setVista(GestionLogin lg)
     {
         this.lg= lg;
-    }
+    }  
 }

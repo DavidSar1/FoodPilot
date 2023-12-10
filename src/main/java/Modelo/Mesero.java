@@ -8,6 +8,6 @@ package Modelo;
  *
  * @author PC
  */
-public class Mesero {
+public class Mesero extends Usuario {
     
 }
