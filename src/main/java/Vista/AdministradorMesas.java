@@ -76,7 +76,7 @@ public class AdministradorMesas extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)), "Opciones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
 
-        agregarMesa.setBackground(new java.awt.Color(255, 255, 255));
+        agregarMesa.setBackground(new java.awt.Color(0, 153, 255));
         agregarMesa.setForeground(new java.awt.Color(51, 51, 51));
         agregarMesa.setText("Añadir mesa");
         agregarMesa.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +85,7 @@ public class AdministradorMesas extends javax.swing.JFrame {
             }
         });
 
-        eliminarMesa.setBackground(new java.awt.Color(255, 255, 255));
+        eliminarMesa.setBackground(new java.awt.Color(255, 51, 51));
         eliminarMesa.setForeground(new java.awt.Color(51, 51, 51));
         eliminarMesa.setText("Eliminar mesa");
         eliminarMesa.addActionListener(new java.awt.event.ActionListener() {
