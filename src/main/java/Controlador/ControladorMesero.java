@@ -4,8 +4,10 @@
  */
 package Controlador;
 
+import Modelo.AlmacenamientoProducto;
 import Modelo.Arrays;
 import Modelo.Mesa;
+import Modelo.Producto;
 import Vista.GestionMesero;
 
 /**

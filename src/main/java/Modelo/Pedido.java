@@ -11,62 +11,57 @@ import java.util.ArrayList;
  * @author Myke
  */
 public class Pedido {
-    Mesero MeseroEncargado; 
-    Mesa MesaPedido;
-    int TiempoEstimado;
-    String Estado;
-    
+    String producto;
+    String cantidad;
+    String precio;
 
     public Pedido() {
     }
 
-    public Pedido(Mesero MeseroEncargado, Mesa MesaPedido, int TiempoEstimado, String Estado) {
-        this.MeseroEncargado = MeseroEncargado;
-        this.MesaPedido = MesaPedido;
-        this.TiempoEstimado = TiempoEstimado;
-        this.Estado = Estado;
+    public Pedido(String producto, String cantidad, String precio) {
+        this.producto = producto;
+        this.cantidad = cantidad;
+        this.precio = precio;
     }
 
-    public Mesero getMeseroEncargado() {
-        return MeseroEncargado;
+    public String getProducto() {
+        return producto;
     }
 
-    public void setMeseroEncargado(Mesero MeseroEncargado) {
-        this.MeseroEncargado = MeseroEncargado;
+    public void setProducto(String producto) {
+        this.producto = producto;
     }
 
-    public ArrayList<Producto> getProductosPedido() {
-        return Arrays.ProductosPedido;
+    public String getCantidad() {
+        return cantidad;
     }
 
-
-    public Mesa getMesaPedido() {
-        return MesaPedido;
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
     }
 
-    public void setMesaPedido(Mesa MesaPedido) {
-        this.MesaPedido = MesaPedido;
+    public String getPrecio() {
+        return precio;
     }
 
-    public int getTiempoEstimado() {
-        return TiempoEstimado;
-    }
-
-    public void setTiempoEstimado(int TiempoEstimado) {
-        this.TiempoEstimado = TiempoEstimado;
-    }
-
-    public String getEstado() {
-        return Estado;
-    }
-
-    public void setEstado(String Estado) {
-        this.Estado = Estado;
+    public void setPrecio(String precio) {
+        this.precio = precio;
     }
     
-    
-    
-    
+    public ArrayList<Pedido> asignar(String ped, String cant, String pres)
+    {
+        String pr = ped;
+        String ca = cant;
+        String cash = pres;
+        Pedido p = new Pedido();
+        p.setProducto(ped);
+        p.setCantidad(cant);
+        p.setPrecio(pres);
+        
+        Arrays.ped.add(p);
+        
+        return Arrays.ped;
+    }
     
     
  

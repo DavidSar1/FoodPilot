@@ -37,7 +37,7 @@ public class GestionMesero extends javax.swing.JFrame {
         mT.addColumn("Capacidad");
         mT.addColumn("Estado");
         cM.actualizarTabla(); 
-        btnCrear.setEnabled(false);
+        //btnCrear.setEnabled(false);
     }
     
     public void agregarFila(String datos[])
@@ -359,6 +359,8 @@ public class GestionMesero extends javax.swing.JFrame {
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         // TODO add your handling code here:
+        GestionPedido gp = new GestionPedido();
+        gp.setVisible(true);
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

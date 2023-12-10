@@ -4,26 +4,40 @@
  */
 package Controlador;
 
+import Modelo.AlmacenamientoProducto;
+import Modelo.Producto;
+import Vista.AdministradorMesas;
+import Vista.GestionPedido;
+
 /**
  *
  * @author PC
  */
 public class ControladorPedido {
-    public void crearPedido(int Mesa, int NumeroClientes){
-        try{
-            
-            
+    GestionPedido gp;
+    
+   public void ListarProductos(){
         
-        
+        gp.limpiarTabla();
+        Producto prod = new Producto();
+        for(Producto prodc : AlmacenamientoProducto.productosC){
+            String datos[] = {prodc.getNombre(),String.valueOf(prodc.getPrecio()),prodc.getEstado(),prodc.getDescripcion()};
+            gp.agregarFila(datos);
         }
-        catch(Exception e){
         
+    }
+   
+    public GestionPedido getPedido(){
+        return gp;
+    }
+    
+    public void setPedido(GestionPedido gp){
+        this.gp = gp;
+    }
+    
+    public void CrearPedido()
+    {
         
-        }
-        
-    
-    
-    
     }
     
 }
