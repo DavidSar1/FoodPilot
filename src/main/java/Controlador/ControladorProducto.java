@@ -88,8 +88,8 @@ public class ControladorProducto {
         {
             for(int j = 0; j < 4 ; j++)
             { 
-                //gp.agregarFila(new String[]{AlmacenamientoProducto.Productos.get(i).getNombre(),String.valueOf(AlmacenamientoProducto.Productos.get(i).getPrecio()),
-                    //AlmacenamientoProducto.Productos.get(i).getEstado(),AlmacenamientoProducto.Productos.get(i).getDescripcion()});
+                gp.agregarFila(new String[]{AlmacenamientoProducto.Productos.get(i).getNombre(),String.valueOf(AlmacenamientoProducto.Productos.get(i).getPrecio()),
+                    AlmacenamientoProducto.Productos.get(i).getEstado(),AlmacenamientoProducto.Productos.get(i).getDescripcion()});
             }
         
         }
