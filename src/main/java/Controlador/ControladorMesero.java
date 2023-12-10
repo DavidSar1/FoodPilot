@@ -6,9 +6,11 @@ package Controlador;
 
 import Modelo.AlmacenamientoProducto;
 import Modelo.Arrays;
+import Modelo.ListaPedido;
 import Modelo.Mesa;
 import Modelo.Producto;
 import Vista.GestionMesero;
+import Vista.GestionPedido;
 
 /**
  *
@@ -17,8 +19,6 @@ import Vista.GestionMesero;
 public class ControladorMesero  {
     
     GestionMesero gm;
-    
-    
     
    
     public void actualizarTabla(){
@@ -31,6 +31,30 @@ public class ControladorMesero  {
         }          
     }
     
+    public void ls()
+    {
+        int contador = 0;
+        //cada que le unda guardar me genere pedido +1 y estado siempre es en proceso
+        //GestionMesero gss = new GestionMesero();
+        //gss.limpiarTabla();
+        //Arrays.listp.clear();
+        
+        
+        while (true)
+        {
+            contador += 1;
+            break;
+        }
+        ListaPedido lp = new ListaPedido();
+        lp.asign(contador, "En proceso");
+        for(ListaPedido lsp: Arrays.listp)
+        {
+            String dat[]={String.valueOf(lsp.getPedido()),lsp.getEstado()};
+            gm.agrego(dat);
+        }
+            
+        
+    }
     public void asignarMesa()
     {
         

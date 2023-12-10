@@ -7,6 +7,7 @@ package Vista;
 import Controlador.ControladorMesa;
 import Controlador.ControladorMesero;
 import Controlador.ControladorUsers;
+import java.util.Arrays;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -16,10 +17,13 @@ import javax.swing.table.TableModel;
  * @author PC
  */
 public class GestionMesero extends javax.swing.JFrame {
+    DefaultTableModel gh = new DefaultTableModel();
     ControladorUsers cp = new ControladorUsers();
     DefaultTableModel mT = new DefaultTableModel();
     ControladorMesero cM = new ControladorMesero();
     AdministradorMesas am = new AdministradorMesas();
+    GestionPedido gm;
+    
     
     String numero;
     /**
@@ -33,23 +37,57 @@ public class GestionMesero extends javax.swing.JFrame {
         initComponents();
         cM.setData(this);
         cp.setVer(this); 
+        
         Tabla_asignaded.setModel(mT);
         mT.addColumn("Numero");
         mT.addColumn("Capacidad");
         mT.addColumn("Estado");
         cM.actualizarTabla(); 
-        btnCrear.setEnabled(false);
+        //btnCrear.setEnabled(false);
+        
+        Tabla_Ped.setModel(gh);
+        gh.addColumn("Pedido");
+        gh.addColumn("Estado");
+        
+        
+        
+        
     }
+    
     
     public void agregarFila(String datos[])
     {
         mT.addRow(datos);
+        
     }
     
+    public void aaa()
+    {
+        cM.ls();
+    }
     
     public void iniciar()
     {
         this.setVisible(true);
+    }
+    public void agrego(String dat[])
+    {
+        gh.addRow(dat);
+    }
+    public void limpiarTabla()
+    {
+        gh.getDataVector().removeAllElements();
+    }
+    
+    public GestionPedido getData()
+    {
+        return gm;
+    }
+    
+   
+    public void setaff(GestionPedido gm)
+    {
+        this.gm = gm;
     }
 
     /**
@@ -74,7 +112,7 @@ public class GestionMesero extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         tiempoPedido = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        Tabla_Ped = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_asignaded = new javax.swing.JTable();
@@ -111,6 +149,11 @@ public class GestionMesero extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Eliminar pedido");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(5, 59, 80));
         jButton4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -181,8 +224,7 @@ public class GestionMesero extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTable2.setBackground(new java.awt.Color(102, 102, 102));
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        Tabla_Ped.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -193,12 +235,8 @@ public class GestionMesero extends javax.swing.JFrame {
                 "Pedido", "Estado"
             }
         ));
-        jTable2.setOpaque(false);
-        jScrollPane2.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setHeaderValue("Pedido");
-            jTable2.getColumnModel().getColumn(1).setHeaderValue("Estado");
-        }
+        Tabla_Ped.setOpaque(false);
+        jScrollPane2.setViewportView(Tabla_Ped);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -385,6 +423,11 @@ public class GestionMesero extends javax.swing.JFrame {
         btnAsignar.setEnabled(false);
     }//GEN-LAST:event_btnAsignarActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        cM.ls();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     public int retorn()
     {
         int fila = Tabla_asignaded.getSelectedRow();
@@ -436,6 +479,7 @@ public class GestionMesero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Tabla_Ped;
     private javax.swing.JTable Tabla_asignaded;
     private javax.swing.JButton btnAsignar;
     private javax.swing.JButton btnCrear;
@@ -452,7 +496,6 @@ public class GestionMesero extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
     private javax.swing.JLabel tiempoPedido;
     // End of variables declaration//GEN-END:variables
 }

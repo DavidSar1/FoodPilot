@@ -16,4 +16,5 @@ public class Arrays {
     public static ArrayList<Mesa> mesa_meseros = new ArrayList();
     public static ArrayList<Producto> ProductosPedido = new ArrayList<>();
     public static ArrayList<Pedido> ped = new ArrayList<>();
+    public static ArrayList<ListaPedido> listp = new ArrayList<>();
 }
