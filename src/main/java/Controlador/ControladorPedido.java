@@ -5,7 +5,10 @@
 package Controlador;
 
 import Modelo.AlmacenamientoProducto;
+import Modelo.Arrays;
+import Modelo.Pedido;
 import Modelo.Producto;
+import Modelo.Usuario;
 import Vista.AdministradorMesas;
 import Vista.GestionPedido;
 
@@ -37,7 +40,23 @@ public class ControladorPedido {
     
     public void CrearPedido()
     {
+        gp.limpiar();
+        Pedido p = new Pedido();
+        for(int i = 0; i< AlmacenamientoProducto.productosC.size();i++)
+        {
+            if(gp.getSelect().getText().equals(AlmacenamientoProducto.productosC.get(i).getNombre()))
+            {
+                p.asignar(gp.getSelect().getText(), gp.getCant().getText(), String.valueOf(AlmacenamientoProducto.productosC.get(i).getPrecio()));
+                
+                break; 
+            }
+        }
         
+        for(Pedido col: Arrays.ped)
+        {
+             String data[]={col.getProducto(),col.getCantidad(),String.valueOf(col.getPrecio())};
+             gp.agg(data);
+        }
     }
     
 }

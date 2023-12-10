@@ -38,7 +38,7 @@ public class GestionMesero extends javax.swing.JFrame {
         mT.addColumn("Capacidad");
         mT.addColumn("Estado");
         cM.actualizarTabla(); 
-        //btnCrear.setEnabled(false);
+        btnCrear.setEnabled(false);
     }
     
     public void agregarFila(String datos[])
