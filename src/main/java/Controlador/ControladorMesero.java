@@ -20,12 +20,16 @@ public class ControladorMesero  {
     public void actualizarTabla(){
         //gm = new GestionMesero(this);
         for(Mesa mesa : Arrays.mesa_meseros){
-            String datos[] = {Integer.toString(mesa.getNumero()),Integer.toString(mesa.getCapacidad())};
+            String datos[] = {Integer.toString(mesa.getCapacidad()),Integer.toString(mesa.getNumero()),"Libre"};
             gm.agregarFila(datos);
         }          
     }
     
-    
+    public void asignarMesa()
+    {
+        
+        Arrays.mesa_meseros.remove(gm.retorn());
+    }
    
     public GestionMesero getData()
     {
