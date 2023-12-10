@@ -128,6 +128,7 @@ public class ControladorProducto {
                 {
                     
                     gp.nombreModificar.setEditable(false);
+                    
                     gp.setPrecioModificar(String.valueOf(AlmacenamientoProducto.Productos.get(i).getPrecio()));
                     gp.setDescripcion(AlmacenamientoProducto.Productos.get(i).getDescripcion());
                     break;
@@ -142,12 +143,40 @@ public class ControladorProducto {
         {
             JOptionPane.showMessageDialog(gp, "El producto que quieres modificar no existe");
                     
+        }
+    }
+    
+    
+    public void modificarProducto2(){
+        try {
+            float precioM = Float.parseFloat(gp.getPrecioModificar());
+            String descripcionM = gp.getDescripcionModificar();
+            String NombreModificar = gp.getNombreModificar();
+            String Estado = gp.getEstadoModificar();
+            for(int i = 0; i < 4 ; i++)
+            {
+                if(AlmacenamientoProducto.Productos.get(i).equals(NombreModificar))
+                {
+                    
+                    gp.nombreModificar.setEditable(false);
+                    AlmacenamientoProducto.Productos.get(i).setDescripcion(descripcionM);
+                    AlmacenamientoProducto.Productos.get(i).setPrecio(precioM);
+                    AlmacenamientoProducto.Productos.get(i).setEstado(Estado);
+                    break;
+                    
+                }
+            
+            }
+            JOptionPane.showMessageDialog(gp, "El producto ha sido modificado con exito");
+            
+            
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(gp, "Ingresa un precio correcto");
         
         }
-        
-    
-    
-    
+
     
     }
 }

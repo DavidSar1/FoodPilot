@@ -167,6 +167,11 @@ public class GestionProductos extends javax.swing.JFrame {
         botonmodificar2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         botonmodificar2.setForeground(new java.awt.Color(255, 255, 255));
         botonmodificar2.setText("Guardar");
+        botonmodificar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonmodificar2ActionPerformed(evt);
+            }
+        });
 
         botoncancelarmodificar.setBackground(new java.awt.Color(255, 51, 51));
         botoncancelarmodificar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
@@ -406,8 +411,12 @@ public class GestionProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_botonmodificar1ActionPerformed
 
     private void precioModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioModificarActionPerformed
-        // TODO add your handling code here:
+        cp.ModificarProducto1();
     }//GEN-LAST:event_precioModificarActionPerformed
+
+    private void botonmodificar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonmodificar2ActionPerformed
+        cp.modificarProducto2();
+    }//GEN-LAST:event_botonmodificar2ActionPerformed
 
     public String getPrecioModificar(){
         return precioModificar.getText();
@@ -500,7 +509,7 @@ public class GestionProductos extends javax.swing.JFrame {
     private javax.swing.JButton botoncancelarmodificar;
     private javax.swing.JButton botoncrear;
     private javax.swing.JButton botoneliminar;
-    private javax.swing.JButton botonmodificar1;
+    public javax.swing.JButton botonmodificar1;
     private javax.swing.JButton botonmodificar2;
     private javax.swing.JTextArea descripcionModificar;
     private javax.swing.JTextArea descripcioncrear;
