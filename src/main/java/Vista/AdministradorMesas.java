@@ -5,6 +5,7 @@
 package Vista;
 
 import Controlador.ControladorMesa;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
     
 /**
@@ -28,6 +29,7 @@ public class AdministradorMesas extends javax.swing.JFrame {
         cM.actualizarTabla();
     }
     
+
     public void agregarFila(String datos[]){
          mT.addRow(datos);
     }

@@ -12,7 +12,6 @@ import java.util.ArrayList;
  */
 public class Pedido {
     Mesero MeseroEncargado; 
-    ArrayList<Producto> ProductosPedido = new ArrayList<>();
     Mesa MesaPedido;
     int TiempoEstimado;
     String Estado;
@@ -37,12 +36,9 @@ public class Pedido {
     }
 
     public ArrayList<Producto> getProductosPedido() {
-        return ProductosPedido;
+        return Arrays.ProductosPedido;
     }
 
-    public void setProductosPedido(ArrayList<Producto> ProductosPedido) {
-        this.ProductosPedido = ProductosPedido;
-    }
 
     public Mesa getMesaPedido() {
         return MesaPedido;
