@@ -8,6 +8,7 @@ import Modelo.AlmacenamientoProducto;
 import Modelo.Arrays;
 import Modelo.ListaPedido;
 import Modelo.Mesa;
+import Modelo.Pedido;
 import Modelo.Producto;
 import Vista.GestionMesero;
 import Vista.GestionPedido;
@@ -47,9 +48,13 @@ public class ControladorMesero  {
         
         ListaPedido lp = new ListaPedido();
         lp.asign(contador, "En proceso");
+        for(Pedido bus: Arrays.ped)
+        {
+            
+        }
         for(ListaPedido lsp: Arrays.listp)
         {
-            String dat[]={String.valueOf(lsp.getPedido()),lsp.getEstado()};
+            String[] dat={String.valueOf(lsp.getPedido()),lsp.getEstado()};
             gm.agrego(dat);
         }  
     }

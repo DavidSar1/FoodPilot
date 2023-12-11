@@ -22,10 +22,10 @@ public class GestionMesero extends javax.swing.JFrame {
     DefaultTableModel mT = new DefaultTableModel();
     ControladorMesero cM = new ControladorMesero();
     AdministradorMesas am = new AdministradorMesas();
-    GestionPedido gm;
     
     
     String numero;
+    String ass[];
     /**
      * Creates new form Mesero
      */
@@ -49,14 +49,30 @@ public class GestionMesero extends javax.swing.JFrame {
         Tabla_Ped.setModel(gh);
         gh.addColumn("Pedido");
         gh.addColumn("Estado");
-        cM.ls();
-        
-        
-        
+           
         
     }
+    public void agrego(String dat[])
+    {
+        gh.addRow(dat);
+        ass = dat;
+    }
     
-    
+    public String[] in(String dat[])
+    {
+        gh.addRow(dat);
+        ass = dat;
+        return ass;
+    }
+    public void ini()
+    {
+       Tabla_Ped.setModel(gh);
+       gh.addColumn("Pedido");
+       gh.addColumn("Estado");
+       in(ass);
+       System.out.println(Arrays.toString(ass));
+            
+    }
     public void agregarFila(String datos[])
     {
         mT.addRow(datos);
@@ -74,24 +90,12 @@ public class GestionMesero extends javax.swing.JFrame {
         this.setVisible(true);
     }
     
-    
     public void limpiarTabla()
     {
         gh.getDataVector().removeAllElements();
     }
     
-    public GestionPedido getData()
-    {
-        return gm;
-    }
-    
-   
-    public void setaff(GestionPedido gm)
-    {
-        this.gm = gm;
-    }
-    
-    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -116,6 +120,7 @@ public class GestionMesero extends javax.swing.JFrame {
         tiempoPedido = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         Tabla_Ped = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_asignaded = new javax.swing.JTable();
@@ -216,7 +221,7 @@ public class GestionMesero extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tiempoPedido, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                .addComponent(tiempoPedido, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -241,6 +246,13 @@ public class GestionMesero extends javax.swing.JFrame {
         Tabla_Ped.setOpaque(false);
         jScrollPane2.setViewportView(Tabla_Ped);
 
+        jButton1.setText("Actualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -249,8 +261,10 @@ public class GestionMesero extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                     .addContainerGap(16, Short.MAX_VALUE)
@@ -262,6 +276,7 @@ public class GestionMesero extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(389, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -407,6 +422,7 @@ public class GestionMesero extends javax.swing.JFrame {
         Modelo.Arrays.ped.clear();
         GestionPedido gp = new GestionPedido();
         gp.setVisible(true);
+        
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -435,6 +451,11 @@ public class GestionMesero extends javax.swing.JFrame {
         // TODO add your handling code here:
         cM.ls();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        cM.ls();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public int retorn()
     {
@@ -501,6 +522,7 @@ public class GestionMesero extends javax.swing.JFrame {
     private javax.swing.JTable Tabla_asignaded;
     private javax.swing.JButton btnAsignar;
     private javax.swing.JButton btnCrear;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

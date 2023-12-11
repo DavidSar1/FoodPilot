@@ -58,8 +58,8 @@ public class ControladorPedido {
 
         for(Pedido col: Arrays.ped)
         {
-             String data[]={col.getProducto(),col.getCantidad(),String.valueOf(col.getPrecio())};
-             gp.agg(data);
+            String[] data = {col.getProducto(),col.getCantidad(),String.valueOf(col.getPrecio())};
+            gp.agg(data);
         }
         
         

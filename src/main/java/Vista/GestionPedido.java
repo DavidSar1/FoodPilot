@@ -20,7 +20,7 @@ public class GestionPedido extends javax.swing.JFrame {
     DefaultTableModel tp = new DefaultTableModel();
     ControladorPedido cp = new ControladorPedido();
     ControladorMesero cm = new ControladorMesero();
-    GestionMesero gm = new GestionMesero();
+    GestionMesero gm;
     
     
     /**
@@ -29,7 +29,6 @@ public class GestionPedido extends javax.swing.JFrame {
     public GestionPedido() {
         initComponents();
         cp.setPedido(this);
-        gm.setaff(this);
         
         Tabla_Prod.setModel(dtm);
       
@@ -56,12 +55,10 @@ public class GestionPedido extends javax.swing.JFrame {
          tp.addRow(data);
     }
     public void limpiar(){
-        System.out.print(dtm.getRowCount());
             tp.getDataVector().removeAllElements();
         
     }
     public void limpiarTabla(){
-        System.out.print(dtm.getRowCount());
             dtm.getDataVector().removeAllElements();
         
     }
@@ -401,7 +398,7 @@ public class GestionPedido extends javax.swing.JFrame {
         gm.agregarTabla();
         
         this.dispose();
-        //cm.ls();
+  
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void cancelarAcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarAcionActionPerformed
