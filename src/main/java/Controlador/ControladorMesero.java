@@ -20,6 +20,7 @@ import Vista.GestionPedido;
 public class ControladorMesero  {
     
     GestionMesero gm;
+    int contador;
     
    
     public void actualizarTabla(){
@@ -34,48 +35,43 @@ public class ControladorMesero  {
     
     public void ls()
     {
-        int contador = 0;
+        boolean agg = true;
         //cada que le unda guardar me genere pedido +1 y estado siempre es en proceso
-        //GestionMesero gss = new GestionMesero();
-        //gss.limpiarTabla();
+        
+        gm.limpiarTabla();
         //Arrays.listp.clear();
 
-        while (true)
+        while (agg)
         {
             contador += 1;
             break;
+            
         }
         
         ListaPedido lp = new ListaPedido();
         lp.asign(contador, "En proceso");
-        for(Pedido bus: Arrays.ped)
-        {
+        int i = 0;
+        for ( ;  i < Arrays.ped.size();i++)
+        { 
+
             
         }
-        for(ListaPedido lsp: Arrays.listp)
+        int tamañoAnterior = Arrays.ped.size()- 1;
+        if (Arrays.ped.size() > tamañoAnterior) 
         {
-            String[] dat={String.valueOf(lsp.getPedido()),lsp.getEstado()};
-            gm.agrego(dat);
-        }  
-    }
-    
-    public void agregar1Metodo(){
-        Pedido n = new Pedido();
-        n.setIndex("1");
-        n.setProducto("Ensalada");
-        n.setCantidad("2");
-        n.setPrecio("1000");
+            if(!Arrays.ped.isEmpty())
+            {
+                for (ListaPedido lsp : Arrays.listp) 
+                {
+                    String[] dat = {String.valueOf(lsp.getPedido()), lsp.getEstado()};
+                    gm.agrego(dat);
+                }
+            }
+        }
         
-        Pedido n2 = new Pedido();
-        n2.setIndex("1");
-        n2.setProducto("Ensalada");
-        n2.setCantidad("2");
-        n2.setPrecio("1000");
-        Arrays.pedidosHechos.add(n);
-        Arrays.pedidosHechos.add(n2);
         
+         
     }
-
     public void asignarMesa()
     {
         
