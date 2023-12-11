@@ -17,8 +17,14 @@ public class HiloCronometro extends Thread{
 
     @Override
     public void run() {
-        while (segundos < 60) {
+        while (true) {
             try {
+                if (segundos == 60)
+                {
+                    segundos = 0;
+                    minutos++;
+                
+                }
                 Thread.sleep(1000);
                 segundos++;
                 String minutoPedido = String.format("%02d:%02d", minutos, segundos);
