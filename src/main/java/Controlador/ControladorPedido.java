@@ -91,8 +91,10 @@ public class ControladorPedido {
         {
             if(gp.getSelect().getText().equals(AlmacenamientoProducto.productosC.get(i).getNombre()))
             {
-                p.asignar(gp.getSelect().getText(), gp.getCant().getText(), String.valueOf(AlmacenamientoProducto.productosC.get(i).getPrecio()));
-                p.asignarPedidoHecho(String.valueOf(indexpedido), gp.getSelect().getText(), gp.getCant().getText(), String.valueOf(AlmacenamientoProducto.productosC.get(i).getPrecio()), gp.getTotal().getText());
+                System.out.println(gp.getCant().getText());
+                Float precioTotal = AlmacenamientoProducto.productosC.get(i).getPrecio()* Float.parseFloat(gp.getCant().getText());
+                p.asignar(gp.getSelect().getText(), gp.getCant().getText(), String.valueOf(precioTotal));
+                p.asignarPedidoHecho(String.valueOf(indexpedido), gp.getSelect().getText(), gp.getCant().getText(), String.valueOf(precioTotal), gp.getTotal().getText());
                 break; 
             }
         }
@@ -102,6 +104,13 @@ public class ControladorPedido {
             String[] data = {col.getProducto(),col.getCantidad(),String.valueOf(col.getPrecio())};
             gp.agg(data);
         }
+        float totalPedido = 0;
+        for(int i = 0 ; i< Arrays.ped.size();i++)    
+        {
+            totalPedido += Float.parseFloat(Arrays.ped.get(i).getPrecio());
+        }
+        
+        System.out.println(totalPedido);
         
         
     }
