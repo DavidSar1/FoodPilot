@@ -58,6 +58,24 @@ public class ControladorMesero  {
             gm.agrego(dat);
         }  
     }
+    
+    public void agregar1Metodo(){
+        Pedido n = new Pedido();
+        n.setIndex("1");
+        n.setProducto("Ensalada");
+        n.setCantidad("2");
+        n.setPrecio("1000");
+        
+        Pedido n2 = new Pedido();
+        n2.setIndex("1");
+        n2.setProducto("Ensalada");
+        n2.setCantidad("2");
+        n2.setPrecio("1000");
+        Arrays.pedidosHechos.add(n);
+        Arrays.pedidosHechos.add(n2);
+        
+    }
+
     public void asignarMesa()
     {
         

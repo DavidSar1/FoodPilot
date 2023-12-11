@@ -11,6 +11,7 @@ import Modelo.Pedido;
 import Modelo.Producto;
 import Modelo.Usuario;
 import Vista.AdministradorMesas;
+import Vista.EditarPedido;
 import Vista.GestionPedido;
 import javax.swing.JOptionPane;
 
@@ -20,8 +21,10 @@ import javax.swing.JOptionPane;
  */
 public class ControladorPedido {
     GestionPedido gp;
+    EditarPedido eP;
+    int indexpedido = 0;
     
-   public void ListarProductos(){
+    public void ListarProductos(){
         
         gp.limpiarTabla();
         Producto prod = new Producto();
@@ -31,6 +34,34 @@ public class ControladorPedido {
         }
         
     }
+    public void ListarProductosEdit(){
+        
+        eP.limpiarTablaEdit();
+        Producto prod = new Producto();
+        for(Producto prodc : AlmacenamientoProducto.productosC){
+            String datos[] = {prodc.getNombre(),String.valueOf(prodc.getPrecio()),prodc.getEstado(),prodc.getDescripcion()};
+            eP.agregarFila(datos);
+        }
+        
+    }
+    
+    public void productoEditar(EditarPedido ep1, String index){
+        
+        ep1.limpiarTablaEditar();
+        Producto prod = new Producto();
+        for(int i = 0; i < Arrays.pedidosHechos.size();i++){
+            if(Arrays.pedidosHechos.get(i).getIndex().equals(index)){
+                String datos[] = {Arrays.pedidosHechos.get(i).getProducto(),Arrays.pedidosHechos.get(i).getCantidad(),Arrays.pedidosHechos.get(i).getPrecio()};
+                ep1.agregarFilaEditar(datos);
+            } else {
+                JOptionPane.showMessageDialog(null, "Idiota");
+            }
+
+        }
+        
+    }
+    
+    
    
     public GestionPedido getPedido(){
         return gp;
@@ -40,8 +71,18 @@ public class ControladorPedido {
         this.gp = gp;
     }
     
+    public EditarPedido getEditPedido(){
+        return eP;
+    }
+    
+    public void setEditPedido(EditarPedido eP){
+        this.eP = eP;
+        
+    }
+    
     public void CrearPedido()
     {
+        indexpedido += 1;
         gp.limpiar();
         
         Pedido p = new Pedido();
@@ -51,11 +92,11 @@ public class ControladorPedido {
             if(gp.getSelect().getText().equals(AlmacenamientoProducto.productosC.get(i).getNombre()))
             {
                 p.asignar(gp.getSelect().getText(), gp.getCant().getText(), String.valueOf(AlmacenamientoProducto.productosC.get(i).getPrecio()));
-
+                p.asignarPedidoHecho(String.valueOf(indexpedido), gp.getSelect().getText(), gp.getCant().getText(), String.valueOf(AlmacenamientoProducto.productosC.get(i).getPrecio()), gp.getTotal().getText());
                 break; 
             }
         }
-
+        
         for(Pedido col: Arrays.ped)
         {
             String[] data = {col.getProducto(),col.getCantidad(),String.valueOf(col.getPrecio())};

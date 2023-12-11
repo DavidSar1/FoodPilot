@@ -6,7 +6,9 @@ package Vista;
 
 import Controlador.ControladorMesa;
 import Controlador.ControladorMesero;
+import Controlador.ControladorPedido;
 import Controlador.ControladorUsers;
+import Modelo.Pedido;
 import java.util.Arrays;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
@@ -49,7 +51,8 @@ public class GestionMesero extends javax.swing.JFrame {
         Tabla_Ped.setModel(gh);
         gh.addColumn("Pedido");
         gh.addColumn("Estado");
-           
+        
+        cM.agregar1Metodo();
         
     }
     public void agrego(String dat[])
@@ -77,10 +80,6 @@ public class GestionMesero extends javax.swing.JFrame {
     {
         mT.addRow(datos);
         
-    }
-    public void agrego(String dat[])
-    {
-        gh.addRow(dat);
     }
     
     
@@ -152,6 +151,11 @@ public class GestionMesero extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Editar pedido");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 51, 51));
         jButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -457,6 +461,15 @@ public class GestionMesero extends javax.swing.JFrame {
         cM.ls();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int fila = Tabla_Ped.getSelectedRow();
+        EditarPedido editPedido = new EditarPedido();
+        ControladorPedido cP = new ControladorPedido();
+        cP.productoEditar(editPedido, "1");
+        editPedido.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     public int retorn()
     {
         int fila = Tabla_asignaded.getSelectedRow();
@@ -538,4 +551,5 @@ public class GestionMesero extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel tiempoPedido;
     // End of variables declaration//GEN-END:variables
+
 }

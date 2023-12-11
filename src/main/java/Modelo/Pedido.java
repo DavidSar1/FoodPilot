@@ -11,18 +11,24 @@ import java.util.ArrayList;
  * @author Myke
  */
 public class Pedido {
+    String index;
     String producto;
     String cantidad;
     String precio;
+    String total;
 
     public Pedido() {
     }
 
-    public Pedido(String producto, String cantidad, String precio) {
+    public Pedido(String index, String producto, String cantidad, String precio, String total) {
+        this.index = index;
         this.producto = producto;
         this.cantidad = cantidad;
         this.precio = precio;
+        this.total = total;
     }
+
+   
 
     public String getProducto() {
         return producto;
@@ -47,6 +53,23 @@ public class Pedido {
     public void setPrecio(String precio) {
         this.precio = precio;
     }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
+    }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+    
     
     public ArrayList<Pedido> asignar(String ped, String cant, String pres)
     {
@@ -61,6 +84,18 @@ public class Pedido {
         Arrays.ped.add(p);
         
         return Arrays.ped;
+    }
+    
+    public void asignarPedidoHecho(String index,String ped, String cant, String pres, String total){
+        Pedido p = new Pedido();
+        p.setIndex(index);
+        p.setProducto(ped);
+        p.setCantidad(cant);
+        p.setPrecio(pres);
+        p.setTotal(total);
+        
+        Arrays.pedidosHechos.add(p);
+        
     }
     
     

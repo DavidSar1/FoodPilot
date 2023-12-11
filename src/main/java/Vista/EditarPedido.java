@@ -4,18 +4,63 @@
  */
 package Vista;
 
+import Controlador.ControladorMesero;
+import Controlador.ControladorPedido;
+import Controlador.ControladorUsers;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author oscar
  */
 public class EditarPedido extends javax.swing.JFrame {
-
+    DefaultTableModel dtm = new DefaultTableModel();
+    DefaultTableModel editT = new DefaultTableModel();
+    ControladorPedido cp = new ControladorPedido();
     /**
      * Creates new form EditarPedido
      */
     public EditarPedido() {
         initComponents();
+        
+        cp.setEditPedido(this);
+        
+        tablaProductoEdit.setModel(dtm);
+      
+        dtm.addColumn("Producto");
+        dtm.addColumn("Precio");
+        dtm.addColumn("Estado");
+        dtm.addColumn("Descripción");
+        cp.ListarProductosEdit();
+        
+        tablaPedidoEdit.setModel(editT);
+        editT.addColumn("Producto");
+        editT.addColumn("Cantidad");
+        editT.addColumn("Precio");
     }
+    //tabla productos
+    public void limpiarTablaEdit(){
+        dtm.getDataVector().removeAllElements();
+        
+    }
+    
+    public void agregarFila(String datos[])
+    {
+        dtm.addRow(datos);
+        
+    }
+    //tabla pedidos
+    public void limpiarTablaEditar(){
+        editT.getDataVector().removeAllElements();
+        
+    }
+    public void agregarFilaEditar(String datos[])
+    {
+        editT.addRow(datos);
+        
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,10 +76,10 @@ public class EditarPedido extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tablaProductoEdit = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaPedidoEdit = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnMenos1 = new javax.swing.JButton();
@@ -49,7 +94,7 @@ public class EditarPedido extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(5, 59, 80));
 
@@ -59,7 +104,7 @@ public class EditarPedido extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Productos", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
         jPanel4.setOpaque(false);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tablaProductoEdit.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -70,7 +115,7 @@ public class EditarPedido extends javax.swing.JFrame {
                 "Producto", "Precio", "Estado", "Descripcion"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tablaProductoEdit);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -91,7 +136,7 @@ public class EditarPedido extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Pedido", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14), new java.awt.Color(51, 51, 51))); // NOI18N
         jPanel5.setOpaque(false);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaPedidoEdit.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -102,7 +147,7 @@ public class EditarPedido extends javax.swing.JFrame {
                 "Producto", "Cantidad", "Precio"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaPedidoEdit);
 
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("TOTAL");
@@ -355,7 +400,7 @@ public class EditarPedido extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable tablaPedidoEdit;
+    private javax.swing.JTable tablaProductoEdit;
     // End of variables declaration//GEN-END:variables
 }
