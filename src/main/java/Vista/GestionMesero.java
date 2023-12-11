@@ -43,11 +43,13 @@ public class GestionMesero extends javax.swing.JFrame {
         mT.addColumn("Capacidad");
         mT.addColumn("Estado");
         cM.actualizarTabla(); 
+        
         //btnCrear.setEnabled(false);
         
         Tabla_Ped.setModel(gh);
         gh.addColumn("Pedido");
         gh.addColumn("Estado");
+        cM.ls();
         
         
         
@@ -60,20 +62,19 @@ public class GestionMesero extends javax.swing.JFrame {
         mT.addRow(datos);
         
     }
-    
-    public void aaa()
+    public void agrego(String dat[])
     {
-        cM.ls();
+        gh.addRow(dat);
     }
+    
+    
     
     public void iniciar()
     {
         this.setVisible(true);
     }
-    public void agrego(String dat[])
-    {
-        gh.addRow(dat);
-    }
+    
+    
     public void limpiarTabla()
     {
         gh.getDataVector().removeAllElements();
@@ -89,6 +90,8 @@ public class GestionMesero extends javax.swing.JFrame {
     {
         this.gm = gm;
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -360,11 +363,11 @@ public class GestionMesero extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 823, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -374,7 +377,10 @@ public class GestionMesero extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -398,6 +404,7 @@ public class GestionMesero extends javax.swing.JFrame {
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         // TODO add your handling code here:
+        Modelo.Arrays.ped.clear();
         GestionPedido gp = new GestionPedido();
         gp.setVisible(true);
     }//GEN-LAST:event_btnCrearActionPerformed
@@ -412,6 +419,7 @@ public class GestionMesero extends javax.swing.JFrame {
 
     private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
         // TODO add your handling code here:
+        cM.ls();
         int fila = Tabla_asignaded.getSelectedRow();
         numero = Tabla_asignaded.getValueAt(fila, 2).toString();
         if (!numero.equals("Ocupado")) 
@@ -470,12 +478,22 @@ public class GestionMesero extends javax.swing.JFrame {
         });
     }
     
+    public void meterDatosTabla(){
+        cM.ls();
+    }
+    
     public String getTiempo(){
         return tiempoPedido.getText();
     }
     
     public void setTiempo(String text){
         tiempoPedido.setText(text);
+    }
+    
+    
+    public void agregarTabla(){
+        cM.ls();
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

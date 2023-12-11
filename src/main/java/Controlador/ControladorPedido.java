@@ -43,7 +43,7 @@ public class ControladorPedido {
     public void CrearPedido()
     {
         gp.limpiar();
-        Arrays.ped.clear();
+        
         Pedido p = new Pedido();
         
         for(int i = 0; i< AlmacenamientoProducto.productosC.size();i++)
@@ -61,6 +61,7 @@ public class ControladorPedido {
              String data[]={col.getProducto(),col.getCantidad(),String.valueOf(col.getPrecio())};
              gp.agg(data);
         }
+        
         
     }
     

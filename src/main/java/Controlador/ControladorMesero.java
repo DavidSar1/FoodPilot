@@ -38,22 +38,20 @@ public class ControladorMesero  {
         //GestionMesero gss = new GestionMesero();
         //gss.limpiarTabla();
         //Arrays.listp.clear();
-        
-        
+
         while (true)
         {
             contador += 1;
             break;
         }
+        
         ListaPedido lp = new ListaPedido();
         lp.asign(contador, "En proceso");
         for(ListaPedido lsp: Arrays.listp)
         {
             String dat[]={String.valueOf(lsp.getPedido()),lsp.getEstado()};
             gm.agrego(dat);
-        }
-            
-        
+        }  
     }
     public void asignarMesa()
     {
