@@ -69,6 +69,11 @@ public class Pedido {
     public void setTotal(String total) {
         this.total = total;
     }
+
+    @Override
+    public String toString() {
+        return "Pedido{" + "producto=" + producto + ", cantidad=" + cantidad + ", precio=" + precio + '}';
+    }
     
     
     public ArrayList<Pedido> asignar(String ped, String cant, String pres)

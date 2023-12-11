@@ -21,7 +21,7 @@ public class ControladorMesero  {
     
     GestionMesero gm;
     int contador;
-    
+    int ped = 0;
    
     public void actualizarTabla(){
         HiloCronometro hCronometro = new HiloCronometro(this);
@@ -50,27 +50,28 @@ public class ControladorMesero  {
         
         ListaPedido lp = new ListaPedido();
         lp.asign(contador, "En proceso");
-        int i = 0;
-        for ( ;  i < Arrays.ped.size();i++)
-        { 
-
-            
-        }
-        int tamañoAnterior = Arrays.ped.size()- 1;
-        if (Arrays.ped.size() > tamañoAnterior) 
+        if(ped < Arrays.pedidosHechos.size())
         {
-            if(!Arrays.ped.isEmpty())
+            for (ListaPedido lsp : Arrays.listp) 
             {
-                for (ListaPedido lsp : Arrays.listp) 
-                {
-                    String[] dat = {String.valueOf(lsp.getPedido()), lsp.getEstado()};
-                    gm.agrego(dat);
-                }
+                String[] dat = {String.valueOf(lsp.getPedido()), lsp.getEstado()};
+                gm.agrego(dat);
             }
         }
-        
-        
-         
+        ped = Arrays.pedidosHechos.size();
+        System.out.println(Arrays.pedidosHechos.toString());
+    }
+    
+    public void eliminarPedido()
+    {
+        gm.columnaPedido();
+        for (int i = 0; i < Arrays.pedidosHechos.size();i++) 
+        {
+            if (i == gm.columnaPedido()-1)
+            {
+                Arrays.pedidosHechos.remove(i);
+            }
+        }
     }
     public void asignarMesa()
     {

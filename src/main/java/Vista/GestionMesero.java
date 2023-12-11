@@ -11,6 +11,7 @@ import Controlador.ControladorUsers;
 import Modelo.Pedido;
 import java.util.Arrays;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -51,10 +52,11 @@ public class GestionMesero extends javax.swing.JFrame {
         Tabla_Ped.setModel(gh);
         gh.addColumn("Pedido");
         gh.addColumn("Estado");
-        
-        cM.agregar1Metodo();
+        btnActu.setEnabled(false);
         
     }
+    
+    
     public void agrego(String dat[])
     {
         gh.addRow(dat);
@@ -86,7 +88,7 @@ public class GestionMesero extends javax.swing.JFrame {
         mT.addRow(datos);
         
     }
-    
+   
     
     
     public void iniciar()
@@ -99,7 +101,13 @@ public class GestionMesero extends javax.swing.JFrame {
         gh.getDataVector().removeAllElements();
     }
     
-
+    public int columnaPedido()
+    {
+        int fila = Tabla_Ped.getSelectedRow();
+        String colm = Tabla_Ped.getValueAt(fila, 0).toString();
+        int pcolm = Integer.parseInt(colm);
+        return pcolm;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -118,13 +126,14 @@ public class GestionMesero extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         tiempoPedido = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         Tabla_Ped = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnActu = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_asignaded = new javax.swing.JTable();
@@ -182,28 +191,42 @@ public class GestionMesero extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Cancelar pedido");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)))
+                        .addGap(66, 66, 66))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -255,10 +278,10 @@ public class GestionMesero extends javax.swing.JFrame {
         Tabla_Ped.setOpaque(false);
         jScrollPane2.setViewportView(Tabla_Ped);
 
-        jButton1.setText("Actualizar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnActu.setText("Actualizar");
+        btnActu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnActuActionPerformed(evt);
             }
         });
 
@@ -275,7 +298,7 @@ public class GestionMesero extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnActu, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -285,7 +308,7 @@ public class GestionMesero extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addComponent(btnActu)
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -426,7 +449,7 @@ public class GestionMesero extends javax.swing.JFrame {
         Modelo.Arrays.ped.clear();
         GestionPedido gp = new GestionPedido();
         gp.setVisible(true);
-        
+        btnActu.setEnabled(true);
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -439,27 +462,46 @@ public class GestionMesero extends javax.swing.JFrame {
 
     private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
         // TODO add your handling code here:
-        cM.ls();
-        int fila = Tabla_asignaded.getSelectedRow();
-        numero = Tabla_asignaded.getValueAt(fila, 2).toString();
-        if (!numero.equals("Ocupado")) 
+        //cM.ls();
+        try
         {
-            Tabla_asignaded.setValueAt("Ocupado", fila, 2);
+            int fila = Tabla_asignaded.getSelectedRow();
+            numero = Tabla_asignaded.getValueAt(fila, 2).toString();
+            if (!numero.equals("Ocupado")) 
+            {
+                Tabla_asignaded.setValueAt("Ocupado", fila, 2);
+            }
+
+            btnCrear.setEnabled(true);
+            btnAsignar.setEnabled(false);
         }
-       
-        btnCrear.setEnabled(true);
-        btnAsignar.setEnabled(false);
+        catch(java.lang.ArrayIndexOutOfBoundsException e)
+        {
+            JOptionPane.showMessageDialog(null,"No seleccionó ningun valor");
+        }
     }//GEN-LAST:event_btnAsignarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        cM.ls();
+        try
+        {
+            int fila = Tabla_Ped.getSelectedRow();
+            cM.eliminarPedido();
+            gh.removeRow( fila);
+        }
+        catch(java.lang.ArrayIndexOutOfBoundsException e)
+        {
+            JOptionPane.showMessageDialog(null,"No seleccionó ningun valor");
+        }
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnActuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActuActionPerformed
         // TODO add your handling code here:
         cM.ls();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        btnActu.setEnabled(false);
+
+    }//GEN-LAST:event_btnActuActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -469,6 +511,12 @@ public class GestionMesero extends javax.swing.JFrame {
         cP.productoEditar(editPedido, "1");
         editPedido.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int fila = Tabla_Ped.getSelectedRow();
+        gh.setValueAt("Cancelado",fila, 1);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public int retorn()
     {
@@ -512,9 +560,6 @@ public class GestionMesero extends javax.swing.JFrame {
         });
     }
     
-    public void meterDatosTabla(){
-        cM.ls();
-    }
     
     public String getTiempo(){
         return tiempoPedido.getText();
@@ -525,14 +570,11 @@ public class GestionMesero extends javax.swing.JFrame {
     }
     
     
-    public void agregarTabla(){
-        cM.ls();
-        
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tabla_Ped;
     private javax.swing.JTable Tabla_asignaded;
+    private javax.swing.JButton btnActu;
     private javax.swing.JButton btnAsignar;
     private javax.swing.JButton btnCrear;
     private javax.swing.JButton jButton1;

@@ -23,6 +23,7 @@ public class ControladorPedido {
     GestionPedido gp;
     EditarPedido eP;
     int indexpedido = 0;
+    float precioTotal;
     
     public void ListarProductos(){
         
@@ -92,9 +93,8 @@ public class ControladorPedido {
             if(gp.getSelect().getText().equals(AlmacenamientoProducto.productosC.get(i).getNombre()))
             {
                 System.out.println(gp.getCant().getText());
-                Float precioTotal = AlmacenamientoProducto.productosC.get(i).getPrecio()* Float.parseFloat(gp.getCant().getText());
+                precioTotal = AlmacenamientoProducto.productosC.get(i).getPrecio()* Float.parseFloat(gp.getCant().getText());
                 p.asignar(gp.getSelect().getText(), gp.getCant().getText(), String.valueOf(precioTotal));
-                p.asignarPedidoHecho(String.valueOf(indexpedido), gp.getSelect().getText(), gp.getCant().getText(), String.valueOf(precioTotal), gp.getTotal().getText());
                 break; 
             }
         }
@@ -108,13 +108,13 @@ public class ControladorPedido {
         for(int i = 0 ; i< Arrays.ped.size();i++)    
         {
             totalPedido += Float.parseFloat(Arrays.ped.get(i).getPrecio());
-        }
-        
-        System.out.println(totalPedido);
-        
-        
+        }   
     }
     
-    
+    public void guardarPed()
+    {
+        Pedido p = new Pedido();
+        p.asignarPedidoHecho(String.valueOf(indexpedido), gp.getSelect().getText(), gp.getCant().getText(), String.valueOf(precioTotal), gp.getTotal().getText());
+    }
     
 }
