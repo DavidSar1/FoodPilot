@@ -7,6 +7,8 @@ package Vista;
 import Controlador.ControladorMesero;
 import Controlador.ControladorPedido;
 import Controlador.ControladorUsers;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -37,6 +39,7 @@ public class EditarPedido extends javax.swing.JFrame {
         editT.addColumn("Producto");
         editT.addColumn("Cantidad");
         editT.addColumn("Precio");
+        btnIngre.setEnabled(false);
     }
     //tabla productos
     public void limpiarTablaEdit(){
@@ -86,8 +89,8 @@ public class EditarPedido extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         JTselected = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        btnIngre = new javax.swing.JButton();
+        cant = new javax.swing.JLabel();
         cantidad = new javax.swing.JTextField();
         btnMas = new javax.swing.JButton();
         btnMenos = new javax.swing.JButton();
@@ -99,9 +102,9 @@ public class EditarPedido extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(5, 59, 80));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Editar Pedido", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(51, 51, 51))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Editar Pedido", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(51, 51, 51))); // NOI18N
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Productos", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Productos", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
         jPanel4.setOpaque(false);
 
         tablaProductoEdit.setModel(new javax.swing.table.DefaultTableModel(
@@ -133,7 +136,7 @@ public class EditarPedido extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Pedido", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14), new java.awt.Color(51, 51, 51))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pedido", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14), new java.awt.Color(51, 51, 51))); // NOI18N
         jPanel5.setOpaque(false);
 
         tablaPedidoEdit.setModel(new javax.swing.table.DefaultTableModel(
@@ -197,12 +200,11 @@ public class EditarPedido extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Producto");
 
-        jButton2.setBackground(new java.awt.Color(0, 153, 255));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Ingresar");
+        btnIngre.setBackground(new java.awt.Color(0, 153, 255));
+        btnIngre.setForeground(new java.awt.Color(255, 255, 255));
+        btnIngre.setText("Ingresar");
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Cantidad");
+        cant.setText("Cantidad");
 
         cantidad.setEditable(false);
         cantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -211,10 +213,20 @@ public class EditarPedido extends javax.swing.JFrame {
         btnMas.setBackground(new java.awt.Color(0, 153, 255));
         btnMas.setForeground(new java.awt.Color(255, 255, 255));
         btnMas.setText("+");
+        btnMas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMasActionPerformed(evt);
+            }
+        });
 
         btnMenos.setBackground(new java.awt.Color(255, 51, 51));
         btnMenos.setForeground(new java.awt.Color(255, 255, 255));
         btnMenos.setText("-");
+        btnMenos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -228,15 +240,15 @@ public class EditarPedido extends javax.swing.JFrame {
                             .addComponent(JTselected)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
+                        .addComponent(cant)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnMenos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnMas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                            .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 34, Short.MAX_VALUE))
                         .addGap(27, 27, 27))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnIngre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         jPanel6Layout.setVerticalGroup(
@@ -248,13 +260,13 @@ public class EditarPedido extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(cant)
                     .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JTselected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnIngre)
                 .addGap(21, 21, 21))
         );
 
@@ -262,11 +274,21 @@ public class EditarPedido extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Agregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 51, 51));
         jButton3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Calelar pedido");
+        jButton3.setText("Cancelar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -344,6 +366,54 @@ public class EditarPedido extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasActionPerformed
+        // TODO add your handling code here:
+        String cantstr = getCant().getText();
+        int cant = Integer.parseInt(cantstr);
+        cant += 1;
+
+        getCant().setText(String.valueOf(cant));
+    }//GEN-LAST:event_btnMasActionPerformed
+
+    private void btnMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenosActionPerformed
+        // TODO add your handling code here:
+        String cantstr = getCant().getText();
+        int cant = Integer.parseInt(cantstr);
+
+        if(cant <= 1)
+        {
+            return;
+        }
+
+        cant -= 1;
+
+        getCant().setText(String.valueOf(cant));
+    }//GEN-LAST:event_btnMenosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            int fila = tablaProductoEdit.getSelectedRow();
+            String producto  = tablaProductoEdit.getValueAt(fila, 0).toString();
+            JTselected.setText(producto);
+            btnIngre.setEnabled(true);
+        }
+        catch(java.lang.ArrayIndexOutOfBoundsException e)
+        {
+            JOptionPane.showMessageDialog(null,"No seleccionó ningun valor");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    public JTextField getCant()
+    {
+        return cantidad;
+    }
     /**
      * @param args the command line arguments
      */
@@ -381,16 +451,16 @@ public class EditarPedido extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JTselected;
+    private javax.swing.JButton btnIngre;
     private javax.swing.JButton btnMas;
     private javax.swing.JButton btnMenos;
     private javax.swing.JButton btnMenos1;
+    private javax.swing.JLabel cant;
     private javax.swing.JTextField cantidad;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

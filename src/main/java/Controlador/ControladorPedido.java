@@ -46,18 +46,25 @@ public class ControladorPedido {
         
     }
     
-    public void productoEditar(EditarPedido ep1, String index){
+    public void productoEditar(EditarPedido ep1, int  index){
         
+        boolean ver = true;
         ep1.limpiarTablaEditar();
         Producto prod = new Producto();
-        for(int i = 0; i < Arrays.pedidosHechos.size();i++){
-            if(Arrays.pedidosHechos.get(i).getIndex().equals(index)){
+        for(int i = 0; i < Arrays.pedidosHechos.size();i++)
+        {
+            if(i == index)
+            {
                 String datos[] = {Arrays.pedidosHechos.get(i).getProducto(),Arrays.pedidosHechos.get(i).getCantidad(),Arrays.pedidosHechos.get(i).getPrecio()};
                 ep1.agregarFilaEditar(datos);
-            } else {
-                JOptionPane.showMessageDialog(null, "Idiota");
-            }
+                ver = false;
+            } 
+        
 
+        }
+        if(ver) 
+        {
+            JOptionPane.showMessageDialog(null, "Idiota");
         }
         
     }

@@ -295,6 +295,11 @@ public class GestionPedido extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(255, 51, 51));
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Eliminar producto");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
@@ -318,8 +323,8 @@ public class GestionPedido extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
                         .addComponent(labelTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -421,6 +426,7 @@ public class GestionPedido extends javax.swing.JFrame {
 
     private void cancelarAcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarAcionActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_cancelarAcionActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -471,6 +477,20 @@ public class GestionPedido extends javax.swing.JFrame {
         tablaPed();
         btnSave.setEnabled(true);
     }//GEN-LAST:event_btnHacerActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            int fila = Tabla_Pedido.getSelectedRow();
+            tp.removeRow( fila);
+            btnSave.setEnabled(false);  
+        }
+        catch(java.lang.ArrayIndexOutOfBoundsException e)
+        {
+            JOptionPane.showMessageDialog(null,"No seleccionó ningun valor");
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
     
     public JTextField getSelect()
     {
