@@ -62,13 +62,9 @@ public class EditarPedido extends javax.swing.JFrame {
         editT.addRow(datos);    
     }
     
-    public void totalpedidoeditar(String texto)
-    {
-        totaleditar.setText(texto);
-    
+    public void table3(){
+        cp.editaPedido(Modelo.numerosStaticos.editarPedido);
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -101,16 +97,16 @@ public class EditarPedido extends javax.swing.JFrame {
         btnMenos = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        guardarEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(5, 59, 80));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Editar Pedido", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(51, 51, 51))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Editar Pedido", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(51, 51, 51))); // NOI18N
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Productos", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Productos", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
         jPanel4.setOpaque(false);
 
         tablaProductoEdit.setModel(new javax.swing.table.DefaultTableModel(
@@ -142,7 +138,7 @@ public class EditarPedido extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pedido", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14), new java.awt.Color(51, 51, 51))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Pedido", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14), new java.awt.Color(51, 51, 51))); // NOI18N
         jPanel5.setOpaque(false);
 
         tablaEd.setModel(new javax.swing.table.DefaultTableModel(
@@ -268,7 +264,7 @@ public class EditarPedido extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnMenos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnMas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cantidad))
+                            .addComponent(cantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
                         .addGap(27, 27, 27))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(btnIngre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -313,10 +309,14 @@ public class EditarPedido extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 153, 255));
-        jButton2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Guardar Cambios");
+        guardarEditar.setBackground(new java.awt.Color(0, 153, 255));
+        guardarEditar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        guardarEditar.setText("Guardar");
+        guardarEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarEditarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -341,6 +341,10 @@ public class EditarPedido extends javax.swing.JFrame {
                         .addGap(82, 82, 82)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(16, 16, 16))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(guardarEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(293, 293, 293))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -352,14 +356,10 @@ public class EditarPedido extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(38, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(guardarEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                .addGap(12, 12, 12))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -373,7 +373,9 @@ public class EditarPedido extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -462,6 +464,8 @@ public class EditarPedido extends javax.swing.JFrame {
         try
         {
             int fila = tablaEd.getSelectedRow();
+            String columna = tablaEd.getValueAt(fila, 0).toString();
+            cp.eliminarPructoPedido(Modelo.numerosStaticos.editarPedido,columna);
             editT.removeRow( fila);
         }
         catch(java.lang.ArrayIndexOutOfBoundsException e)
@@ -469,6 +473,13 @@ public class EditarPedido extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"No seleccionó ningun valor");
         }
     }//GEN-LAST:event_btnMenos1ActionPerformed
+
+    private void guardarEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEditarActionPerformed
+        // TODO add your handling code here:
+        table3();
+        this.dispose();
+        Modelo.numerosStaticos.editarPedido = 0;
+    }//GEN-LAST:event_guardarEditarActionPerformed
 
     public JTextField getCant()
     {
@@ -522,6 +533,7 @@ public class EditarPedido extends javax.swing.JFrame {
     private javax.swing.JButton btnMenos1;
     private javax.swing.JLabel cant;
     private javax.swing.JTextField cantidad;
+    private javax.swing.JButton guardarEditar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

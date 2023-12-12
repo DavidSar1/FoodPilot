@@ -88,7 +88,9 @@ public class GestionMesero extends javax.swing.JFrame {
         mT.addRow(datos);
         
     }
-   
+    public void iniciarMetodo(){
+        cM.ls();
+    }
     
     
     public void iniciar()
@@ -192,7 +194,9 @@ public class GestionMesero extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(255, 51, 51));
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Cancelar pedido");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -515,7 +519,7 @@ public class GestionMesero extends javax.swing.JFrame {
 
     private void btnActuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActuActionPerformed
         // TODO add your handling code here:
-        cM.ls();
+        iniciarMetodo();
         btnActu.setEnabled(false);
 
     }//GEN-LAST:event_btnActuActionPerformed
@@ -525,6 +529,7 @@ public class GestionMesero extends javax.swing.JFrame {
         try
         {
             int fila = Tabla_Ped.getSelectedRow()+1;
+            Modelo.numerosStaticos.editarPedido = fila;
             System.out.println(fila+1);
             EditarPedido editPedido = new EditarPedido();
             ControladorPedido cP = new ControladorPedido();

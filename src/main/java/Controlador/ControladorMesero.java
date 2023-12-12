@@ -18,10 +18,10 @@ import Vista.GestionPedido;
  * @author Myke
  */
 public class ControladorMesero  {
-    
     GestionMesero gm;
     int contador;
     int ped = 0;
+    HiloEntregado hActualizar;
    
     public void actualizarTabla(){
         HiloCronometro hCronometro = new HiloCronometro(this);
@@ -31,6 +31,10 @@ public class ControladorMesero  {
             String datos[] = {Integer.toString(mesa.getCapacidad()),Integer.toString(mesa.getNumero()),"Libre"};
             gm.agregarFila(datos);
         }          
+    }
+    
+    public void cambiarEstado(){
+        
     }
     
     public void ls()
@@ -50,6 +54,8 @@ public class ControladorMesero  {
         
         ListaPedido lp = new ListaPedido();
         lp.asign(contador, "En proceso");
+        Thread thread = new Thread(new HiloEntregado(lp));
+        thread.start();
         if(ped < Arrays.pedidosHechos.size())
         {
             for (ListaPedido lsp : Arrays.listp) 
@@ -59,7 +65,12 @@ public class ControladorMesero  {
             }
         }
         ped = Arrays.pedidosHechos.size();
+        System.out.println(Arrays.listp.toString());
         System.out.println(Arrays.pedidosHechos.toString());
+    }
+    
+    public  void setHiloEntregado(HiloEntregado hActualizar){
+        this.hActualizar = hActualizar;
     }
     
     public void eliminarPedido()

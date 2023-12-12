@@ -38,6 +38,8 @@ public class ListaPedido {
         this.estado = estado;
     }
     
+    
+    
     public ArrayList<ListaPedido> asign(int pid, String est)
     {
         int pde = pid;
@@ -51,5 +53,13 @@ public class ListaPedido {
         
         return Arrays.listp;
     }
-          
+
+    @Override
+    public String toString() {
+        return "ListaPedido{" + "Pedido=" + Pedido + ", estado=" + estado + '}';
+    }
+        
+    public void cambiarEstado(String text){
+        this.estado = text;
+    }
 }

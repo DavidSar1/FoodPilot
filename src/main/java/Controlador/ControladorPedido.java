@@ -14,6 +14,7 @@ import Modelo.numerosStaticos;
 import Vista.AdministradorMesas;
 import Vista.EditarPedido;
 import Vista.GestionPedido;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 
 /**
@@ -138,6 +139,59 @@ public class ControladorPedido {
         Pedido p = new Pedido();
         for(Pedido pedido : Arrays.ped){
             p.asignarPedidoHecho(String.valueOf(numerosStaticos.index), pedido.getProducto(), pedido.getCantidad(), String.valueOf(pedido.getPrecio()), total);
+        }
+    }
+     
+     public void editaPedido(int index){
+         
+        String strIndex = Integer.toString(index);
+        Pedido p = new Pedido();
+         /*
+        for(Pedido pedido : Arrays.pedidosHechos){
+            if(pedido.getIndex().equals(strIndex)){
+                System.out.println("aquies");
+                Arrays.pedidosHechos.remove(index);
+            }
+        }
+        */
+        Iterator<Pedido> iterator = Arrays.pedidosHechos.iterator();
+           while (iterator.hasNext()) {
+               Pedido pedido = iterator.next();
+               if (pedido.getIndex().equals(strIndex)) {
+                   System.out.println("aquies");
+                   iterator.remove();  // Esto es seguro durante la iteración
+               }
+           }
+        String total = "1";
+        for(Pedido pedido : Arrays.ped){
+            System.out.println("o aqui?");
+            p.asignarPedidoHecho(String.valueOf(index), pedido.getProducto(), pedido.getCantidad(), String.valueOf(pedido.getPrecio()), total);
+        }
+        
+     }
+     
+    /*public void eliminarPructoPedido(int index, String nombre){
+         String strIndex = Integer.toString(index);
+         Pedido pedido = new Pedido();
+         for(Pedido ped : Arrays.pedidosHechos){
+             if(ped.getIndex().equals(index)){
+                 if(ped.getProducto().equals(nombre)){
+                     Arrays.pedidosHechos.remove(index);
+                 }
+             }
+         }
+     }
+    */
+     
+    public void eliminarPructoPedido(int index, String nombre){
+        String strIndex = Integer.toString(index);
+        Iterator<Pedido> iterator = Arrays.pedidosHechos.iterator();
+        while (iterator.hasNext()) {
+            Pedido ped = iterator.next();
+            if (ped.getIndex().equals(strIndex) && ped.getProducto().equals(nombre)) {
+                iterator.remove();  // Esto es seguro durante la iteración
+                break;  // Salir del bucle una vez que se ha encontrado y eliminado el pedido
+            }
         }
     }
    
