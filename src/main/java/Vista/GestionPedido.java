@@ -23,6 +23,7 @@ public class GestionPedido extends javax.swing.JFrame {
     ControladorPedido cp = new ControladorPedido();
     ControladorMesero cm = new ControladorMesero();
     GestionMesero gm;
+    int index = 0;
     
     
     /**
@@ -52,7 +53,13 @@ public class GestionPedido extends javax.swing.JFrame {
     
     public void tablaPed()
     {
-        cp.CrearPedido();
+        
+        cp.meterPedidoEntablaPedido();
+    }
+    
+    public void tablaped2(){
+        
+        cp.crearPedido();
     }
     
     public void agg(String data[]){
@@ -421,8 +428,9 @@ public class GestionPedido extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:3   
+        tablaped2();
         this.dispose();
-        cp.guardarPed();
+        
         
   
     }//GEN-LAST:event_btnSaveActionPerformed
