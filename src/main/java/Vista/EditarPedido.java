@@ -35,7 +35,7 @@ public class EditarPedido extends javax.swing.JFrame {
         dtm.addColumn("Descripción");
         cp.ListarProductosEdit();
         
-        tablaPedidoEdit.setModel(editT);
+        tablaEd.setModel(editT);
         editT.addColumn("Producto");
         editT.addColumn("Cantidad");
         editT.addColumn("Precio");
@@ -59,8 +59,7 @@ public class EditarPedido extends javax.swing.JFrame {
     }
     public void agregarFilaEditar(String datos[])
     {
-        editT.addRow(datos);
-        
+        editT.addRow(datos);    
     }
     
     
@@ -82,7 +81,7 @@ public class EditarPedido extends javax.swing.JFrame {
         tablaProductoEdit = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaPedidoEdit = new javax.swing.JTable();
+        tablaEd = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnMenos1 = new javax.swing.JButton();
@@ -139,7 +138,7 @@ public class EditarPedido extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pedido", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14), new java.awt.Color(51, 51, 51))); // NOI18N
         jPanel5.setOpaque(false);
 
-        tablaPedidoEdit.setModel(new javax.swing.table.DefaultTableModel(
+        tablaEd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -150,7 +149,7 @@ public class EditarPedido extends javax.swing.JFrame {
                 "Producto", "Cantidad", "Precio"
             }
         ));
-        jScrollPane1.setViewportView(tablaPedidoEdit);
+        jScrollPane1.setViewportView(tablaEd);
 
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("TOTAL");
@@ -160,6 +159,11 @@ public class EditarPedido extends javax.swing.JFrame {
 
         btnMenos1.setBackground(new java.awt.Color(255, 51, 51));
         btnMenos1.setText("Eliminar");
+        btnMenos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenos1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -203,6 +207,11 @@ public class EditarPedido extends javax.swing.JFrame {
         btnIngre.setBackground(new java.awt.Color(0, 153, 255));
         btnIngre.setForeground(new java.awt.Color(255, 255, 255));
         btnIngre.setText("Ingresar");
+        btnIngre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngreActionPerformed(evt);
+            }
+        });
 
         cant.setText("Cantidad");
 
@@ -410,9 +419,39 @@ public class EditarPedido extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void btnIngreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngreActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            cp.editPed();
+        }
+        catch(java.lang.ArrayIndexOutOfBoundsException e)
+        {
+            JOptionPane.showMessageDialog(null,"No seleccionó ningun valor");
+        }
+    }//GEN-LAST:event_btnIngreActionPerformed
+
+    private void btnMenos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenos1ActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            int fila = tablaEd.getSelectedRow();
+            editT.removeRow( fila);
+        }
+        catch(java.lang.ArrayIndexOutOfBoundsException e)
+        {
+            JOptionPane.showMessageDialog(null,"No seleccionó ningun valor");
+        }
+    }//GEN-LAST:event_btnMenos1ActionPerformed
+
     public JTextField getCant()
     {
         return cantidad;
+    }
+    
+    public JTextField getSelect()
+    {
+        return JTselected;
     }
     /**
      * @param args the command line arguments
@@ -470,7 +509,7 @@ public class EditarPedido extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tablaPedidoEdit;
+    private javax.swing.JTable tablaEd;
     private javax.swing.JTable tablaProductoEdit;
     // End of variables declaration//GEN-END:variables
 }

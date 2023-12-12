@@ -88,6 +88,7 @@ public class ControladorPedido {
         
     }
     
+    
     public void CrearPedido()
     {
         indexpedido += 1;
@@ -124,6 +125,27 @@ public class ControladorPedido {
     {
         Pedido p = new Pedido();
         p.asignarPedidoHecho(String.valueOf(indexpedido), gp.getSelect().getText(), gp.getCant().getText(), String.valueOf(precioTotal), gp.getTotal().getText());
+    }
+    
+    public void editPed()
+    {
+        eP.limpiarTablaEditar();
+        Pedido p = new Pedido();
+        for(int i = 0; i< AlmacenamientoProducto.productosC.size();i++)
+        {
+            if(eP.getSelect().getText().equals(AlmacenamientoProducto.productosC.get(i).getNombre()))
+            {
+                precioTotal = AlmacenamientoProducto.productosC.get(i).getPrecio()* Float.parseFloat(eP.getCant().getText());
+                p.asignar(eP.getSelect().getText(), eP.getCant().getText(), String.valueOf(precioTotal));
+                break; 
+            }
+        }
+        
+        for(Pedido col: Arrays.ped)
+        {
+            String[] data = {col.getProducto(),col.getCantidad(),String.valueOf(col.getPrecio())};
+            eP.agregarFilaEditar(data);
+        }
     }
     
 }
