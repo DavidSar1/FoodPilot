@@ -12,7 +12,7 @@ import Controlador.ControladorUsers;
  * @author PC
  */
 public class GestionAdministrador extends javax.swing.JFrame {
-    AdministrarConsulta aC = new AdministrarConsulta();
+    
     ControladorMesa cM = new ControladorMesa();
     AdministradorMesas mS = new AdministradorMesas();
     GestionProductos gProductos = new GestionProductos();
@@ -333,7 +333,8 @@ public class GestionAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        aC.setVisible(true);
+        AdministrarConsulta ac= new AdministrarConsulta();
+        ac.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**

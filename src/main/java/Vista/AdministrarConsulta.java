@@ -12,9 +12,7 @@ import javax.swing.table.DefaultTableModel;
 public class AdministrarConsulta extends javax.swing.JFrame {
     ControladorVentas cv = new ControladorVentas();
     DefaultTableModel dtm = new DefaultTableModel();
-    /**
-     * Creates new form AdministrarConsulta
-     */
+    
     public AdministrarConsulta() {
         initComponents();
         cv.setAc(this);
