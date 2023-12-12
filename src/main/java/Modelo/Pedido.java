@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -16,6 +17,10 @@ public class Pedido {
     String cantidad;
     String precio;
     String total;
+    
+    int dia;
+    int mes; 
+    int año;
 
     public Pedido() {
     }
@@ -27,6 +32,17 @@ public class Pedido {
         this.precio = precio;
         this.total = total;
     }
+
+    public Pedido(String producto, String cantidad, String precio, String total, int dia, int mes, int año) {
+        this.producto = producto;
+        this.cantidad = cantidad;
+        this.precio = precio;
+        this.total = total;
+        this.dia = dia;
+        this.mes = mes;
+        this.año = año;
+    }
+    
 
    
 
@@ -70,6 +86,33 @@ public class Pedido {
         this.total = total;
     }
 
+    public int getDia() {
+        return dia;
+    }
+
+    public void setDia(int dia) {
+        this.dia = dia;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
+    public int getAño() {
+        return año;
+    }
+
+    public void setAño(int año) {
+        this.año = año;
+    }
+
+    
+    
+
     @Override
     public String toString() {
         return "Pedido{" + "index=" + index + ", producto=" + producto + ", cantidad=" + cantidad + ", precio=" + precio + ", total=" + total + '}';
@@ -112,7 +155,16 @@ public class Pedido {
         p.setCantidad(cant);
         p.setPrecio(pres);
         p.setTotal(total);
+        LocalDate fechaActual = LocalDate.now();
         
+        int diapedido = fechaActual.getDayOfMonth();
+        int mespedido = fechaActual.getMonthValue();
+        int añopedido = fechaActual.getYear();
+        
+        p.setDia(diapedido);
+        p.setMes(mespedido);
+        p.setAño(añopedido);
+ 
         Arrays.pedidosHechos.add(p);
         
     }

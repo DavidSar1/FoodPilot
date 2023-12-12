@@ -12,6 +12,7 @@ import Controlador.ControladorUsers;
  * @author PC
  */
 public class GestionAdministrador extends javax.swing.JFrame {
+    AdministrarConsulta aC = new AdministrarConsulta();
     ControladorMesa cM = new ControladorMesa();
     AdministradorMesas mS = new AdministradorMesas();
     GestionProductos gProductos = new GestionProductos();
@@ -130,6 +131,11 @@ public class GestionAdministrador extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Consultar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel6.setText("Dia");
@@ -325,6 +331,10 @@ public class GestionAdministrador extends javax.swing.JFrame {
         // TODO add your handling code here:
         gProductos.iniciar();
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        aC.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -3,18 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
-
+import Controlador.ControladorVentas;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author oscar
  */
 public class AdministrarConsulta extends javax.swing.JFrame {
-
+    ControladorVentas cv = new ControladorVentas();
+    DefaultTableModel dtm = new DefaultTableModel();
     /**
      * Creates new form AdministrarConsulta
      */
     public AdministrarConsulta() {
         initComponents();
+        cv.setAc(this);
+        tablaconsulta.setModel(dtm);
+        
+        dtm.addColumn("producto");
+        dtm.addColumn("precio");
+        
+        
     }
 
     /**
@@ -29,9 +38,10 @@ public class AdministrarConsulta extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaconsulta = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         totalText = new javax.swing.JLabel();
+        totaltodosconsulta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,8 +49,8 @@ public class AdministrarConsulta extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setBackground(new java.awt.Color(102, 102, 102));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaconsulta.setBackground(new java.awt.Color(102, 102, 102));
+        tablaconsulta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -51,7 +61,7 @@ public class AdministrarConsulta extends javax.swing.JFrame {
                 "Producto", "Descripcion", "Precio"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaconsulta);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
@@ -60,6 +70,9 @@ public class AdministrarConsulta extends javax.swing.JFrame {
         totalText.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         totalText.setForeground(new java.awt.Color(102, 102, 102));
         totalText.setText(" ");
+
+        totaltodosconsulta.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
+        totaltodosconsulta.setText("0");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -70,8 +83,11 @@ public class AdministrarConsulta extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(totaltodosconsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(525, 525, 525)
                         .addComponent(totalText, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(34, 34, 34))
         );
@@ -83,7 +99,8 @@ public class AdministrarConsulta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(totalText))
+                    .addComponent(totalText)
+                    .addComponent(totaltodosconsulta))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -94,7 +111,7 @@ public class AdministrarConsulta extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +172,8 @@ public class AdministrarConsulta extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaconsulta;
     private javax.swing.JLabel totalText;
+    private javax.swing.JLabel totaltodosconsulta;
     // End of variables declaration//GEN-END:variables
 }
