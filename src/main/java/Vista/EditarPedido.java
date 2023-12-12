@@ -63,6 +63,12 @@ public class EditarPedido extends javax.swing.JFrame {
         
     }
     
+    public void totalpedidoeditar(String texto)
+    {
+        totaleditar.setText(texto);
+    
+    }
+    
     
 
     /**
@@ -84,7 +90,7 @@ public class EditarPedido extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPedidoEdit = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        totaleditar = new javax.swing.JLabel();
         btnMenos1 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         JTselected = new javax.swing.JTextField();
@@ -155,8 +161,8 @@ public class EditarPedido extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("TOTAL");
 
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("0");
+        totaleditar.setForeground(new java.awt.Color(51, 51, 51));
+        totaleditar.setText("0");
 
         btnMenos1.setBackground(new java.awt.Color(255, 51, 51));
         btnMenos1.setText("Eliminar");
@@ -172,7 +178,7 @@ public class EditarPedido extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(totaleditar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnMenos1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -186,8 +192,8 @@ public class EditarPedido extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(btnMenos1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addContainerGap(13, Short.MAX_VALUE))
+                    .addComponent(totaleditar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)), "Opciones", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
@@ -203,6 +209,11 @@ public class EditarPedido extends javax.swing.JFrame {
         btnIngre.setBackground(new java.awt.Color(0, 153, 255));
         btnIngre.setForeground(new java.awt.Color(255, 255, 255));
         btnIngre.setText("Ingresar");
+        btnIngre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngreActionPerformed(evt);
+            }
+        });
 
         cant.setText("Cantidad");
 
@@ -245,7 +256,7 @@ public class EditarPedido extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnMenos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnMas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 34, Short.MAX_VALUE))
+                            .addComponent(cantidad))
                         .addGap(27, 27, 27))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(btnIngre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -410,6 +421,10 @@ public class EditarPedido extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void btnIngreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIngreActionPerformed
+
     public JTextField getCant()
     {
         return cantidad;
@@ -461,7 +476,6 @@ public class EditarPedido extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -472,5 +486,6 @@ public class EditarPedido extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tablaPedidoEdit;
     private javax.swing.JTable tablaProductoEdit;
+    private javax.swing.JLabel totaleditar;
     // End of variables declaration//GEN-END:variables
 }

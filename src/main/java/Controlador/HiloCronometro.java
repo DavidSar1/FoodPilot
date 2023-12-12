@@ -23,6 +23,7 @@ public class HiloCronometro extends Thread{
                 {
                     segundos = 0;
                     minutos++;
+                    
                 
                 }
                 Thread.sleep(1000);

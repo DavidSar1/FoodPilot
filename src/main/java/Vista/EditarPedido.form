@@ -241,7 +241,7 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel1" min="-2" pref="58" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jLabel4" min="-2" pref="124" max="-2" attributes="0"/>
+                                      <Component id="totaleditar" min="-2" pref="124" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btnMenos1" min="-2" pref="111" max="-2" attributes="0"/>
                                   </Group>
@@ -259,9 +259,9 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnMenos1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="totaleditar" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="13" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -317,7 +317,7 @@
                         <Property name="text" type="java.lang.String" value="TOTAL"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel4">
+                    <Component class="javax.swing.JLabel" name="totaleditar">
                       <Properties>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="33" green="33" red="33" type="rgb"/>
@@ -370,7 +370,7 @@
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="btnMenos" max="32767" attributes="0"/>
                                           <Component id="btnMas" max="32767" attributes="0"/>
-                                          <Component id="cantidad" pref="34" max="32767" attributes="0"/>
+                                          <Component id="cantidad" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   </Group>
@@ -433,6 +433,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Ingresar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIngreActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="cant">
                       <Properties>
