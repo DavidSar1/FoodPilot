@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class Conexion {
     Connection conexion=null;
     String usuario ="postgres";
-    String password="odeb123456";
+    String password="1234";
     
     
       public  Conexion() {
