@@ -78,7 +78,8 @@ public class AdministradorMesas extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)), "Opciones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
 
         agregarMesa.setBackground(new java.awt.Color(0, 153, 255));
-        agregarMesa.setForeground(new java.awt.Color(51, 51, 51));
+        agregarMesa.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
+        agregarMesa.setForeground(new java.awt.Color(255, 255, 255));
         agregarMesa.setText("Añadir mesa");
         agregarMesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +88,8 @@ public class AdministradorMesas extends javax.swing.JFrame {
         });
 
         eliminarMesa.setBackground(new java.awt.Color(255, 51, 51));
-        eliminarMesa.setForeground(new java.awt.Color(51, 51, 51));
+        eliminarMesa.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
+        eliminarMesa.setForeground(new java.awt.Color(255, 255, 255));
         eliminarMesa.setText("Eliminar mesa");
         eliminarMesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,7 +97,9 @@ public class AdministradorMesas extends javax.swing.JFrame {
             }
         });
 
-        salir.setForeground(new java.awt.Color(51, 51, 51));
+        salir.setBackground(new java.awt.Color(153, 0, 0));
+        salir.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
+        salir.setForeground(new java.awt.Color(255, 255, 255));
         salir.setText("Salir");
         salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

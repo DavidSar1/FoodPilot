@@ -153,7 +153,7 @@ public class GestionMesero extends javax.swing.JFrame {
         jPanel4.setOpaque(false);
 
         btnCrear.setBackground(new java.awt.Color(0, 153, 255));
-        btnCrear.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnCrear.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 16)); // NOI18N
         btnCrear.setForeground(new java.awt.Color(255, 255, 255));
         btnCrear.setText("Crear pedido");
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -192,6 +192,7 @@ public class GestionMesero extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         jButton1.setText("Cancelar pedido");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,6 +279,7 @@ public class GestionMesero extends javax.swing.JFrame {
         Tabla_Ped.setOpaque(false);
         jScrollPane2.setViewportView(Tabla_Ped);
 
+        btnActu.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         btnActu.setText("Actualizar");
         btnActu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,8 +303,8 @@ public class GestionMesero extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(btnActu, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnActu, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(18, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
@@ -372,6 +374,7 @@ public class GestionMesero extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btnAsignar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         btnAsignar.setText("Asignar");
         btnAsignar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

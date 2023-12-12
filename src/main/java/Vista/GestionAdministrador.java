@@ -87,7 +87,7 @@ public class GestionAdministrador extends javax.swing.JFrame {
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jButton8.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         jButton8.setText("Cerrar sesion");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +96,7 @@ public class GestionAdministrador extends javax.swing.JFrame {
         });
         jPanel4.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 190, 36));
 
-        administradorMesas.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        administradorMesas.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         administradorMesas.setText("Administrar Mesas");
         administradorMesas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,28 +105,29 @@ public class GestionAdministrador extends javax.swing.JFrame {
         });
         jPanel4.add(administradorMesas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 190, 36));
 
-        gestionUsuarios.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        gestionUsuarios.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         gestionUsuarios.setText("Administrador Usuarios");
         gestionUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gestionUsuariosActionPerformed(evt);
             }
         });
-        jPanel4.add(gestionUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 190, 36));
+        jPanel4.add(gestionUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 210, 36));
 
-        jButton12.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jButton12.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         jButton12.setText("Administrar Productos");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 190, 36));
+        jPanel4.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 210, 36));
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Consultar ventas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(51, 51, 51))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consultar ventas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(51, 51, 51))); // NOI18N
         jPanel5.setOpaque(false);
 
         jButton5.setBackground(new java.awt.Color(5, 59, 80));
+        jButton5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Consultar");
 
@@ -139,12 +140,10 @@ public class GestionAdministrador extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel8.setText("Año");
 
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023" }));
 
-        jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jComboBox3.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
@@ -155,22 +154,18 @@ public class GestionAdministrador extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel10.setText("Fin");
 
-        jComboBox4.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jComboBox4.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
 
-        jComboBox5.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jComboBox5.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 
-        jComboBox6.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jComboBox6.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023" }));
 
-        jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jComboBox2.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
