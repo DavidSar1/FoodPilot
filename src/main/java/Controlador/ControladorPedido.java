@@ -10,6 +10,7 @@ import Modelo.ListaPedido;
 import Modelo.Pedido;
 import Modelo.Producto;
 import Modelo.Usuario;
+import Modelo.numerosStaticos;
 import Vista.AdministradorMesas;
 import Vista.EditarPedido;
 import Vista.GestionPedido;
@@ -47,25 +48,34 @@ public class ControladorPedido {
     }
     
     public void productoEditar(EditarPedido ep1, int  index){
-        
+        String strIndex = Integer.toString(index);
         boolean ver = true;
         ep1.limpiarTablaEditar();
-        Producto prod = new Producto();
+        
+        
+        for(Pedido pedi : Arrays.pedidosHechos){
+            if(pedi.getIndex().equals(strIndex)){
+                System.out.println("entre");
+                String datos[] = {pedi.getProducto(),pedi.getCantidad(),pedi.getPrecio()};
+                ep1.agregarFilaEditar(datos);
+            } else {
+                System.out.println("No entre");
+            }
+        }
+        /*
         for(int i = 0; i < Arrays.pedidosHechos.size();i++)
         {
-            if(i == index)
-            {
+            if(Arrays.pedidosHechos.get(i).getIndex().equals(index)){
+                System.out.println("entre");
                 String datos[] = {Arrays.pedidosHechos.get(i).getProducto(),Arrays.pedidosHechos.get(i).getCantidad(),Arrays.pedidosHechos.get(i).getPrecio()};
                 ep1.agregarFilaEditar(datos);
-                ver = false;
-            } 
-        
+            } else {
+                System.out.println("no entre");
+            }
+            
 
         }
-        if(ver) 
-        {
-            JOptionPane.showMessageDialog(null, "Idiota");
-        }
+        */
         
     }
     
@@ -88,23 +98,24 @@ public class ControladorPedido {
         
     }
     
-    public void CrearPedido()
+   
+    
+    
+    public void meterPedidoEntablaPedido()
     {
-        indexpedido += 1;
         gp.limpiar();
-        
         Pedido p = new Pedido();
         
         for(int i = 0; i< AlmacenamientoProducto.productosC.size();i++)
         {
             if(gp.getSelect().getText().equals(AlmacenamientoProducto.productosC.get(i).getNombre()))
             {
-                System.out.println(gp.getCant().getText());
                 precioTotal = AlmacenamientoProducto.productosC.get(i).getPrecio()* Float.parseFloat(gp.getCant().getText());
-                p.asignar(gp.getSelect().getText(), gp.getCant().getText(), String.valueOf(precioTotal));
+                p.asignar(gp.getSelect().getText(), gp.getCant().getText(), String.valueOf(precioTotal));   
                 break; 
             }
         }
+        
         
         for(Pedido col: Arrays.ped)
         {
@@ -120,10 +131,35 @@ public class ControladorPedido {
         gp.setTotalPedido(String.valueOf(totalPedido));
     }
     
-    public void guardarPed()
-    {
+     public void crearPedido(){
+        numerosStaticos.index += 1;
+        String total = "1";
         Pedido p = new Pedido();
-        p.asignarPedidoHecho(String.valueOf(indexpedido), gp.getSelect().getText(), gp.getCant().getText(), String.valueOf(precioTotal), gp.getTotal().getText());
+        for(Pedido pedido : Arrays.ped){
+            p.asignarPedidoHecho(String.valueOf(numerosStaticos.index), pedido.getProducto(), pedido.getCantidad(), String.valueOf(pedido.getPrecio()), total);
+        }
+    }
+   
+    
+    public void editPed()
+    {
+        eP.limpiarTablaEditar();
+        Pedido p = new Pedido();
+        for(int i = 0; i< AlmacenamientoProducto.productosC.size();i++)
+        {
+            if(eP.getSelect().getText().equals(AlmacenamientoProducto.productosC.get(i).getNombre()))
+            {
+                precioTotal = AlmacenamientoProducto.productosC.get(i).getPrecio()* Float.parseFloat(eP.getCant().getText());
+                p.asignar(eP.getSelect().getText(), eP.getCant().getText(), String.valueOf(precioTotal));
+                break; 
+            }
+        }
+        
+        for(Pedido col: Arrays.ped)
+        {
+            String[] data = {col.getProducto(),col.getCantidad(),String.valueOf(col.getPrecio())};
+            eP.agregarFilaEditar(data);
+        }
     }
     
 }

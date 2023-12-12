@@ -521,10 +521,11 @@ public class GestionMesero extends javax.swing.JFrame {
         // TODO add your handling code here:
         try
         {
-            int fila = Tabla_Ped.getSelectedRow();
+            int fila = Tabla_Ped.getSelectedRow()+1;
+            System.out.println(fila+1);
             EditarPedido editPedido = new EditarPedido();
             ControladorPedido cP = new ControladorPedido();
-            cP.productoEditar(editPedido, columnaPedido()-1);
+            cP.productoEditar(editPedido, fila);
             editPedido.setVisible(true);
         }
         catch(java.lang.ArrayIndexOutOfBoundsException e)

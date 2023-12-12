@@ -72,8 +72,12 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return "Pedido{" + "producto=" + producto + ", cantidad=" + cantidad + ", precio=" + precio + '}';
+        return "Pedido{" + "index=" + index + ", producto=" + producto + ", cantidad=" + cantidad + ", precio=" + precio + ", total=" + total + '}';
     }
+
+    
+    
+    
     
     
     public ArrayList<Pedido> asignar(String ped, String cant, String pres)
@@ -89,6 +93,16 @@ public class Pedido {
         Arrays.ped.add(p);
         
         return Arrays.ped;
+    }
+    
+    public void asignarPed(String ped, String cant, String pres)
+    {
+        Pedido p = new Pedido();
+        p.setProducto(ped);
+        p.setCantidad(cant);
+        p.setPrecio(pres);
+        
+        Arrays.ped.add(p);
     }
     
     public void asignarPedidoHecho(String index,String ped, String cant, String pres, String total){
