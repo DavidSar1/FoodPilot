@@ -72,7 +72,10 @@ public class GestionPedido extends javax.swing.JFrame {
     }
     
     //llamamiento
-    
+    public void setTotalPedido(String texto)
+    {
+    totalpedido.setText(texto);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -103,7 +106,7 @@ public class GestionPedido extends javax.swing.JFrame {
         Tabla_Pedido = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        labelTotal = new javax.swing.JLabel();
+        totalpedido = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -223,7 +226,7 @@ public class GestionPedido extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnMas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(cantidad)
                     .addComponent(btnMenos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(27, 27, 27))
         );
@@ -305,9 +308,9 @@ public class GestionPedido extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Total:");
 
-        labelTotal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        labelTotal.setForeground(new java.awt.Color(51, 51, 51));
-        labelTotal.setText("0");
+        totalpedido.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        totalpedido.setForeground(new java.awt.Color(51, 51, 51));
+        totalpedido.setText("0");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -322,9 +325,9 @@ public class GestionPedido extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addComponent(labelTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(totalpedido, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)))
+                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -335,7 +338,7 @@ public class GestionPedido extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
                     .addComponent(jLabel4)
-                    .addComponent(labelTotal))
+                    .addComponent(totalpedido))
                 .addGap(12, 12, 12))
         );
 
@@ -361,7 +364,7 @@ public class GestionPedido extends javax.swing.JFrame {
                                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(33, 33, 33)
                                 .addComponent(cancelarAcion, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -503,7 +506,7 @@ public class GestionPedido extends javax.swing.JFrame {
     }
     
     public JLabel getTotal(){
-        return labelTotal;
+        return totalpedido;
     }
     /**
      * @param args the command line arguments
@@ -562,6 +565,6 @@ public class GestionPedido extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel labelTotal;
+    private javax.swing.JLabel totalpedido;
     // End of variables declaration//GEN-END:variables
 }

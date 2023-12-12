@@ -89,7 +89,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace pref="46" max="32767" attributes="0"/>
+                                      <EmptySpace pref="34" max="32767" attributes="0"/>
                                       <Component id="jButton1" min="-2" pref="130" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                       <Component id="cancelarAcion" min="-2" pref="130" max="-2" attributes="0"/>
@@ -259,7 +259,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="btnMas" max="32767" attributes="0"/>
-                              <Component id="cantidad" pref="34" max="32767" attributes="0"/>
+                              <Component id="cantidad" max="32767" attributes="0"/>
                               <Component id="btnMenos" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -421,9 +421,9 @@
                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="labelTotal" min="-2" pref="91" max="-2" attributes="0"/>
+                                  <Component id="totalpedido" min="-2" pref="91" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButton4" pref="154" max="32767" attributes="0"/>
+                                  <Component id="jButton4" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -438,7 +438,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jButton4" alignment="3" pref="39" max="32767" attributes="0"/>
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="totalpedido" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
@@ -513,7 +513,7 @@
                     <Property name="text" type="java.lang.String" value="Total:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="labelTotal">
+                <Component class="javax.swing.JLabel" name="totalpedido">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="14" style="1"/>

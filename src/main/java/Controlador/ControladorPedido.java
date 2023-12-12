@@ -115,7 +115,9 @@ public class ControladorPedido {
         for(int i = 0 ; i< Arrays.ped.size();i++)    
         {
             totalPedido += Float.parseFloat(Arrays.ped.get(i).getPrecio());
-        }   
+        }
+        
+        gp.setTotalPedido(String.valueOf(totalPedido));
     }
     
     public void guardarPed()
