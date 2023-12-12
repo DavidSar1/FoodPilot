@@ -14,6 +14,7 @@ import Modelo.numerosStaticos;
 import Vista.AdministradorMesas;
 import Vista.EditarPedido;
 import Vista.GestionPedido;
+import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 
@@ -27,6 +28,8 @@ public class ControladorPedido {
     int indexpedido = 0;
     float precioTotal;
     float valorTotalPedido;
+    float totalAnterior;
+    float tot;
     
     public void ListarProductos(){
         
@@ -57,30 +60,18 @@ public class ControladorPedido {
         
         for(Pedido pedi : Arrays.pedidosHechos){
             if(pedi.getIndex().equals(strIndex)){
-                System.out.println("entre");
                 String datos[] = {pedi.getProducto(),pedi.getCantidad(),pedi.getPrecio()};
+                tot += Float.parseFloat(pedi.getCantidad()) * Float.parseFloat(pedi.getPrecio());
                 ep1.agregarFilaEditar(datos);
             } else {
-                System.out.println("No entre");
             }
-        }
-        /*
-        for(int i = 0; i < Arrays.pedidosHechos.size();i++)
-        {
-            if(Arrays.pedidosHechos.get(i).getIndex().equals(index)){
-                System.out.println("entre");
-                String datos[] = {Arrays.pedidosHechos.get(i).getProducto(),Arrays.pedidosHechos.get(i).getCantidad(),Arrays.pedidosHechos.get(i).getPrecio()};
-                ep1.agregarFilaEditar(datos);
-            } else {
-                System.out.println("no entre");
-            }
-            
-
-        }
-        */
-        
+        }   
     }
     
+    public float tot()
+    {
+        return tot;
+    }
     
    
     public GestionPedido getPedido(){
@@ -146,42 +137,21 @@ public class ControladorPedido {
          
         String strIndex = Integer.toString(index);
         Pedido p = new Pedido();
-         /*
-        for(Pedido pedido : Arrays.pedidosHechos){
-            if(pedido.getIndex().equals(strIndex)){
-                System.out.println("aquies");
-                Arrays.pedidosHechos.remove(index);
-            }
-        }
-        */
+
         Iterator<Pedido> iterator = Arrays.pedidosHechos.iterator();
            while (iterator.hasNext()) {
                Pedido pedido = iterator.next();
                if (pedido.getIndex().equals(strIndex)) {
-                   System.out.println("aquies");
                    iterator.remove();  // Esto es seguro durante la iteración
                }
            }
         String total = "1";
         for(Pedido pedido : Arrays.ped){
-            System.out.println("o aqui?");
             p.asignarPedidoHecho(String.valueOf(index), pedido.getProducto(), pedido.getCantidad(), String.valueOf(pedido.getPrecio()), total);
         }
         
      }
      
-    /*public void eliminarPructoPedido(int index, String nombre){
-         String strIndex = Integer.toString(index);
-         Pedido pedido = new Pedido();
-         for(Pedido ped : Arrays.pedidosHechos){
-             if(ped.getIndex().equals(index)){
-                 if(ped.getProducto().equals(nombre)){
-                     Arrays.pedidosHechos.remove(index);
-                 }
-             }
-         }
-     }
-    */
      
     public void eliminarPructoPedido(int index, String nombre){
         String strIndex = Integer.toString(index);
@@ -221,6 +191,7 @@ public class ControladorPedido {
             String[] data = {col.getProducto(),col.getCantidad(),String.valueOf(col.getPrecio())};
             eP.agregarFilaEditar(data);
         }
+        
         for(int i = 0; i< AlmacenamientoProducto.productosC.size();i++)
         {
             if(eP.getSelect().getText().equals(AlmacenamientoProducto.productosC.get(i).getNombre()))
@@ -228,10 +199,10 @@ public class ControladorPedido {
                valorTotalPedido += AlmacenamientoProducto.productosC.get(i).getPrecio()* Float.parseFloat(eP.getCant().getText());
             }
         }
-        eP.totalpedidoeditar(String.valueOf(valorTotalPedido));
         
-        
-        
+
+        eP.totalpedidoeditar(String.valueOf(valorTotalPedido));  
     }
     
+
 }

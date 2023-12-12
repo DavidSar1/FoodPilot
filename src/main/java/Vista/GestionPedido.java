@@ -49,6 +49,7 @@ public class GestionPedido extends javax.swing.JFrame {
         tp.addColumn("Precio");
         btnSave.setEnabled(false);
         btnHacer.setEnabled(false);
+        
     }
     
     public void tablaPed()
@@ -81,7 +82,12 @@ public class GestionPedido extends javax.swing.JFrame {
     //llamamiento
     public void setTotalPedido(String texto)
     {
-    totalpedido.setText(texto);
+        totalpedido.setText(texto);
+    }
+    
+    public String setTotal()
+    {
+        return getTotal().getText();
     }
 
     /**
@@ -430,8 +436,8 @@ public class GestionPedido extends javax.swing.JFrame {
         // TODO add your handling code here:3   
         tablaped2();
         this.dispose();
-        
-        
+        //aqui pasame pedido
+
   
     }//GEN-LAST:event_btnSaveActionPerformed
 

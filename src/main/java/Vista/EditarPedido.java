@@ -7,6 +7,7 @@ package Vista;
 import Controlador.ControladorMesero;
 import Controlador.ControladorPedido;
 import Controlador.ControladorUsers;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -15,10 +16,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author oscar
  */
-public class EditarPedido extends javax.swing.JFrame {
+public final class EditarPedido extends javax.swing.JFrame {
     DefaultTableModel dtm = new DefaultTableModel();
     DefaultTableModel editT = new DefaultTableModel();
     ControladorPedido cp = new ControladorPedido();
+    private boolean primeraEjecucion = true;
+    float suma;
+    float poder;
+    static float f;
+    private boolean textoSuma = true;
+    
     /**
      * Creates new form EditarPedido
      */
@@ -40,13 +47,25 @@ public class EditarPedido extends javax.swing.JFrame {
         editT.addColumn("Cantidad");
         editT.addColumn("Precio");
         btnIngre.setEnabled(false);
+        
+  
+    }
+    
+    public void totalInicial( float tot)
+    {  
+        getTotal().setText(Float.toString(tot));    
     }
     //tabla productos
     public void limpiarTablaEdit(){
         dtm.getDataVector().removeAllElements();
         
     }
-    
+    public void totalpedidoeditar(String texto)
+    {
+        //suma = Float.parseFloat(totaleditar.getText()) + Float.parseFloat(texto);
+        suma = Float.parseFloat(texto);
+    }
+   
     public void agregarFila(String datos[])
     {
         dtm.addRow(datos);
@@ -104,9 +123,9 @@ public class EditarPedido extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(5, 59, 80));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Editar Pedido", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(51, 51, 51))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Editar Pedido", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(51, 51, 51))); // NOI18N
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Productos", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Productos", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
         jPanel4.setOpaque(false);
 
         tablaProductoEdit.setModel(new javax.swing.table.DefaultTableModel(
@@ -138,7 +157,7 @@ public class EditarPedido extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Pedido", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14), new java.awt.Color(51, 51, 51))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pedido", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14), new java.awt.Color(51, 51, 51))); // NOI18N
         jPanel5.setOpaque(false);
 
         tablaEd.setModel(new javax.swing.table.DefaultTableModel(
@@ -161,8 +180,6 @@ public class EditarPedido extends javax.swing.JFrame {
         totaleditar.setText("0");
 
         btnMenos1.setBackground(new java.awt.Color(255, 51, 51));
-        btnMenos1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
-        btnMenos1.setForeground(new java.awt.Color(255, 255, 255));
         btnMenos1.setText("Eliminar");
         btnMenos1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,16 +206,14 @@ public class EditarPedido extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(totaleditar))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(btnMenos1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(btnMenos1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(totaleditar))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)), "Opciones", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
@@ -212,7 +227,6 @@ public class EditarPedido extends javax.swing.JFrame {
         jLabel2.setText("Producto");
 
         btnIngre.setBackground(new java.awt.Color(0, 153, 255));
-        btnIngre.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         btnIngre.setForeground(new java.awt.Color(255, 255, 255));
         btnIngre.setText("Ingresar");
         btnIngre.addActionListener(new java.awt.event.ActionListener() {
@@ -228,7 +242,6 @@ public class EditarPedido extends javax.swing.JFrame {
         cantidad.setText("1");
 
         btnMas.setBackground(new java.awt.Color(0, 153, 255));
-        btnMas.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         btnMas.setForeground(new java.awt.Color(255, 255, 255));
         btnMas.setText("+");
         btnMas.addActionListener(new java.awt.event.ActionListener() {
@@ -238,7 +251,6 @@ public class EditarPedido extends javax.swing.JFrame {
         });
 
         btnMenos.setBackground(new java.awt.Color(255, 51, 51));
-        btnMenos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         btnMenos.setForeground(new java.awt.Color(255, 255, 255));
         btnMenos.setText("-");
         btnMenos.addActionListener(new java.awt.event.ActionListener() {
@@ -264,7 +276,7 @@ public class EditarPedido extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnMenos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnMas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                            .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 34, Short.MAX_VALUE))
                         .addGap(27, 27, 27))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(btnIngre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -274,9 +286,9 @@ public class EditarPedido extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMas, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMas, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cant)
@@ -285,12 +297,12 @@ public class EditarPedido extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnIngre)
+                .addComponent(btnIngre, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
 
         jButton1.setBackground(new java.awt.Color(0, 153, 255));
-        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Agregar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -300,7 +312,7 @@ public class EditarPedido extends javax.swing.JFrame {
         });
 
         jButton3.setBackground(new java.awt.Color(255, 51, 51));
-        jButton3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Cancelar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -331,15 +343,10 @@ public class EditarPedido extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(16, 16, 16))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -351,6 +358,10 @@ public class EditarPedido extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -401,6 +412,7 @@ public class EditarPedido extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasActionPerformed
@@ -450,8 +462,36 @@ public class EditarPedido extends javax.swing.JFrame {
     private void btnIngreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngreActionPerformed
         // TODO add your handling code here:
         try
-        {
+        {     
             cp.editPed();
+            
+            if(textoSuma)
+            {
+                f = Float.parseFloat(getTotal().getText());
+                System.out.println(getTotal().getText());
+                textoSuma = false;
+            }
+            if(primeraEjecucion)
+            {
+                
+                poder = f + suma;
+                //getTotal().setText(String.valueOf(poder));
+                getTotal().setText(String.valueOf(poder));
+                primeraEjecucion = false;
+            }
+            else
+            {
+                
+                float p = Float.parseFloat(getTotal().getText());
+                suma += f;
+                getTotal().setText(String.valueOf(suma));
+                
+            }
+            
+            
+            //float m = Float.parseFloat(getTotal().getText());
+            //m += suma;    
+
         }
         catch(java.lang.ArrayIndexOutOfBoundsException e)
         {
@@ -489,6 +529,11 @@ public class EditarPedido extends javax.swing.JFrame {
     public JTextField getSelect()
     {
         return JTselected;
+    }
+    
+    public JLabel getTotal()
+    {
+        return totaleditar;
     }
     /**
      * @param args the command line arguments
@@ -535,7 +580,6 @@ public class EditarPedido extends javax.swing.JFrame {
     private javax.swing.JTextField cantidad;
     private javax.swing.JButton guardarEditar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

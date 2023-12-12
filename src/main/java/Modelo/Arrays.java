@@ -19,4 +19,5 @@ public class Arrays {
     public static ArrayList<Pedido> ped = new ArrayList<>();
     public static ArrayList<ListaPedido> listp = new ArrayList<>();
     public static ArrayList<Pedido> pedidosHechos = new ArrayList<>();
+    public static ArrayList<String> total = new ArrayList<>();
 }

@@ -65,8 +65,6 @@ public class ControladorMesero  {
             }
         }
         ped = Arrays.pedidosHechos.size();
-        System.out.println(Arrays.listp.toString());
-        System.out.println(Arrays.pedidosHechos.toString());
     }
     
     public  void setHiloEntregado(HiloEntregado hActualizar){
@@ -83,6 +81,7 @@ public class ControladorMesero  {
                 Arrays.pedidosHechos.remove(i);
             }
         }
+        System.out.println(Arrays.pedidosHechos.toString());
     }
     public void asignarMesa()
     {
