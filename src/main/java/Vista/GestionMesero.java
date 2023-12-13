@@ -520,6 +520,7 @@ public class GestionMesero extends javax.swing.JFrame {
             cP.productoEditar(editPedido, fila);
             editPedido.totalInicial(cP.tot());
             editPedido.setVisible(true);
+            System.out.println(fila);
         }
         catch(java.lang.ArrayIndexOutOfBoundsException e)
         {

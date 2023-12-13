@@ -456,7 +456,8 @@ public final class EditarPedido extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        cp.eliminarTmp();
+        this.dispose();    
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnIngreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngreActionPerformed
@@ -505,8 +506,10 @@ public final class EditarPedido extends javax.swing.JFrame {
         {
             int fila = tablaEd.getSelectedRow();
             String columna = tablaEd.getValueAt(fila, 0).toString();
-            cp.eliminarPructoPedido(Modelo.numerosStaticos.editarPedido,columna);
+            cp.eliminarPructoPedido(fila);
+            cp.actualziarTotalPed();
             editT.removeRow( fila);
+            
         }
         catch(java.lang.ArrayIndexOutOfBoundsException e)
         {

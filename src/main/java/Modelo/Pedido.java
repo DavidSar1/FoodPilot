@@ -169,6 +169,21 @@ public class Pedido {
         
     }
     
+    public ArrayList<Pedido> asignarTmp(String ped, String cant, String pres)
+    {
+        String pr = ped;
+        String ca = cant;
+        String cash = pres;
+        Pedido p = new Pedido();
+        p.setProducto(ped);
+        p.setCantidad(cant);
+        p.setPrecio(pres);
+        
+        Arrays.ListEsp.add(p);
+        
+        return Arrays.ListEsp;
+    }
+    
     
  
 }

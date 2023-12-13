@@ -38,4 +38,5 @@ public class Arrays {
     
     
     public static ArrayList<String> total = new ArrayList<>();
+    public static ArrayList<Pedido> ListEsp = new ArrayList<>();
 }

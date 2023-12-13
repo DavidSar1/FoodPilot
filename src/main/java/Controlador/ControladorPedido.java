@@ -131,6 +131,7 @@ public class ControladorPedido {
         for(Pedido pedido : Arrays.ped){
             p.asignarPedidoHecho(String.valueOf(numerosStaticos.index), pedido.getProducto(), pedido.getCantidad(), String.valueOf(pedido.getPrecio()), total);
         }
+         System.out.println(Arrays.pedidosHechos.toString());
     }
      
      public void editaPedido(int index){
@@ -146,25 +147,62 @@ public class ControladorPedido {
                }
            }
         String total = "1";
-        for(Pedido pedido : Arrays.ped){
+        for(Pedido pedido : Arrays.ped)
+        {
+            p.asignarPedidoHecho(String.valueOf(index), pedido.getProducto(), pedido.getCantidad(), String.valueOf(pedido.getPrecio()), total);
+        }
+        for(Pedido pedido : Arrays.ListEsp)
+        {
             p.asignarPedidoHecho(String.valueOf(index), pedido.getProducto(), pedido.getCantidad(), String.valueOf(pedido.getPrecio()), total);
         }
         
      }
      
      
-    public void eliminarPructoPedido(int index, String nombre){
-        String strIndex = Integer.toString(index);
-        Iterator<Pedido> iterator = Arrays.pedidosHechos.iterator();
-        while (iterator.hasNext()) {
-            Pedido ped = iterator.next();
-            if (ped.getIndex().equals(strIndex) && ped.getProducto().equals(nombre)) {
-                iterator.remove();  // Esto es seguro durante la iteración
-                break;  // Salir del bucle una vez que se ha encontrado y eliminado el pedido
+    public void eliminarPructoPedido(int index)
+    {
+        
+        for(int i = 0; i < Arrays.ped.size();i++)
+        {
+            if(i == index)
+            {
+                Arrays.ped.remove(i);
             }
         }
+        for(int i = 0; i < Arrays.ListEsp.size();i++)
+        {
+            if(i == index)
+            {
+                Arrays.ListEsp.remove(i);
+            }
+        }
+        
     }
-   
+    public void actualziarTotalPed()
+    {
+        float tt = 0;
+        for(int i = 0 ; i< Arrays.ped.size();i++)    
+        {
+             tt += Float.valueOf(Arrays.ped.get(i).getPrecio());
+        }
+        eP.totalpedidoeditar(String.valueOf(tt));
+        
+        for(int i = 0 ; i< Arrays.ListEsp.size();i++)    
+        {
+             tt += Float.valueOf(Arrays.ListEsp.get(i).getPrecio());
+        }
+        eP.totalpedidoeditar(String.valueOf(tt));
+    }
+    
+    public void actualziarTotal()
+    {
+        float tt = 0;
+        for(int i = 0 ; i< Arrays.ped.size();i++)    
+        {
+             tt += Float.valueOf(Arrays.ped.get(i).getPrecio());
+        }
+        gp.setTotalPedido(String.valueOf(tt));
+    }
     
     public void editPed()
     {
@@ -178,15 +216,19 @@ public class ControladorPedido {
                 
                 precioTotal = AlmacenamientoProducto.productosC.get(i).getPrecio()* Float.parseFloat(eP.getCant().getText());
                 
-                p.asignar(eP.getSelect().getText(), eP.getCant().getText(), String.valueOf(precioTotal));
+                p.asignarTmp(eP.getSelect().getText(), eP.getCant().getText(), String.valueOf(precioTotal));
                 break; 
             }
         }
         
         
         
-        
         for(Pedido col: Arrays.ped)
+        {
+            String[] data = {col.getProducto(),col.getCantidad(),String.valueOf(col.getPrecio())};
+            eP.agregarFilaEditar(data);
+        }
+        for(Pedido col: Arrays.ListEsp)
         {
             String[] data = {col.getProducto(),col.getCantidad(),String.valueOf(col.getPrecio())};
             eP.agregarFilaEditar(data);
@@ -204,7 +246,19 @@ public class ControladorPedido {
         eP.totalpedidoeditar(String.valueOf(valorTotalPedido));  
     }
     
+    public void eliminarTmp()
+    {
+        Arrays.ListEsp.clear();
+    }
     
-    
-
+    public void eliminarPed(int fl)
+    {
+        for(int i = 0; i < Arrays.ped.size();i++)
+        {
+            if(i == fl)
+            {
+                Arrays.ped.remove(i);
+            }
+        }    
+    }
 }

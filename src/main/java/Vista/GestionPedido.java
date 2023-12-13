@@ -23,6 +23,7 @@ public class GestionPedido extends javax.swing.JFrame {
     ControladorPedido cp = new ControladorPedido();
     ControladorMesero cm = new ControladorMesero();
     GestionMesero gm;
+    String txt;
     int index = 0;
     
     
@@ -83,6 +84,7 @@ public class GestionPedido extends javax.swing.JFrame {
     public void setTotalPedido(String texto)
     {
         totalpedido.setText(texto);
+        txt = texto;
     }
     
     public String setTotal()
@@ -377,7 +379,7 @@ public class GestionPedido extends javax.swing.JFrame {
                                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(33, 33, 33)
                                 .addComponent(cancelarAcion, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -501,6 +503,8 @@ public class GestionPedido extends javax.swing.JFrame {
         {
             int fila = Tabla_Pedido.getSelectedRow();
             tp.removeRow( fila);
+            cp.eliminarPed(fila);
+            cp.actualziarTotal();
             btnSave.setEnabled(false);  
         }
         catch(java.lang.ArrayIndexOutOfBoundsException e)
