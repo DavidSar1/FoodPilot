@@ -155,6 +155,7 @@ public class Pedido {
         p.setCantidad(cant);
         p.setPrecio(pres);
         p.setTotal(total);
+        /*
         LocalDate fechaActual = LocalDate.now();
         
         int diapedido = fechaActual.getDayOfMonth();
@@ -164,6 +165,7 @@ public class Pedido {
         p.setDia(diapedido);
         p.setMes(mespedido);
         p.setAño(añopedido);
+        */
  
         Arrays.pedidosHechos.add(p);
         
@@ -171,10 +173,12 @@ public class Pedido {
     
     public ArrayList<Pedido> asignarTmp(String ped, String cant, String pres)
     {
+        //String ck = index;
         String pr = ped;
         String ca = cant;
         String cash = pres;
         Pedido p = new Pedido();
+        //p.setIndex(ck);
         p.setProducto(ped);
         p.setCantidad(cant);
         p.setPrecio(pres);

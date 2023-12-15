@@ -29,6 +29,7 @@ public class ControladorPedido {
     float precioTotal;
     float valorTotalPedido;
     float totalAnterior;
+    String total;
     float tot;
     
     public void ListarProductos(){
@@ -63,9 +64,11 @@ public class ControladorPedido {
                 String datos[] = {pedi.getProducto(),pedi.getCantidad(),pedi.getPrecio()};
                 tot += Float.parseFloat(pedi.getCantidad()) * Float.parseFloat(pedi.getPrecio());
                 ep1.agregarFilaEditar(datos);
+                //Pedido p = new Pedido();
+                //p.asignarTmp(pedi.getProducto(),pedi.getCantidad(),pedi.getPrecio());
             } else {
             }
-        }   
+        } 
     }
     
     public float tot()
@@ -92,8 +95,6 @@ public class ControladorPedido {
     }
     
    
-    
-    
     public void meterPedidoEntablaPedido()
     {
         gp.limpiar();
@@ -131,14 +132,14 @@ public class ControladorPedido {
         for(Pedido pedido : Arrays.ped){
             p.asignarPedidoHecho(String.valueOf(numerosStaticos.index), pedido.getProducto(), pedido.getCantidad(), String.valueOf(pedido.getPrecio()), total);
         }
-         System.out.println(Arrays.pedidosHechos.toString());
     }
      
      public void editaPedido(int index){
          
+        
         String strIndex = Integer.toString(index);
         Pedido p = new Pedido();
-
+        
         Iterator<Pedido> iterator = Arrays.pedidosHechos.iterator();
            while (iterator.hasNext()) {
                Pedido pedido = iterator.next();
@@ -146,16 +147,11 @@ public class ControladorPedido {
                    iterator.remove();  // Esto es seguro durante la iteración
                }
            }
-        String total = "1";
+        total = "1";
         for(Pedido pedido : Arrays.ped)
         {
             p.asignarPedidoHecho(String.valueOf(index), pedido.getProducto(), pedido.getCantidad(), String.valueOf(pedido.getPrecio()), total);
-        }
-        for(Pedido pedido : Arrays.ListEsp)
-        {
-            p.asignarPedidoHecho(String.valueOf(index), pedido.getProducto(), pedido.getCantidad(), String.valueOf(pedido.getPrecio()), total);
-        }
-        
+        }   
      }
      
      
@@ -203,6 +199,15 @@ public class ControladorPedido {
         }
         gp.setTotalPedido(String.valueOf(tt));
     }
+    public void actualziarTotalEdit()
+    {
+        float tt = 0;
+        for(int i = 0 ; i< Arrays.ped.size();i++)    
+        {
+             tt += Float.valueOf(Arrays.ped.get(i).getPrecio());
+        }
+        eP.setTotalPedidoEdit(String.valueOf(tt));
+    }
     
     public void editPed()
     {
@@ -214,21 +219,13 @@ public class ControladorPedido {
             if(eP.getSelect().getText().equals(AlmacenamientoProducto.productosC.get(i).getNombre()))
             {
                 
-                precioTotal = AlmacenamientoProducto.productosC.get(i).getPrecio()* Float.parseFloat(eP.getCant().getText());
-                
-                p.asignarTmp(eP.getSelect().getText(), eP.getCant().getText(), String.valueOf(precioTotal));
+                precioTotal = AlmacenamientoProducto.productosC.get(i).getPrecio()* Float.parseFloat(eP.getCant().getText()); 
+                p.asignar(eP.getSelect().getText(), eP.getCant().getText(), String.valueOf(precioTotal));
                 break; 
             }
         }
-        
-        
-        
+             
         for(Pedido col: Arrays.ped)
-        {
-            String[] data = {col.getProducto(),col.getCantidad(),String.valueOf(col.getPrecio())};
-            eP.agregarFilaEditar(data);
-        }
-        for(Pedido col: Arrays.ListEsp)
         {
             String[] data = {col.getProducto(),col.getCantidad(),String.valueOf(col.getPrecio())};
             eP.agregarFilaEditar(data);
@@ -241,14 +238,8 @@ public class ControladorPedido {
                valorTotalPedido += AlmacenamientoProducto.productosC.get(i).getPrecio()* Float.parseFloat(eP.getCant().getText());
             }
         }
-        
 
         eP.totalpedidoeditar(String.valueOf(valorTotalPedido));  
-    }
-    
-    public void eliminarTmp()
-    {
-        Arrays.ListEsp.clear();
     }
     
     public void eliminarPed(int fl)
