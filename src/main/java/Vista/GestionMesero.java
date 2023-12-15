@@ -106,9 +106,9 @@ public class GestionMesero extends javax.swing.JFrame {
     public int columnaPedido()
     {
         int fila = Tabla_Ped.getSelectedRow();
-        String colm = Tabla_Ped.getValueAt(fila, 0).toString();
-        int pcolm = Integer.parseInt(colm);
-        return pcolm;
+        //String colm = Tabla_Ped.getValueAt(fila, 0).toString();
+        //int pcolm = Integer.parseInt(colm);
+        return fila;
     }
 
     /**
@@ -456,6 +456,7 @@ public class GestionMesero extends javax.swing.JFrame {
         GestionPedido gp = new GestionPedido();
         gp.setVisible(true);
         btnActu.setEnabled(true);
+        btnCrear.setEnabled(false);
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -506,6 +507,7 @@ public class GestionMesero extends javax.swing.JFrame {
         // TODO add your handling code here:
         iniciarMetodo();
         btnActu.setEnabled(false);
+        btnCrear.setEnabled(true);
 
     }//GEN-LAST:event_btnActuActionPerformed
 
@@ -532,6 +534,7 @@ public class GestionMesero extends javax.swing.JFrame {
         // TODO add your handling code here:
         int fila = Tabla_Ped.getSelectedRow();
         gh.setValueAt("Cancelado",fila, 1);
+        cM.cambiarEstado(fila);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public int retorn()

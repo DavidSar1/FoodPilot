@@ -64,8 +64,6 @@ public class ControladorPedido {
                 String datos[] = {pedi.getProducto(),pedi.getCantidad(),pedi.getPrecio()};
                 tot += Float.parseFloat(pedi.getCantidad()) * Float.parseFloat(pedi.getPrecio());
                 ep1.agregarFilaEditar(datos);
-                //Pedido p = new Pedido();
-                //p.asignarTmp(pedi.getProducto(),pedi.getCantidad(),pedi.getPrecio());
             } else {
             }
         } 

@@ -33,10 +33,16 @@ public class ControladorMesero  {
         }          
     }
     
-    public void cambiarEstado(){
+    public void cambiarEstado(int fl){
         
+        for(int i = 0; i < Arrays.listp.size();i++)
+        {
+            if(i == fl)
+            {
+                Arrays.listp.get(i).setEstado("Cancelado");
+            }
+        }
     }
-    
     public void ls()
     {
         boolean agg = true;
@@ -65,6 +71,7 @@ public class ControladorMesero  {
             }
         }
         ped = Arrays.pedidosHechos.size();
+        System.out.println(Arrays.pedidosHechos.toString());
     }
     
     public  void setHiloEntregado(HiloEntregado hActualizar){
@@ -72,16 +79,20 @@ public class ControladorMesero  {
     }
     
     public void eliminarPedido()
-    {
-        gm.columnaPedido();
+    { 
+        outerLoop:
         for (int i = 0; i < Arrays.pedidosHechos.size();i++) 
         {
-            if (i == gm.columnaPedido()-1)
+            for(int j = 0; j < Arrays.listp.size();j++)
             {
-                Arrays.pedidosHechos.remove(i);
-            }
+                if (gm.columnaPedido()+1 == Arrays.listp.get(j).getPedido())
+                {
+                    Arrays.pedidosHechos.remove(j);
+                    Arrays.listp.get(j).setEstado("Eliminado");
+                    break outerLoop;
+                }     
+            }     
         }
-        System.out.println(Arrays.pedidosHechos.toString());
     }
     public void asignarMesa()
     {
