@@ -7,6 +7,8 @@ package Vista;
 import Controlador.ControladorMesero;
 import Controlador.ControladorPedido;
 import java.util.ArrayList;
+import Vista.GestionMesero;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -17,12 +19,14 @@ import javax.swing.table.DefaultTableModel;
  * @author Myke
  */
 public class GestionPedido extends javax.swing.JFrame {
+    GestionPedido gjj;
     DefaultTableModel dtm = new DefaultTableModel();
+    
 
     DefaultTableModel tp = new DefaultTableModel();
     ControladorPedido cp = new ControladorPedido();
     ControladorMesero cm = new ControladorMesero();
-    GestionMesero gm;
+    GestionMesero gm = new GestionMesero(this);
     String txt;
     int index = 0;
     
@@ -31,6 +35,7 @@ public class GestionPedido extends javax.swing.JFrame {
      * Creates new form GestionPedido
      */
     public GestionPedido() {
+        
         initComponents();
         cp.setPedido(this);
         
@@ -122,6 +127,7 @@ public class GestionPedido extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         totalpedido = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
+        btnAgg = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
@@ -356,6 +362,15 @@ public class GestionPedido extends javax.swing.JFrame {
             }
         });
 
+        btnAgg.setBackground(new java.awt.Color(255, 51, 51));
+        btnAgg.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgg.setText("Salir");
+        btnAgg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAggActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -365,13 +380,13 @@ public class GestionPedido extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(124, 124, 124)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                                .addComponent(btnAgg, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -387,8 +402,10 @@ public class GestionPedido extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAgg, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -428,7 +445,22 @@ public class GestionPedido extends javax.swing.JFrame {
 
   
     }//GEN-LAST:event_btnSaveActionPerformed
+    private static boolean isDefaultTableModelEmpty(DefaultTableModel model) {
+        int rowCount = model.getRowCount();
+        int colCount = model.getColumnCount();
 
+        for (int i = 0; i < rowCount; i++) 
+        {
+            for (int j = 0; j < colCount; j++) {
+                Object value = model.getValueAt(i, j);
+                if (value != null && !value.toString().isEmpty()) {
+                    return false; // Se encontró al menos un valor no vacío
+                }
+            }
+        }
+
+        return true; // No se encontraron valores no vacíos
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try
@@ -437,6 +469,7 @@ public class GestionPedido extends javax.swing.JFrame {
             String producto  = Tabla_Prod.getValueAt(fila, 0).toString();
             JTselected.setText(producto);
             btnHacer.setEnabled(true);
+
         }
         catch(java.lang.ArrayIndexOutOfBoundsException e)
         {
@@ -476,6 +509,7 @@ public class GestionPedido extends javax.swing.JFrame {
         // TODO add your handling code here:
         tablaPed();
         btnSave.setEnabled(true);
+        btnAgg.setEnabled(false);
     }//GEN-LAST:event_btnHacerActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -486,12 +520,27 @@ public class GestionPedido extends javax.swing.JFrame {
             tp.removeRow( fila);
             cp.eliminarPed(fila);
             cp.actualziarTotal();
+            btnAgg.setEnabled(false);
+            if (isDefaultTableModelEmpty((DefaultTableModel) Tabla_Pedido.getModel())) 
+            {
+                btnSave.setEnabled(false);
+                btnAgg.setEnabled(true);
+            }
         }
         catch(java.lang.ArrayIndexOutOfBoundsException e)
         {
             JOptionPane.showMessageDialog(null,"No seleccionó ningun valor");
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btnAggActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggActionPerformed
+        // TODO add your handling code here:
+        
+        gm.getBtnActu().setEnabled(false);
+        gm.getBtnCrear().setEnabled(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_btnAggActionPerformed
     
     public JTextField getSelect()
     {
@@ -506,6 +555,8 @@ public class GestionPedido extends javax.swing.JFrame {
     public JLabel getTotal(){
         return totalpedido;
     }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -545,6 +596,7 @@ public class GestionPedido extends javax.swing.JFrame {
     private javax.swing.JTextField JTselected;
     private javax.swing.JTable Tabla_Pedido;
     private javax.swing.JTable Tabla_Prod;
+    private javax.swing.JButton btnAgg;
     private javax.swing.JButton btnHacer;
     private javax.swing.JButton btnMas;
     private javax.swing.JButton btnMenos;

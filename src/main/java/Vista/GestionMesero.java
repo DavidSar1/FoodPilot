@@ -10,6 +10,7 @@ import Controlador.ControladorPedido;
 import Controlador.ControladorUsers;
 import Modelo.Pedido;
 import java.util.Arrays;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -20,6 +21,7 @@ import javax.swing.table.TableModel;
  * @author PC
  */
 public class GestionMesero extends javax.swing.JFrame {
+    GestionPedido gf;
     DefaultTableModel gh = new DefaultTableModel();
     ControladorUsers cp = new ControladorUsers();
     DefaultTableModel mT = new DefaultTableModel();
@@ -31,10 +33,14 @@ public class GestionMesero extends javax.swing.JFrame {
     String ass[];
     /**
      * Creates new form Mesero
+     * @param gf
      */
    
     
- 
+    public GestionMesero(GestionPedido gf)
+    {
+        this.gf = gf;
+    }
     
     public GestionMesero() {
         initComponents();
@@ -588,14 +594,26 @@ public class GestionMesero extends javax.swing.JFrame {
         tiempoPedido.setText(text);
     }
     
+    public static  JButton  getBtnActu()
+    {   
+        return btnActu; 
+    }
+    
+    public static  JButton  getBtnCrear()
+    {   
+        return btnCrear; 
+    }
+    
+
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tabla_Ped;
     private javax.swing.JTable Tabla_asignaded;
-    private javax.swing.JButton btnActu;
+    private static javax.swing.JButton btnActu;
     private javax.swing.JButton btnAsignar;
-    private javax.swing.JButton btnCrear;
+    private static javax.swing.JButton btnCrear;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
