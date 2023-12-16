@@ -71,7 +71,6 @@ public class ControladorMesero  {
             }
         }
         ped = Arrays.pedidosHechos.size();
-        System.out.println(Arrays.pedidosHechos.toString());
     }
     
     public  void setHiloEntregado(HiloEntregado hActualizar){
@@ -83,11 +82,13 @@ public class ControladorMesero  {
         outerLoop:
         for (int i = 0; i < Arrays.pedidosHechos.size();i++) 
         {
-            for(int j = 0; j < Arrays.listp.size();j++)
+            for(int j = Arrays.listp.size() - 1; j >= 0; j--)
             {
                 if (gm.columnaPedido()+1 == Arrays.listp.get(j).getPedido())
                 {
-                    Arrays.pedidosHechos.remove(j);
+                    Arrays.pedidosHechos.remove(i);
+                    ped -= 1;
+                    //,Arrays.pedidosHechos.get(j).getCantidad(),Arrays.pedidosHechos.get(j).getPrecio()
                     Arrays.listp.get(j).setEstado("Eliminado");
                     break outerLoop;
                 }     

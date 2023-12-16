@@ -48,6 +48,7 @@ public final class EditarPedido extends javax.swing.JFrame {
         editT.addColumn("Cantidad");
         editT.addColumn("Precio");
         btnIngre.setEnabled(false);
+        guardarEditar.setEnabled(false);
         
   
     }
@@ -492,6 +493,7 @@ public final class EditarPedido extends javax.swing.JFrame {
             
             
             btnSalir.setEnabled(false); 
+            guardarEditar.setEnabled(true);
 
         }
         catch(java.lang.ArrayIndexOutOfBoundsException e)
@@ -511,6 +513,7 @@ public final class EditarPedido extends javax.swing.JFrame {
             cp.actualziarTotalEdit();
             editT.removeRow( fila);
             btnSalir.setEnabled(false);
+            guardarEditar.setEnabled(true);
             
         }
         catch(java.lang.ArrayIndexOutOfBoundsException e)
