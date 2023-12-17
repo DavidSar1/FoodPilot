@@ -88,7 +88,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Component id="jButton1" min="-2" pref="130" max="-2" attributes="0"/>
-                                      <EmptySpace pref="69" max="32767" attributes="0"/>
+                                      <EmptySpace pref="92" max="32767" attributes="0"/>
                                       <Component id="btnAgg" min="-2" pref="130" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -406,7 +406,7 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="totalpedido" min="-2" pref="91" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButton4" max="32767" attributes="0"/>
+                                  <Component id="jButton4" pref="151" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>

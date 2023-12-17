@@ -67,6 +67,7 @@ public class GestionPedido extends javax.swing.JFrame {
     public void tablaped2(){
         
         cp.crearPedido();
+        System.out.println(Modelo.Arrays.pedidosHechos);
     }
     
     public void agg(String data[]){

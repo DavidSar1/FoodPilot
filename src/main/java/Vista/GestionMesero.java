@@ -535,6 +535,7 @@ public class GestionMesero extends javax.swing.JFrame {
                 return;
             }
             Modelo.numerosStaticos.editarPedido = fila;
+            System.out.println(Modelo.numerosStaticos.editarPedido);
             EditarPedido editPedido = new EditarPedido();
             ControladorPedido cP = new ControladorPedido();
             cP.productoEditar(editPedido, fila);

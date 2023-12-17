@@ -6,17 +6,14 @@ package Controlador;
 
 import Modelo.AlmacenamientoProducto;
 import Modelo.Arrays;
-import Modelo.ListaPedido;
+import Modelo.Cronometro;
 import Modelo.Pedido;
 import Modelo.Producto;
-import Modelo.Usuario;
 import Modelo.numerosStaticos;
-import Vista.AdministradorMesas;
 import Vista.EditarPedido;
 import Vista.GestionPedido;
-import java.util.ArrayList;
 import java.util.Iterator;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -31,6 +28,9 @@ public class ControladorPedido {
     float totalAnterior;
     String total;
     float tot;
+    int segundos = 0;
+    int minutos = 0;
+    
     
     public void ListarProductos(){
         
@@ -56,9 +56,7 @@ public class ControladorPedido {
     public void productoEditar(EditarPedido ep1, int  index){
         String strIndex = Integer.toString(index);
         boolean ver = true;
-        ep1.limpiarTablaEditar();
-        
-        
+        ep1.limpiarTablaEditar(); 
         for(Pedido pedi : Arrays.pedidosHechos){
             if(pedi.getIndex().equals(strIndex)){
                 String datos[] = {pedi.getProducto(),pedi.getCantidad(),pedi.getPrecio()};
@@ -68,6 +66,8 @@ public class ControladorPedido {
             }
         } 
     }
+    
+    
     
     public float tot()
     {
@@ -123,15 +123,20 @@ public class ControladorPedido {
         gp.setTotalPedido(String.valueOf(totalPedido));
     }
     
-     public void crearPedido(){
+    public void crearPedido(){
         numerosStaticos.index += 1;
         String total = "1";
-        Pedido p = new Pedido();
+        
         for(Pedido pedido : Arrays.ped){
+            Pedido p = new Pedido();
             p.asignarPedidoHecho(String.valueOf(numerosStaticos.index), pedido.getProducto(), pedido.getCantidad(), String.valueOf(pedido.getPrecio()), total);
+            Modelo.Arrays.pedidosHechos.add(p);
+            p.iniciarTemporizador();
         }
+        
     }
-     
+        
+    
      public void editaPedido(int index){
          
         
@@ -148,8 +153,14 @@ public class ControladorPedido {
         total = "1";
         for(Pedido pedido : Arrays.ped)
         {
-            p.asignarPedidoHecho(String.valueOf(index), pedido.getProducto(), pedido.getCantidad(), String.valueOf(pedido.getPrecio()), total);
-        }   
+            Pedido p1 = new Pedido();
+            p1.asignarPedidoHecho(String.valueOf(index), pedido.getProducto(), pedido.getCantidad(), String.valueOf(pedido.getPrecio()), total);
+            Modelo.Arrays.pedidosHechos.add(p1);
+            p1.iniciarTemporizador();
+        }
+        
+        
+        System.out.println("este es el index que jode todo"+index);
      }
      
      
@@ -250,4 +261,5 @@ public class ControladorPedido {
             }
         }    
     }
+
 }

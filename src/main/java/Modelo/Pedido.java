@@ -4,8 +4,11 @@
  */
 package Modelo;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import javax.swing.Timer;
 
 /**
  *
@@ -17,6 +20,8 @@ public class Pedido {
     String cantidad;
     String precio;
     String total;
+    Timer timer;
+    int tiempoTranscurrido;
     
     int dia;
     int mes; 
@@ -31,6 +36,56 @@ public class Pedido {
         this.cantidad = cantidad;
         this.precio = precio;
         this.total = total;
+        this.tiempoTranscurrido = 0;
+        this.timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tiempoTranscurrido++;
+                // Puedes agregar lógica adicional aquí si es necesario
+                if (tiempoTranscurrido >= 60) { // 10 minutos = 600 segundos
+                    timer.stop();
+                }
+            }
+        });
+        this.timer.setRepeats(true);
+    }
+    
+    public boolean estaTemporizadorIniciado() {
+        return timer != null && timer.isRunning();
+    }
+    
+    public void iniciarTemporizador() {
+        // Verificar que el temporizador no sea nulo antes de iniciar
+        if (timer != null) {
+            timer.start();
+        } else {
+            System.out.println("Pedido no encontrado");
+        }
+    }
+    
+    
+    public void detenerTemporizador() {
+        timer.stop();
+    }
+    
+    public String getTiempoTranscurridoFormateado() {
+        int minutos = tiempoTranscurrido / 60;
+        int segundos = tiempoTranscurrido % 60;
+        String ent = "Entregado!";
+        if(minutos != 1){
+            return String.format("%02d:%02d", minutos, segundos);
+        } else {
+            return ent;
+        }
+    }
+    
+    public Pedido obtenerPedido(int index) {
+        if (index >= 0 && index < Modelo.Arrays.pedidosHechos.size()) {
+            return Modelo.Arrays.pedidosHechos.get(index);
+        } else {
+            // Manejar la situación en la que el índice es inválido, por ejemplo, retornar null o lanzar una excepción.
+            return null;
+        }
     }
 
     public Pedido(String producto, String cantidad, String precio, String total, int dia, int mes, int año) {
@@ -42,8 +97,6 @@ public class Pedido {
         this.mes = mes;
         this.año = año;
     }
-    
-
    
 
     public String getProducto() {
@@ -148,28 +201,30 @@ public class Pedido {
         Arrays.ped.add(p);
     }
     
-    public void asignarPedidoHecho(String index,String ped, String cant, String pres, String total){
-        Pedido p = new Pedido();
-        p.setIndex(index);
-        p.setProducto(ped);
-        p.setCantidad(cant);
-        p.setPrecio(pres);
-        p.setTotal(total);
-        /*
-        LocalDate fechaActual = LocalDate.now();
+    public void asignarPedidoHecho(String index, String producto, String cantidad, String precio, String total) {
+        Pedido ped = new Pedido();
+        this.index = index;
+        this.producto = producto;
+        this.cantidad = cantidad;
+        this.precio = precio;
+        this.total = total;
+        this.tiempoTranscurrido = 0;
+        this.timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tiempoTranscurrido++;
+                // Puedes agregar lógica adicional aquí si es necesario
+                if (tiempoTranscurrido >= 600) { // 10 minutos = 600 segundos
+                    detenerTemporizador(); // Detener el temporizador después de 10 minutos
+                }
+            }
+        });
+        this.timer.setRepeats(true);
         
-        int diapedido = fechaActual.getDayOfMonth();
-        int mespedido = fechaActual.getMonthValue();
-        int añopedido = fechaActual.getYear();
-        
-        p.setDia(diapedido);
-        p.setMes(mespedido);
-        p.setAño(añopedido);
-        */
- 
-        Arrays.pedidosHechos.add(p);
-        
+  
     }
+    
+    
     
     public ArrayList<Pedido> asignarTmp(String ped, String cant, String pres)
     {
