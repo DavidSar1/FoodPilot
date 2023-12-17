@@ -67,7 +67,6 @@ public class GestionPedido extends javax.swing.JFrame {
     public void tablaped2(){
         
         cp.crearPedido();
-        System.out.println(Modelo.Arrays.pedidosHechos);
     }
     
     public void agg(String data[]){
@@ -441,6 +440,7 @@ public class GestionPedido extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:3   
         tablaped2();
+        gm.getBtnCrear().setEnabled(false);
         this.dispose();
         //aqui pasame pedido
 
@@ -508,6 +508,13 @@ public class GestionPedido extends javax.swing.JFrame {
 
     private void btnHacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHacerActionPerformed
         // TODO add your handling code here:
+        int fila = Tabla_Prod.getSelectedRow();
+        String producto = Tabla_Prod.getValueAt(fila, 2).toString();
+        if(producto.equals("INACTIVO"))
+        {
+            JOptionPane.showMessageDialog(null,"Producto no disponible");
+            return;
+        }
         tablaPed();
         btnSave.setEnabled(true);
         btnAgg.setEnabled(false);

@@ -29,6 +29,7 @@ public final class EditarPedido extends javax.swing.JFrame {
     DefaultTableModel dtm = new DefaultTableModel();
     DefaultTableModel editT = new DefaultTableModel();
     ControladorPedido cp = new ControladorPedido();
+    EditarPedido ed;
     private boolean primeraEjecucion = true;
     float suma;
     float poder;
@@ -36,6 +37,7 @@ public final class EditarPedido extends javax.swing.JFrame {
     private boolean textoSuma = true;
     Pedido pedidoActual;
     String posicion;
+    private Timer timer;
     
     /**
      * Creates new form EditarPedido
@@ -44,7 +46,7 @@ public final class EditarPedido extends javax.swing.JFrame {
         initComponents();
         
         cp.setEditPedido(this);
-        
+        asignarTiempo();
         tablaProductoEdit.setModel(dtm);
       
         dtm.addColumn("Producto");
@@ -59,9 +61,17 @@ public final class EditarPedido extends javax.swing.JFrame {
         editT.addColumn("Precio");
         btnIngre.setEnabled(false);
         guardarEditar.setEnabled(false);
-        asignarTiempo();
+        
+        /*if(tiempoPedido.getText().equals("Entregado!"))
+        {
+            jButton1.setEnabled(false);
+            btnIngre.setEnabled(false);
+            btnMenos1.setEnabled(false);
+            guardarEditar.setEnabled(false);
+        }*/
 
     }
+    
     
     public void asignarTiempo(){
         posicion = String.valueOf(Modelo.numerosStaticos.editarPedido);
@@ -71,14 +81,21 @@ public final class EditarPedido extends javax.swing.JFrame {
                 System.out.println(Modelo.numerosStaticos.editarPedido);
                 if (pedidoActual.getIndex().equals(posicion)) {
                     // Iniciar un temporizador para actualizar el tiempo en el JLabel cada segundo
-                    Timer timer = new Timer(1000, new ActionListener() {
+                    timer = new Timer(1000, new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             // Actualizar la interfaz con el tiempo transcurrido
                             actualizarTiempoLabel();
-                            if(tiempoPedido.equals("Entreado!")){
-                                Modelo.Arrays.listp.get(Modelo.numerosStaticos.editarPedido).setEstado("Entregado");
-                            }
+                            getBtn();
+                            if(getBtn().getText().equals("Entregado!"))
+                            {
+                               //Modelo.Arrays.listp.get(Modelo.numerosStaticos.editarPedido).setEstado("Entregado");
+                               jButton1.setEnabled(false);
+                               btnIngre.setEnabled(false);
+                               btnMenos1.setEnabled(false);
+                               timer.stop();
+                            } 
+                            
                         }
                     });
                     timer.setRepeats(true);
@@ -99,6 +116,13 @@ public final class EditarPedido extends javax.swing.JFrame {
     public void actualizarTiempoLabel() {
         SwingUtilities.invokeLater(() -> {
             tiempoPedido.setText(pedidoActual.getTiempoTranscurridoFormateado());
+            /*getBtn();
+            if(getBtn().getText().equals("Entregado!"))
+            {
+               //Modelo.Arrays.listp.get(Modelo.numerosStaticos.editarPedido).setEstado("Entregado");
+               JOptionPane.showMessageDialog(null,"Ya puto");
+               //timer.stop();
+            }*/   
         });
     }
     
@@ -140,6 +164,11 @@ public final class EditarPedido extends javax.swing.JFrame {
     
     public void table3(){
         cp.editaPedido(Modelo.numerosStaticos.editarPedido);
+    }
+    
+    public JLabel getBtn()
+    {
+        return tiempoPedido;
     }
     
     
@@ -550,6 +579,7 @@ public final class EditarPedido extends javax.swing.JFrame {
             String producto  = tablaProductoEdit.getValueAt(fila, 0).toString();
             JTselected.setText(producto);
             btnIngre.setEnabled(true);
+            
         }
         catch(java.lang.ArrayIndexOutOfBoundsException e)
         {
@@ -561,6 +591,13 @@ public final class EditarPedido extends javax.swing.JFrame {
         // TODO add your handling code here:
         try
         {     
+            int fila = tablaProductoEdit.getSelectedRow();
+            String producto = tablaProductoEdit.getValueAt(fila, 2).toString();
+            if(producto.equals("INACTIVO"))
+            {
+                JOptionPane.showMessageDialog(null,"Producto no disponible");
+                return;
+            }
             cp.editPed();
             
             if(textoSuma)

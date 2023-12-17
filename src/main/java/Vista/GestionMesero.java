@@ -488,6 +488,11 @@ public class GestionMesero extends javax.swing.JFrame {
             {
                 Tabla_asignaded.setValueAt("Ocupado", fila, 2);
             }
+            if(numero.equals("Ocupado"))
+            {
+                JOptionPane.showMessageDialog(null,"Mesa ocupada");
+                return;
+            }
             btnCrear.setEnabled(true);
             btnAsignar.setEnabled(false);
             btnEdit.setEnabled(true);
@@ -519,7 +524,8 @@ public class GestionMesero extends javax.swing.JFrame {
         // TODO add your handling code here:
         iniciarMetodo();
         btnActu.setEnabled(false);
-        btnCrear.setEnabled(true);
+        btnAsignar.setEnabled(true);
+        //btnCrear.setEnabled(true);
 
     }//GEN-LAST:event_btnActuActionPerformed
 
@@ -532,6 +538,11 @@ public class GestionMesero extends javax.swing.JFrame {
             if(gh.getValueAt(fill, 1).equals("Eliminado"))
             {
                 JOptionPane.showMessageDialog(null,"El pedido ya ha sido eliminado");
+                return;
+            }
+            if(gh.getValueAt(fill, 1).equals("Entregado"))
+            {
+                JOptionPane.showMessageDialog(null,"El pedido ya ha sido entregado");
                 return;
             }
             Modelo.numerosStaticos.editarPedido = fila;
@@ -627,8 +638,8 @@ public class GestionMesero extends javax.swing.JFrame {
     private javax.swing.JButton btnAsignar;
     private javax.swing.JButton btnCancel;
     private static javax.swing.JButton btnCrear;
-    private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btnEliminar;
+    private static javax.swing.JButton btnEdit;
+    private static javax.swing.JButton btnEliminar;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

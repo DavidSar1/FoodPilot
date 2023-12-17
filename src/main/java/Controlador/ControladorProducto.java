@@ -78,7 +78,7 @@ public class ControladorProducto {
         boolean Existe = false ; 
         for(int i = 0; i < AlmacenamientoProducto.productosC.size() ; i++) 
         {
-            if(AlmacenamientoProducto.productosC.get(i).getNombre().equals(nombre))
+            if(AlmacenamientoProducto.productosC.get(i).getNombre().equalsIgnoreCase(nombre))
             {
                 Existe = true ;
                 break;
@@ -114,7 +114,7 @@ public class ControladorProducto {
         boolean Eliminado = false;
         for(int i = 0; i < AlmacenamientoProducto.productosC.size() ; i++)
             { 
-                if(AlmacenamientoProducto.productosC.get(i).getNombre().equals(nombreProducto))
+                if(AlmacenamientoProducto.productosC.get(i).getNombre().equalsIgnoreCase(nombreProducto))
                 {
                     AlmacenamientoProducto.productosC.remove(i);
                     Eliminado = true;
@@ -137,35 +137,31 @@ public class ControladorProducto {
     }
     
     public void ModificarProducto1(){
-        String NombreModificar = gp.getNombreModificar(); 
+        String NombreModificar = gp.getNombreModificar();
         if(AlmacenamientoProducto.productosC.isEmpty()){
         } else {
             if(VerificarProductoExistente(NombreModificar) == true)
             {
             for(int i = 0; i < AlmacenamientoProducto.productosC.size() ; i++)
                {
-                   if(AlmacenamientoProducto.productosC.get(i).getNombre().equals(NombreModificar))
+                   if(AlmacenamientoProducto.productosC.get(i).getNombre().equalsIgnoreCase(NombreModificar))
                    { 
-                       System.out.println("holaentreaqui");
                        gp.nombreModificar.setEditable(false);  
                        gp.setPrecioModificar(String.valueOf(AlmacenamientoProducto.productosC.get(i).getPrecio()));
                        gp.setDescripcionModificar(AlmacenamientoProducto.productosC.get(i).getDescripcion());
                        break;
 
-                   } else
-                   {
-                      
-
-                   }
-
+                   } 
                }
-            } else 
+            } 
+            else 
             {
                 JOptionPane.showMessageDialog(gp, "El producto que quieres modificar no existe"); 
+                return;
             }
+            
          }
         ListarProductos();
- 
     }
     
     
@@ -177,7 +173,7 @@ public class ControladorProducto {
             String Estado = gp.getEstadoModificar();
             for(int i = 0; i < AlmacenamientoProducto.productosC.size() ; i++)
             {
-                if(AlmacenamientoProducto.productosC.get(i).getNombre().equals(NombreModificar))
+                if(AlmacenamientoProducto.productosC.get(i).getNombre().equalsIgnoreCase(NombreModificar))
                 {
                     
                     gp.nombreModificar.setEditable(false);
@@ -189,6 +185,7 @@ public class ControladorProducto {
                 }
             
             }
+            gp.nombreModificar.setEditable(true);
             JOptionPane.showMessageDialog(gp, "El producto ha sido modificado con exito");
             
             
