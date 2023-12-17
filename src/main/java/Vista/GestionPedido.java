@@ -6,6 +6,7 @@ package Vista;
 
 import Controlador.ControladorMesero;
 import Controlador.ControladorPedido;
+import Modelo.ListaPedido;
 import java.util.ArrayList;
 import Vista.GestionMesero;
 import javax.swing.JButton;
@@ -29,6 +30,7 @@ public class GestionPedido extends javax.swing.JFrame {
     GestionMesero gm = new GestionMesero(this);
     String txt;
     int index = 0;
+    
     
     
     /**
@@ -438,7 +440,11 @@ public class GestionPedido extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:3   
+        // TODO add your handling code here:3  
+        Modelo.numerosStaticos.contadorPedidos += 1;
+        System.out.println(Modelo.numerosStaticos.contadorPedidos);
+        ListaPedido lp = new ListaPedido();
+        lp.asign(Modelo.numerosStaticos.contadorPedidos, "En proceso");
         tablaped2();
         gm.getBtnCrear().setEnabled(false);
         this.dispose();

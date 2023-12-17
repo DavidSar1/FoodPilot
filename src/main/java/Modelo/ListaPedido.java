@@ -42,6 +42,7 @@ public class ListaPedido {
     
     public ArrayList<ListaPedido> asign(int pid, String est)
     {
+        
         int pde = pid;
         String es = est;
         
@@ -50,7 +51,7 @@ public class ListaPedido {
         lp.setEstado(est);
         
         Arrays.listp.add(lp);
-        
+        System.out.println("si paso aqui");
         return Arrays.listp;
     }
 

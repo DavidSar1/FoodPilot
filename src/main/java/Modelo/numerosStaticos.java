@@ -11,4 +11,5 @@ package Modelo;
 public class numerosStaticos {
     public static int index = 0;
     public static int editarPedido;
+    public static int contadorPedidos;
 }

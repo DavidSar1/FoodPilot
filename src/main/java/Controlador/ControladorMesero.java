@@ -58,9 +58,6 @@ public class ControladorMesero  {
             
         }
         
-        ListaPedido lp = new ListaPedido();
-        lp.asign(contador, "En proceso");
-        
         
         if(ped < Arrays.pedidosHechos.size())
         {
@@ -73,8 +70,26 @@ public class ControladorMesero  {
         ped = Arrays.pedidosHechos.size();
     }
     
+    public void añadirPedido(){
+        
+    }
     
-    
+    public void actualizarPedidos(){
+        gm.limpiarTabla();
+        if(ped < Arrays.pedidosHechos.size())
+        {
+            if(Arrays.listp.isEmpty()){
+                System.out.println("No hay pedidos!");
+            } else {
+            for (ListaPedido lsp : Arrays.listp) 
+            {
+                String[] dat = {String.valueOf(lsp.getPedido()), lsp.getEstado()};
+                gm.agrego(dat);
+            }
+            }
+        }
+    }
+
     public void eliminarPedido()
     { 
         outerLoop:

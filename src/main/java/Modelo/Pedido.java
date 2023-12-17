@@ -72,7 +72,7 @@ public class Pedido {
         int minutos = tiempoTranscurrido / 60;
         int segundos = tiempoTranscurrido % 60;
         String ent = "Entregado!";
-        if(minutos != 1){
+        if(minutos < 1){
             return String.format("%02d:%02d", minutos, segundos);
         } else {
             return ent;

@@ -7,6 +7,7 @@ package Vista;
 import Controlador.ControladorMesero;
 import Controlador.ControladorPedido;
 import Controlador.ControladorUsers;
+import Modelo.ListaPedido;
 import java.util.Arrays;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -38,6 +39,7 @@ public final class EditarPedido extends javax.swing.JFrame {
     Pedido pedidoActual;
     String posicion;
     private Timer timer;
+    int contador = 0;
     
     /**
      * Creates new form EditarPedido
@@ -89,7 +91,7 @@ public final class EditarPedido extends javax.swing.JFrame {
                             getBtn();
                             if(getBtn().getText().equals("Entregado!"))
                             {
-                               //Modelo.Arrays.listp.get(Modelo.numerosStaticos.editarPedido).setEstado("Entregado");
+                               Modelo.Arrays.listp.get(Integer.parseInt(posicion)).setEstado("Entregado");
                                jButton1.setEnabled(false);
                                btnIngre.setEnabled(false);
                                btnMenos1.setEnabled(false);

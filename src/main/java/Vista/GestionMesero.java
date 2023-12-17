@@ -63,6 +63,8 @@ public class GestionMesero extends javax.swing.JFrame {
         btnEdit.setEnabled(false);
         btnEliminar.setEnabled(false);
         btnCancel.setEnabled(false);
+        HiloActualizar  hiloA = new HiloActualizar(this);
+        hiloA.start();
         
     }
     
@@ -100,6 +102,11 @@ public class GestionMesero extends javax.swing.JFrame {
     }
     public void iniciarMetodo(){
         cM.ls();
+    }
+    
+    public void actualizarPed(){
+        System.out.println("hola");
+        cM.actualizarPedidos();
     }
     
     
