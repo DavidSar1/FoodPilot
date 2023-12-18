@@ -22,13 +22,15 @@ public class ControladorMesero  {
     int contador;
     int ped = 0;
     
+    
+    
    
     public void actualizarTabla(){
-        HiloCronometro hCronometro = new HiloCronometro(this);
-        hCronometro.start();
+        
+        gm.limpiarTablamesas();
         //gm = new GestionMesero(this);
         for(Mesa mesa : Arrays.mesa_meseros){
-            String datos[] = {Integer.toString(mesa.getCapacidad()),Integer.toString(mesa.getNumero()),"Libre"};
+            String datos[] = {Integer.toString(mesa.getCapacidad()),Integer.toString(mesa.getNumero()),mesa.getEstado()};
             gm.agregarFila(datos);
         }          
     }
@@ -122,6 +124,8 @@ public class ControladorMesero  {
    
     public void setData(GestionMesero gm)
     {
+        HiloCronometro hCronometro = new HiloCronometro(this);
+        hCronometro.start();
         this.gm = gm;
     }
     

@@ -8,6 +8,7 @@ import Controlador.ControladorMesero;
 import Controlador.ControladorPedido;
 import Controlador.ControladorUsers;
 import Modelo.ListaPedido;
+import Modelo.Mesa;
 import java.util.Arrays;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -71,6 +72,7 @@ public final class EditarPedido extends javax.swing.JFrame {
             btnMenos1.setEnabled(false);
             guardarEditar.setEnabled(false);
         }*/
+        
 
     }
     
@@ -91,7 +93,10 @@ public final class EditarPedido extends javax.swing.JFrame {
                             getBtn();
                             if(getBtn().getText().equals("Entregado!"))
                             {
-                               Modelo.Arrays.listp.get(Integer.parseInt(posicion)).setEstado("Entregado");
+                               Modelo.Arrays.listp.get(Integer.parseInt(posicion)-1).setEstado("Entregado");
+                               int posicionMesa = Modelo.Arrays.mesaOcupadas.get(Integer.parseInt(posicion)-1);
+                               Modelo.Arrays.mesa_meseros.get(posicionMesa).setEstado("Libre");
+                               
                                jButton1.setEnabled(false);
                                btnIngre.setEnabled(false);
                                btnMenos1.setEnabled(false);
@@ -110,10 +115,9 @@ public final class EditarPedido extends javax.swing.JFrame {
                 System.out.println("Aqui no fue ptm");
             }
         }
-        
-        
-        
+  
     }
+    
     
     public void actualizarTiempoLabel() {
         SwingUtilities.invokeLater(() -> {
@@ -211,8 +215,6 @@ public final class EditarPedido extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         tiempoPedido = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        numeroPedido = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
@@ -434,14 +436,6 @@ public final class EditarPedido extends javax.swing.JFrame {
         tiempoPedido.setForeground(new java.awt.Color(51, 51, 51));
         tiempoPedido.setText("00:00");
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("Numero de pedido :");
-
-        numeroPedido.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        numeroPedido.setForeground(new java.awt.Color(51, 51, 51));
-        numeroPedido.setText("1");
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -464,27 +458,17 @@ public final class EditarPedido extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(guardarEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tiempoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(numeroPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63))))
+                .addComponent(guardarEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tiempoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(numeroPedido))
-                .addGap(4, 4, 4)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -737,7 +721,6 @@ public final class EditarPedido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -746,10 +729,9 @@ public final class EditarPedido extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JLabel numeroPedido;
     private javax.swing.JTable tablaEd;
     private javax.swing.JTable tablaProductoEdit;
-    private javax.swing.JLabel tiempoPedido;
+    public javax.swing.JLabel tiempoPedido;
     private javax.swing.JLabel totaleditar;
     // End of variables declaration//GEN-END:variables
 }

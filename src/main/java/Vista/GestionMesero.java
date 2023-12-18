@@ -65,6 +65,8 @@ public class GestionMesero extends javax.swing.JFrame {
         btnCancel.setEnabled(false);
         HiloActualizar  hiloA = new HiloActualizar(this);
         hiloA.start();
+        HiloActualizarMesas hiloAM = new HiloActualizarMesas(this);
+        hiloAM.start();
         
     }
     
@@ -73,6 +75,10 @@ public class GestionMesero extends javax.swing.JFrame {
     {
         gh.addRow(dat);
         ass = dat;
+    }
+    
+    public void actualizarTablaMesas(){
+        cM.actualizarTabla();
     }
     
     public String[] in(String dat[])
@@ -100,6 +106,11 @@ public class GestionMesero extends javax.swing.JFrame {
         mT.addRow(datos);
         
     }
+    
+    public void limpiarTablamesas(){
+        mT.getDataVector().removeAllElements();
+    }
+    
     public void iniciarMetodo(){
         cM.ls();
     }
@@ -127,6 +138,8 @@ public class GestionMesero extends javax.swing.JFrame {
         //int pcolm = Integer.parseInt(colm);
         return fila;
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -157,6 +170,7 @@ public class GestionMesero extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_asignaded = new javax.swing.JTable();
         btnAsignar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -388,13 +402,17 @@ public class GestionMesero extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Tenga en cuenta que la actualizacion de las tablas es cada 10 segundos.");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -403,6 +421,9 @@ public class GestionMesero extends javax.swing.JFrame {
                             .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(455, 455, 455))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAsignar)
                         .addGap(514, 514, 514))))
         );
@@ -417,7 +438,9 @@ public class GestionMesero extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAsignar)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAsignar)
+                    .addComponent(jLabel2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -490,10 +513,12 @@ public class GestionMesero extends javax.swing.JFrame {
         try
         {
             int fila = Tabla_asignaded.getSelectedRow();
+            System.out.println(fila);
             numero = Tabla_asignaded.getValueAt(fila, 2).toString();
             if (!numero.equals("Ocupado")) 
             {
-                Tabla_asignaded.setValueAt("Ocupado", fila, 2);
+                Modelo.Arrays.mesa_meseros.get(fila).setEstado("Ocupado");
+                Modelo.Arrays.mesaOcupadas.add(fila);
             }
             if(numero.equals("Ocupado"))
             {
@@ -529,7 +554,7 @@ public class GestionMesero extends javax.swing.JFrame {
 
     private void btnActuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActuActionPerformed
         // TODO add your handling code here:
-        iniciarMetodo();
+        
         btnActu.setEnabled(false);
         btnAsignar.setEnabled(true);
         //btnCrear.setEnabled(true);
@@ -649,6 +674,7 @@ public class GestionMesero extends javax.swing.JFrame {
     private static javax.swing.JButton btnEliminar;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

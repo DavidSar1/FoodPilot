@@ -70,6 +70,7 @@ public class ControladorMesa {
         Mesa ms = new Mesa();
         ms.setCapacidad(indexMesa);
         ms.setNumero(capacidad);
+        ms.setEstado("Libre");
         Arrays.mesa_meseros.add(ms);
         String datos[] = {Integer.toString(indexMesa),Integer.toString(capacidad)};
         mesas.agregarFila(datos);  
@@ -87,10 +88,11 @@ public class ControladorMesa {
     
     
     public void actualizarTabla(){
+        
         Mesa mM = new Mesa();
         //gm = new GestionMesero(this);
         for(Mesa mesa : Arrays.mesa_meseros){
-            String datos[] = {Integer.toString(mesa.getNumero()),Integer.toString(mesa.getCapacidad())};
+            String datos[] = {Integer.toString(mesa.getNumero()),Integer.toString(mesa.getCapacidad()),mesa.getEstado()};
             mesas.agregarFila(datos);
         }          
     }

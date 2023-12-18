@@ -19,6 +19,7 @@ public class Arrays {
     public static ArrayList<Pedido> ped = new ArrayList<>();
     public static ArrayList<ListaPedido> listp = new ArrayList<>();
     public static ArrayList<Pedido> pedidosHechos = new ArrayList<>();
+    public static ArrayList<Integer> mesaOcupadas = new ArrayList<Integer>();
     
      public void datosquemados() {
         Pedido ped1 = new Pedido("hamburguesa", "5", "50000", "50000", 1, 11, 2023);

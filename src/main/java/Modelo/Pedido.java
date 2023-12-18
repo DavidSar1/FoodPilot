@@ -36,13 +36,13 @@ public class Pedido {
         this.cantidad = cantidad;
         this.precio = precio;
         this.total = total;
-        this.tiempoTranscurrido = 0;
+        this.tiempoTranscurrido = 60;
         this.timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tiempoTranscurrido++;
-                // Puedes agregar lógica adicional aquí si es necesario
-                if (tiempoTranscurrido >= 60) { // 10 minutos = 600 segundos
+                tiempoTranscurrido--;
+                
+                if (tiempoTranscurrido <= 60) { 
                     timer.stop();
                 }
             }
@@ -70,12 +70,12 @@ public class Pedido {
     
     public String getTiempoTranscurridoFormateado() {
         int minutos = tiempoTranscurrido / 60;
-        int segundos = tiempoTranscurrido % 60;
+        int segundos = tiempoTranscurrido;
         String ent = "Entregado!";
-        if(minutos < 1){
-            return String.format("%02d:%02d", minutos, segundos);
-        } else {
+        if(minutos == 0 && segundos == 0){
             return ent;
+        } else {
+            return String.format("%02d:%02d", minutos, segundos);
         }
     }
     
@@ -208,13 +208,13 @@ public class Pedido {
         this.cantidad = cantidad;
         this.precio = precio;
         this.total = total;
-        this.tiempoTranscurrido = 0;
+        this.tiempoTranscurrido = 60;
         this.timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tiempoTranscurrido++;
+                tiempoTranscurrido--;
                 // Puedes agregar lógica adicional aquí si es necesario
-                if (tiempoTranscurrido >= 600) { // 10 minutos = 600 segundos
+                if (tiempoTranscurrido == 0) { // 10 minutos = 600 segundos
                     detenerTemporizador(); // Detener el temporizador después de 10 minutos
                 }
             }
