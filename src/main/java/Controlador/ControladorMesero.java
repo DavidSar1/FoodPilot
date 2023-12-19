@@ -29,10 +29,15 @@ public class ControladorMesero  {
         
         gm.limpiarTablamesas();
         //gm = new GestionMesero(this);
-        for(Mesa mesa : Arrays.mesa_meseros){
-            String datos[] = {Integer.toString(mesa.getCapacidad()),Integer.toString(mesa.getNumero()),mesa.getEstado()};
-            gm.agregarFila(datos);
-        }          
+        if(Arrays.mesa_meseros.isEmpty()){
+            
+        }else {
+            for(Mesa mesa : Arrays.mesa_meseros){
+                String datos[] = {Integer.toString(mesa.getCapacidad()),Integer.toString(mesa.getNumero()),mesa.getEstado()};
+                gm.agregarFila(datos);
+            }
+        }
+                 
     }
     
     public void cambiarEstado(int fl){

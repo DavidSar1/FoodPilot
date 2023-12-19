@@ -68,14 +68,23 @@ public class Pedido {
         timer.stop();
     }
     
-    public String getTiempoTranscurridoFormateado() {
+    public String getTiempoTranscurridoFormateado(int posicion) {
         int minutos = tiempoTranscurrido / 60;
         int segundos = tiempoTranscurrido;
         String ent = "Entregado!";
-        if(minutos == 0 && segundos == 0){
-            return ent;
+        String can = "Cancelado";
+        System.out.println(posicion);
+        if(Modelo.Arrays.listp.get(posicion-1).getEstado().equals("Cancelado")){
+            System.out.println("ahrre");
+            return can;
         } else {
-            return String.format("%02d:%02d", minutos, segundos);
+            if(minutos == 0 && segundos == 0 && !Modelo.Arrays.listp.get(posicion-1).getEstado().equals("Entregado"))
+            {
+                return ent;
+            } else {
+                System.out.println("No haree");
+                return String.format("%02d:%02d", minutos, segundos);
+            }
         }
     }
     

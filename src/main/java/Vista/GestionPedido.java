@@ -447,6 +447,7 @@ public class GestionPedido extends javax.swing.JFrame {
         lp.asign(Modelo.numerosStaticos.contadorPedidos, "En proceso");
         tablaped2();
         gm.getBtnCrear().setEnabled(false);
+        gm.getBtnAsignar().setEnabled(true);
         this.dispose();
         //aqui pasame pedido
 
@@ -550,7 +551,7 @@ public class GestionPedido extends javax.swing.JFrame {
     private void btnAggActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggActionPerformed
         // TODO add your handling code here:
         
-        gm.getBtnActu().setEnabled(false);
+        
         gm.getBtnCrear().setEnabled(true);
         this.dispose();
         

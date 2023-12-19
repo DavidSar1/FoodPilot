@@ -84,44 +84,50 @@ public final class EditarPedido extends javax.swing.JFrame {
                 pedidoActual = Modelo.Arrays.pedidosHechos.get(q);
                 System.out.println(Modelo.numerosStaticos.editarPedido);
                 if (pedidoActual.getIndex().equals(posicion)) {
-                    // Iniciar un temporizador para actualizar el tiempo en el JLabel cada segundo
+                    
                     timer = new Timer(1000, new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            // Actualizar la interfaz con el tiempo transcurrido
-                            actualizarTiempoLabel();
+                            
+                            actualizarTiempoLabel(Integer.parseInt(posicion));
                             getBtn();
-                            if(getBtn().getText().equals("Entregado!"))
-                            {
-                               Modelo.Arrays.listp.get(Integer.parseInt(posicion)-1).setEstado("Entregado");
-                               int posicionMesa = Modelo.Arrays.mesaOcupadas.get(Integer.parseInt(posicion)-1);
-                               Modelo.Arrays.mesa_meseros.get(posicionMesa).setEstado("Libre");
-                               
-                               jButton1.setEnabled(false);
-                               btnIngre.setEnabled(false);
-                               btnMenos1.setEnabled(false);
-                               timer.stop();
-                            } 
+                            if(getBtn().getText().equals("Cancelado")){              
+                                Modelo.Arrays.listp.get(Integer.parseInt(posicion)-1).setEstado("Cancelado");        
+                                int posicionMesa = Modelo.Arrays.mesaOcupadas.get(Integer.parseInt(posicion)-1);
+                                Modelo.Arrays.mesa_meseros.get(posicionMesa).setEstado("Libre");
+                            } else {
+                                if(getBtn().getText().equals("Entregado!"))
+                                {
+                                    Modelo.Arrays.listp.get(Integer.parseInt(posicion)-1).setEstado("Entregado");
+                                    int posicionMesa = Modelo.Arrays.mesaOcupadas.get(Integer.parseInt(posicion)-1);
+                                    Modelo.Arrays.mesa_meseros.get(posicionMesa).setEstado("Libre");
+
+                                    jButton1.setEnabled(false);
+                                    btnIngre.setEnabled(false);
+                                    btnMenos1.setEnabled(false);
+                                    timer.stop();
+                                }
+                            }
                             
                         }
                     });
                     timer.setRepeats(true);
                     timer.start();
                 } else {
-                    // Manejar la situación en la que el pedidoActual es nulo
+                    
                     System.out.println("Pedido no encontrado");
                 }
             } else {
-                System.out.println("Aqui no fue ptm");
+                
             }
         }
   
     }
     
     
-    public void actualizarTiempoLabel() {
+    public void actualizarTiempoLabel(int posicion) {
         SwingUtilities.invokeLater(() -> {
-            tiempoPedido.setText(pedidoActual.getTiempoTranscurridoFormateado());
+            tiempoPedido.setText(pedidoActual.getTiempoTranscurridoFormateado(posicion));
             /*getBtn();
             if(getBtn().getText().equals("Entregado!"))
             {

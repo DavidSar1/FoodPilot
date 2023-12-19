@@ -14,7 +14,7 @@ import Vista.AdministrarConsulta;
  */
 public class ControladorVentas {
     
-    AdministrarConsulta ac = new AdministrarConsulta();
+    AdministrarConsulta ac;
 
     
 
